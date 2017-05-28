@@ -1,0 +1,1107 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Operation System," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逆水行舟" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第 1 章 操作系统简介1.1 什么是操作系统操作系统是一个或多个程序的集合，其提供了一系列的服务，是应用程序与计算机硬件之间的接口，其在多个进程中分配和管理资源的共享。">
+<meta name="keywords" content="Operation System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统原理、设计与应用">
+<meta property="og:url" content="http://blog.longgen.me/2014/05/31/43045/index.html">
+<meta property="og:site_name" content="逆水行舟">
+<meta property="og:description" content="第 1 章 操作系统简介1.1 什么是操作系统操作系统是一个或多个程序的集合，其提供了一系列的服务，是应用程序与计算机硬件之间的接口，其在多个进程中分配和管理资源的共享。">
+<meta property="og:updated_time" content="2017-05-28T15:04:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统原理、设计与应用">
+<meta name="twitter:description" content="第 1 章 操作系统简介1.1 什么是操作系统操作系统是一个或多个程序的集合，其提供了一系列的服务，是应用程序与计算机硬件之间的接口，其在多个进程中分配和管理资源的共享。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '3S75IDBWI0',
+      apiKey: 'a988f815a9f762629bb4c1c06c948df9',
+      indexName: 'blog_hexo_search_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.longgen.me/2014/05/31/43045/"/>
+
+
+
+
+
+  <title>操作系统原理、设计与应用 | 逆水行舟</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e27df63661dd7d99e7c473280f19e32e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逆水行舟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Whatever is worth doing is worth doing well.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.longgen.me/2014/05/31/43045/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Arcticfox">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fox.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆水行舟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">操作系统原理、设计与应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-31T12:28:16+08:00">
+                2014-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Operation-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Operation System</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2014/05/31/43045/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/05/31/43045/" class="leancloud_visitors" data-flag-title="操作系统原理、设计与应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第-1-章-操作系统简介"><a href="#第-1-章-操作系统简介" class="headerlink" title="第 1 章 操作系统简介"></a>第 1 章 操作系统简介</h2><h3 id="1-1-什么是操作系统"><a href="#1-1-什么是操作系统" class="headerlink" title="1.1 什么是操作系统"></a>1.1 什么是操作系统</h3><p><strong>操作系统</strong>是一个或多个程序的集合，其提供了一系列的服务，是应用程序与计算机硬件之间的接口，其在多个进程中分配和管理资源的共享。</p>
+<a id="more"></a>
+<h4 id="1-1-1-资源管理者"><a href="#1-1-1-资源管理者" class="headerlink" title="1.1.1 资源管理者"></a>1.1.1 资源管理者</h4><h4 id="1-1-2-服务提供者"><a href="#1-1-2-服务提供者" class="headerlink" title="1.1.2 服务提供者"></a>1.1.2 服务提供者</h4><h4 id="1-1-3-虚拟机"><a href="#1-1-3-虚拟机" class="headerlink" title="1.1.3 虚拟机"></a>1.1.3 虚拟机</h4><h3 id="1-2-操作系统的功能"><a href="#1-2-操作系统的功能" class="headerlink" title="1.2 操作系统的功能"></a>1.2 操作系统的功能</h3><h4 id="1-2-1-进程"><a href="#1-2-1-进程" class="headerlink" title="1.2.1 进程"></a>1.2.1 进程</h4><p>当管理 CPU 资源时，通常根据正在运行的程序来进行管理。在执行时，我们将这些程序称之为<strong>进程（processes）</strong>。为了支持进程，操作系统通常提供如下服务：</p>
+<ul>
+<li>创建进程</li>
+<li>终止进程</li>
+<li>改变进程优先级</li>
+<li>提供进程间通信</li>
+<li>提供进程同步</li>
+</ul>
+<p>在内部，操作系统负责<strong>调度（scheduling）</strong>和<strong>上下文切换（context switching）</strong>。调度程序是一种机制，通过这种机制，操作系统选择下一个将要运行的进程。一个进程将 CPU 控制权转交给另一个进程的实际操作称为<strong>上下文切换</strong>。</p>
+<h4 id="1-2-2-存储器"><a href="#1-2-2-存储器" class="headerlink" title="1.2.2 存储器"></a>1.2.2 存储器</h4><p>系统的性能更依赖于存储管理子系统的行为。存储管理的核心是对分配和释放内存的请求做出响应。建立典型存储管理服务集基础的功能如下：</p>
+<ul>
+<li>直接请求额外内存</li>
+<li>直接请求内存（当创建新进程时等情况下）</li>
+<li>释放内存并返还给操作系统</li>
+<li>请求进程间得共享内存区</li>
+</ul>
+<p>在大多数环境中，我们要满足更多的内存请求，而不止计算机上实际安装的内存。这种过度分配通常称为<strong>虚拟存储器（virtual memory）</strong>。</p>
+<h4 id="1-2-3-I-O-设备"><a href="#1-2-3-I-O-设备" class="headerlink" title="1.2.3 I/O 设备"></a>1.2.3 I/O 设备</h4><p>在管理 I/O 设备中，通常为进程提供各种各样的服务，这些服务通常包括：</p>
+<ul>
+<li>向进程开放设备或附加设备</li>
+<li>从设备中读取数据</li>
+<li>往设备写入数据</li>
+<li>关闭与释放设备</li>
+<li>对合适设备提供独占访问</li>
+<li>提供各种各样的特定功能，如复卷磁带和设置串行线路传输速率</li>
+</ul>
+<h4 id="1-2-4-文件系统"><a href="#1-2-4-文件系统" class="headerlink" title="1.2.4 文件系统"></a>1.2.4 文件系统</h4><p>我们使用 I/O 设备来支持的另一个功能是<strong>文件系统（file system）</strong>。在大多数情况下，文件系统支持的请求集与 I/O 设备子系统相似：</p>
+<ul>
+<li>打开文件</li>
+<li>读文件</li>
+<li>写文件</li>
+<li>关闭文件</li>
+<li>在文件中搜索随机位置</li>
+<li>读取文件元数据（如文件名、大小、所有者、保护码等）</li>
+<li>修改已选中的元数据</li>
+</ul>
+<h4 id="1-2-5-安全性"><a href="#1-2-5-安全性" class="headerlink" title="1.2.5 安全性"></a>1.2.5 安全性</h4><p>操作系统绝不允许任何进程终止另一个进程。除了后台的强制运行机制之外，应用程序能请求的服务如下：</p>
+<ul>
+<li>设置安全性策略</li>
+<li>查询安全性策略</li>
+<li>验证自身的远程系统</li>
+<li>侦听远程系统来验证自身</li>
+<li>加密/解密消息，特别是经由网络的消息</li>
+</ul>
+<h4 id="1-2-6-联网"><a href="#1-2-6-联网" class="headerlink" title="1.2.6 联网"></a>1.2.6 联网</h4><p>在大多数情况下，联网支持是 I/O 子系统的另外一个应用。I/O 设备除了负责数据位在系统的输入输出之外，操作系统还能标准的实现协议栈。将网络协议设计成若干层是很常见的，每层封装其它层。和 I/O 编程一样，有必要让操作系统负责这些协议。从应用程序的角度来看，网络服务应该包括：</p>
+<ul>
+<li>与远程服务建立连接</li>
+<li>从远程客户端侦听连接</li>
+<li>往远程系统发送消息</li>
+<li>从远程系统接收消息</li>
+<li>关闭与远程系统的连接</li>
+</ul>
+<h4 id="1-2-7-用户接口"><a href="#1-2-7-用户接口" class="headerlink" title="1.2.7 用户接口"></a>1.2.7 用户接口</h4><p>与只处理硬件和操作系统的其他功能相比，处理用户相关的问题时，事情往往变得更复杂，因此，用户接口是需要研究的一个大主题。</p>
+<h3 id="1-3-操作系统的历史"><a href="#1-3-操作系统的历史" class="headerlink" title="1.3 操作系统的历史"></a>1.3 操作系统的历史</h3><h4 id="1-3-1-裸机"><a href="#1-3-1-裸机" class="headerlink" title="1.3.1 裸机"></a>1.3.1 裸机</h4><h4 id="1-3-2-批处理操作系统"><a href="#1-3-2-批处理操作系统" class="headerlink" title="1.3.2 批处理操作系统"></a>1.3.2 批处理操作系统</h4><p>作业可以以某种交互会话的形式进行提交，提交的作业仍作为批的一部分运行，以这种方式操作的操作系统称为<strong>批处理操作系统（batch operating system）</strong>。批处理操作系统突破了一个用户这个限制。尽管在任何时刻，计算机只为一个用户工作，但在使用所有计算设备的过程中有许多用户存在。</p>
+<h4 id="1-3-3-分时操作系统"><a href="#1-3-3-分时操作系统" class="headerlink" title="1.3.3 分时操作系统"></a>1.3.3 分时操作系统</h4><p><strong>分时操作系统（time-sharing operating system）</strong>、<strong>多道程序操作系统（multiprogramming operating system）</strong>或<strong>多任务操作系统（multitasking operating system）</strong>。这类新型操作系统突破了一个程序这个限制。</p>
+<h4 id="1-3-4-分布式操作系统"><a href="#1-3-4-分布式操作系统" class="headerlink" title="1.3.4 分布式操作系统"></a>1.3.4 分布式操作系统</h4><p><strong>分布式操作系统（distributed operating system）</strong>。一些具有多个 CPU 的计算机共享单一物理内存和相同的 I/O 设备，我们将这类计算机称为<strong>对称多处理（symmetric multiprocessing，SMP）系统</strong>。</p>
+<h3 id="1-4-组织操作系统的技术"><a href="#1-4-组织操作系统的技术" class="headerlink" title="1.4 组织操作系统的技术"></a>1.4 组织操作系统的技术</h3><h4 id="1-4-1-单块设计"><a href="#1-4-1-单块设计" class="headerlink" title="1.4.1 单块设计"></a>1.4.1 单块设计</h4><p>单块（monolithic）设计。一般认为这类设计的特点是缺乏任何其他的组织形式，但在现实中，单块设计恰好是将设计组织为单个程序。与任何程序一样，这样的设计具有良好的组织结构。大多数操作系统是沿着这个思路进行组织的。</p>
+<h4 id="1-4-2-分层设计"><a href="#1-4-2-分层设计" class="headerlink" title="1.4.2 分层设计"></a>1.4.2 分层设计</h4><p>分层设计的基本思想是：每层增加抽象层，它建立再较低层提供的函数之上。Comer 教授开发的 XINU 操作系统是遵循分层设计的很好例子。</p>
+<h4 id="1-4-3-微内核设计"><a href="#1-4-3-微内核设计" class="headerlink" title="1.4.3 微内核设计"></a>1.4.3 微内核设计</h4><p>一些设计师认为应该将许多传统的核心功能从内核移到其他进程中去，而这些进程由内核进行管理。原则上，这将使内核更小、更容易编写和维护。在这种设计中，在单块内核中通过函数调用完成的许多工作都是要使用微内核的消息传递来处理的。微内核设计影响组件间的通信，本可以通过参数传递或共享变量进行的通信都必须由消息进行传递。微内核操作系统设计的另一个挑战是安全性问题。</p>
+<p>微内核设计很好的示例包括 Tanenbaum 教授的 MINIX、Hurd（部分的 GNU 环境来自软件基金会）和 Mach 操作系统，在一些其他用途中，Mash 教授作为 Mac OS X 的基础用于 Apple Macintosh。虽然 Inferno 不是围绕微内核构建的，但通过示例，我们会看到它是如何将一些传统功能转移用户进程的。</p>
+<h4 id="1-4-4-虚拟机设计"><a href="#1-4-4-虚拟机设计" class="headerlink" title="1.4.4 虚拟机设计"></a>1.4.4 虚拟机设计</h4><p>虚拟机操作系统的主要功能是提供硬件有许多副本的错觉。这种做法的典型例子是 IBM 的 VM 操作系统。使用户能同时运行多个操作系统的产品：商业产品 VMware，开源项目 Xen 等。另外一种方法是模拟，在软件中模拟一个完整的计算机，并在此模拟机上运行操作系统。例如：用来运行并行操作系统的 QEMU。</p>
+<h3 id="1-5-引导"><a href="#1-5-引导" class="headerlink" title="1.5 引导"></a>1.5 引导</h3><p>系统从硬件到我们拥有运行操作系统的过程称为<strong>引导（bootstrapping）</strong>。虽然现在引导这个术语已经很常用，但许多制造商还使用其他术语来代替引导，例如：<strong>冷启动（cold start）</strong>、<strong>静启动（dead start）</strong>和<strong>初始程序加载（initial program load，IPL）</strong>。</p>
+<p>有三种典型的方法解决引导问题：</p>
+<p>*</p>
+<h3 id="1-6-系统调用"><a href="#1-6-系统调用" class="headerlink" title="1.6 系统调用"></a>1.6 系统调用</h3><h4 id="1-6-1-系统调用示例"><a href="#1-6-1-系统调用示例" class="headerlink" title="1.6.1 系统调用示例"></a>1.6.1 系统调用示例</h4><h4 id="1-6-2-系统调用机制"><a href="#1-6-2-系统调用机制" class="headerlink" title="1.6.2 系统调用机制"></a>1.6.2 系统调用机制</h4><h3 id="1-7-本章小结"><a href="#1-7-本章小结" class="headerlink" title="1.7 本章小结"></a>1.7 本章小结</h3><h3 id="1-8-练习"><a href="#1-8-练习" class="headerlink" title="1.8 练习"></a>1.8 练习</h3><h2 id="第-2-章-操作系统示例"><a href="#第-2-章-操作系统示例" class="headerlink" title="第 2 章 操作系统示例"></a>第 2 章 操作系统示例</h2><h3 id="2-1-兼容分时系统"><a href="#2-1-兼容分时系统" class="headerlink" title="2.1 兼容分时系统"></a>2.1 兼容分时系统</h3><h4 id="2-1-1-组织结构"><a href="#2-1-1-组织结构" class="headerlink" title="2.1.1 组织结构"></a>2.1.1 组织结构</h4><h4 id="2-1-2-引导"><a href="#2-1-2-引导" class="headerlink" title="2.1.2 引导"></a>2.1.2 引导</h4><h3 id="2-2-多路信息和计算服务"><a href="#2-2-多路信息和计算服务" class="headerlink" title="2.2 多路信息和计算服务"></a>2.2 多路信息和计算服务</h3><h4 id="2-2-1-组织结构"><a href="#2-2-1-组织结构" class="headerlink" title="2.2.1 组织结构"></a>2.2.1 组织结构</h4><h4 id="2-2-2-系统调用"><a href="#2-2-2-系统调用" class="headerlink" title="2.2.2 系统调用"></a>2.2.2 系统调用</h4><h3 id="2-3-RT-11"><a href="#2-3-RT-11" class="headerlink" title="2.3 RT-11"></a>2.3 RT-11</h3><h4 id="2-3-1-组织结构"><a href="#2-3-1-组织结构" class="headerlink" title="2.3.1 组织结构"></a>2.3.1 组织结构</h4><h3 id="2-4-第-6-版-UNIX"><a href="#2-4-第-6-版-UNIX" class="headerlink" title="2.4 第 6 版 UNIX"></a>2.4 第 6 版 UNIX</h3><h4 id="2-4-1-组织结构"><a href="#2-4-1-组织结构" class="headerlink" title="2.4.1 组织结构"></a>2.4.1 组织结构</h4><h4 id="2-4-2-系统调用"><a href="#2-4-2-系统调用" class="headerlink" title="2.4.2 系统调用"></a>2.4.2 系统调用</h4><h3 id="2-5-虚拟内存系统"><a href="#2-5-虚拟内存系统" class="headerlink" title="2.5 虚拟内存系统"></a>2.5 虚拟内存系统</h3><h4 id="2-5-1-组织结构"><a href="#2-5-1-组织结构" class="headerlink" title="2.5.1 组织结构"></a>2.5.1 组织结构</h4><h4 id="2-5-2-引导"><a href="#2-5-2-引导" class="headerlink" title="2.5.2 引导"></a>2.5.2 引导</h4><h4 id="2-5-3-系统调用"><a href="#2-5-3-系统调用" class="headerlink" title="2.5.3 系统调用"></a>2.5.3 系统调用</h4><h3 id="2-6-4-3-BSD"><a href="#2-6-4-3-BSD" class="headerlink" title="2.6 4.3 BSD"></a>2.6 4.3 BSD</h3><h4 id="2-6-1-组织结构"><a href="#2-6-1-组织结构" class="headerlink" title="2.6.1 组织结构"></a>2.6.1 组织结构</h4><h4 id="2-6-2-系统调用"><a href="#2-6-2-系统调用" class="headerlink" title="2.6.2 系统调用"></a>2.6.2 系统调用</h4><h3 id="2-7-Windows-NT"><a href="#2-7-Windows-NT" class="headerlink" title="2.7 Windows NT"></a>2.7 Windows NT</h3><h4 id="2-7-1-组织结构"><a href="#2-7-1-组织结构" class="headerlink" title="2.7.1 组织结构"></a>2.7.1 组织结构</h4><h3 id="2-8-TinyOS"><a href="#2-8-TinyOS" class="headerlink" title="2.8 TinyOS"></a>2.8 TinyOS</h3><h4 id="2-8-1-组织结构"><a href="#2-8-1-组织结构" class="headerlink" title="2.8.1 组织结构"></a>2.8.1 组织结构</h4><h3 id="2-9-Xen"><a href="#2-9-Xen" class="headerlink" title="2.9 Xen"></a>2.9 Xen</h3><h4 id="2-9-1-组织结构"><a href="#2-9-1-组织结构" class="headerlink" title="2.9.1 组织结构"></a>2.9.1 组织结构</h4><h3 id="2-10-本章小结"><a href="#2-10-本章小结" class="headerlink" title="2.10 本章小结"></a>2.10 本章小结</h3><h3 id="2-11-练习"><a href="#2-11-练习" class="headerlink" title="2.11 练习"></a>2.11 练习</h3><h2 id="第-3-章-Inferno-的结构与初始化"><a href="#第-3-章-Inferno-的结构与初始化" class="headerlink" title="第 3 章 Inferno 的结构与初始化"></a>第 3 章 Inferno 的结构与初始化</h2><h3 id="3-1-Inferno-的起源"><a href="#3-1-Inferno-的起源" class="headerlink" title="3.1 Inferno 的起源"></a>3.1 Inferno 的起源</h3><h3 id="3-2-基本概念"><a href="#3-2-基本概念" class="headerlink" title="3.2 基本概念"></a>3.2 基本概念</h3><h3 id="3-3-组织结构"><a href="#3-3-组织结构" class="headerlink" title="3.3 组织结构"></a>3.3 组织结构</h3><h4 id="3-3-1-基本体系结构"><a href="#3-3-1-基本体系结构" class="headerlink" title="3.3.1 基本体系结构"></a>3.3.1 基本体系结构</h4><h4 id="3-3-2-源代码组织结构"><a href="#3-3-2-源代码组织结构" class="headerlink" title="3.3.2 源代码组织结构"></a>3.3.2 源代码组织结构</h4><h3 id="3-4-初始化"><a href="#3-4-初始化" class="headerlink" title="3.4 初始化"></a>3.4 初始化</h3><h4 id="3-4-1-启动-Inferno"><a href="#3-4-1-启动-Inferno" class="headerlink" title="3.4.1 启动 Inferno"></a>3.4.1 启动 Inferno</h4><h4 id="3-4-2-宿主操作系统的特定初始化"><a href="#3-4-2-宿主操作系统的特定初始化" class="headerlink" title="3.4.2 宿主操作系统的特定初始化"></a>3.4.2 宿主操作系统的特定初始化</h4><h4 id="3-4-3-与宿主操作系统无关的初始化"><a href="#3-4-3-与宿主操作系统无关的初始化" class="headerlink" title="3.4.3 与宿主操作系统无关的初始化"></a>3.4.3 与宿主操作系统无关的初始化</h4><h4 id="3-4-4-启动分时"><a href="#3-4-4-启动分时" class="headerlink" title="3.4.4 启动分时"></a>3.4.4 启动分时</h4><h3 id="3-5-系统调用"><a href="#3-5-系统调用" class="headerlink" title="3.5 系统调用"></a>3.5 系统调用</h3><h3 id="3-6-本章小结"><a href="#3-6-本章小结" class="headerlink" title="3.6 本章小结"></a>3.6 本章小结</h3><h3 id="3-7-练习"><a href="#3-7-练习" class="headerlink" title="3.7 练习"></a>3.7 练习</h3><h2 id="第-4-章-Linux-的结构与初始化"><a href="#第-4-章-Linux-的结构与初始化" class="headerlink" title="第 4 章 Linux 的结构与初始化"></a>第 4 章 Linux 的结构与初始化</h2><h3 id="4-1-Linux-的起源"><a href="#4-1-Linux-的起源" class="headerlink" title="4.1 Linux 的起源"></a>4.1 Linux 的起源</h3><h3 id="4-2-组织结构"><a href="#4-2-组织结构" class="headerlink" title="4.2 组织结构"></a>4.2 组织结构</h3><h4 id="4-2-1-基本体系结构"><a href="#4-2-1-基本体系结构" class="headerlink" title="4.2.1 基本体系结构"></a>4.2.1 基本体系结构</h4><h4 id="4-2-2-模块"><a href="#4-2-2-模块" class="headerlink" title="4.2.2 模块"></a>4.2.2 模块</h4><h4 id="4-2-3-源代码组织结构"><a href="#4-2-3-源代码组织结构" class="headerlink" title="4.2.3 源代码组织结构"></a>4.2.3 源代码组织结构</h4><h3 id="4-3-初始化"><a href="#4-3-初始化" class="headerlink" title="4.3 初始化"></a>4.3 初始化</h3><h4 id="4-3-1-引导"><a href="#4-3-1-引导" class="headerlink" title="4.3.1 引导"></a>4.3.1 引导</h4><h4 id="4-3-2-特定处理器初始化"><a href="#4-3-2-特定处理器初始化" class="headerlink" title="4.3.2 特定处理器初始化"></a>4.3.2 特定处理器初始化</h4><h4 id="4-3-3-与处理器无关的初始化"><a href="#4-3-3-与处理器无关的初始化" class="headerlink" title="4.3.3 与处理器无关的初始化"></a>4.3.3 与处理器无关的初始化</h4><h4 id="4-3-4-启动分时"><a href="#4-3-4-启动分时" class="headerlink" title="4.3.4 启动分时"></a>4.3.4 启动分时</h4><h4 id="4-3-5-初始化管理级的初始化"><a href="#4-3-5-初始化管理级的初始化" class="headerlink" title="4.3.5 初始化管理级的初始化"></a>4.3.5 初始化管理级的初始化</h4><h3 id="4-4-系统调用"><a href="#4-4-系统调用" class="headerlink" title="4.4 系统调用"></a>4.4 系统调用</h3><h4 id="4-4-1-处理应用方得系统调用"><a href="#4-4-1-处理应用方得系统调用" class="headerlink" title="4.4.1 处理应用方得系统调用"></a>4.4.1 处理应用方得系统调用</h4><h4 id="4-4-2-处理内核方的系统调用"><a href="#4-4-2-处理内核方的系统调用" class="headerlink" title="4.4.2 处理内核方的系统调用"></a>4.4.2 处理内核方的系统调用</h4><h3 id="4-5-本章小结"><a href="#4-5-本章小结" class="headerlink" title="4.5 本章小结"></a>4.5 本章小结</h3><h3 id="4-6-练习"><a href="#4-6-练习" class="headerlink" title="4.6 练习"></a>4.6 练习</h3><h2 id="第-5-章-进程管理原理"><a href="#第-5-章-进程管理原理" class="headerlink" title="第 5 章 进程管理原理"></a>第 5 章 进程管理原理</h2><h3 id="5-1-进程的概念"><a href="#5-1-进程的概念" class="headerlink" title="5.1 进程的概念"></a>5.1 进程的概念</h3><h3 id="5-2-实现进程"><a href="#5-2-实现进程" class="headerlink" title="5.2 实现进程"></a>5.2 实现进程</h3><h4 id="5-2-1-进程操作"><a href="#5-2-1-进程操作" class="headerlink" title="5.2.1 进程操作"></a>5.2.1 进程操作</h4><h4 id="5-2-2-进程状态"><a href="#5-2-2-进程状态" class="headerlink" title="5.2.2 进程状态"></a>5.2.2 进程状态</h4><h4 id="5-2-3-进程表"><a href="#5-2-3-进程表" class="headerlink" title="5.2.3 进程表"></a>5.2.3 进程表</h4><h3 id="5-3-线程"><a href="#5-3-线程" class="headerlink" title="5.3 线程"></a>5.3 线程</h3><h3 id="5-4-调度"><a href="#5-4-调度" class="headerlink" title="5.4 调度"></a>5.4 调度</h3><h4 id="5-4-1-先来先服务"><a href="#5-4-1-先来先服务" class="headerlink" title="5.4.1 先来先服务"></a>5.4.1 先来先服务</h4><h4 id="5-4-2-最短作业优先"><a href="#5-4-2-最短作业优先" class="headerlink" title="5.4.2 最短作业优先"></a>5.4.2 最短作业优先</h4><h4 id="5-4-3-轮转法"><a href="#5-4-3-轮转法" class="headerlink" title="5.4.3 轮转法"></a>5.4.3 轮转法</h4><h4 id="5-4-4-优先级调度"><a href="#5-4-4-优先级调度" class="headerlink" title="5.4.4 优先级调度"></a>5.4.4 优先级调度</h4><h4 id="5-4-5-调整调度参数"><a href="#5-4-5-调整调度参数" class="headerlink" title="5.4.5 调整调度参数"></a>5.4.5 调整调度参数</h4><h4 id="5-4-6-两级调度"><a href="#5-4-6-两级调度" class="headerlink" title="5.4.6 两级调度"></a>5.4.6 两级调度</h4><h4 id="5-4-7-实时调度"><a href="#5-4-7-实时调度" class="headerlink" title="5.4.7 实时调度"></a>5.4.7 实时调度</h4><h4 id="5-4-8-嵌入式系统的调度"><a href="#5-4-8-嵌入式系统的调度" class="headerlink" title="5.4.8 嵌入式系统的调度"></a>5.4.8 嵌入式系统的调度</h4><h3 id="5-5-上下文切换"><a href="#5-5-上下文切换" class="headerlink" title="5.5 上下文切换"></a>5.5 上下文切换</h3><h3 id="5-6-进程的创建与终止"><a href="#5-6-进程的创建与终止" class="headerlink" title="5.6 进程的创建与终止"></a>5.6 进程的创建与终止</h3><h3 id="5-7-临界区"><a href="#5-7-临界区" class="headerlink" title="5.7 临界区"></a>5.7 临界区</h3><h4 id="5-7-1-中断控制"><a href="#5-7-1-中断控制" class="headerlink" title="5.7.1 中断控制"></a>5.7.1 中断控制</h4><h4 id="5-7-2-原子操作指令"><a href="#5-7-2-原子操作指令" class="headerlink" title="5.7.2 原子操作指令"></a>5.7.2 原子操作指令</h4><h4 id="5-7-3-Peterson-算法"><a href="#5-7-3-Peterson-算法" class="headerlink" title="5.7.3 Peterson 算法"></a>5.7.3 Peterson 算法</h4><h4 id="5-7-4-信号量"><a href="#5-7-4-信号量" class="headerlink" title="5.7.4 信号量"></a>5.7.4 信号量</h4><h4 id="5-7-5-管程"><a href="#5-7-5-管程" class="headerlink" title="5.7.5 管程"></a>5.7.5 管程</h4><h4 id="5-7-6-消息传递"><a href="#5-7-6-消息传递" class="headerlink" title="5.7.6 消息传递"></a>5.7.6 消息传递</h4><h4 id="5-7-7-示例"><a href="#5-7-7-示例" class="headerlink" title="5.7.7 示例"></a>5.7.7 示例</h4><h3 id="5-8-死锁"><a href="#5-8-死锁" class="headerlink" title="5.8 死锁"></a>5.8 死锁</h3><h4 id="5-8-1-充分必要条件"><a href="#5-8-1-充分必要条件" class="headerlink" title="5.8.1 充分必要条件"></a>5.8.1 充分必要条件</h4><h4 id="5-8-2-处理死锁"><a href="#5-8-2-处理死锁" class="headerlink" title="5.8.2 处理死锁"></a>5.8.2 处理死锁</h4><h3 id="5-9-本章小结"><a href="#5-9-本章小结" class="headerlink" title="5.9 本章小结"></a>5.9 本章小结</h3><h3 id="5-10-练习"><a href="#5-10-练习" class="headerlink" title="5.10 练习"></a>5.10 练习</h3><h2 id="第-6-章-进程管理示例"><a href="#第-6-章-进程管理示例" class="headerlink" title="第 6 章 进程管理示例"></a>第 6 章 进程管理示例</h2><h3 id="6-1-CTSS"><a href="#6-1-CTSS" class="headerlink" title="6.1 CTSS"></a>6.1 CTSS</h3><h4 id="6-1-1-进程状态"><a href="#6-1-1-进程状态" class="headerlink" title="6.1.1 进程状态"></a>6.1.1 进程状态</h4><h4 id="6-1-2-系统调用"><a href="#6-1-2-系统调用" class="headerlink" title="6.1.2 系统调用"></a>6.1.2 系统调用</h4><h4 id="6-1-3-调度"><a href="#6-1-3-调度" class="headerlink" title="6.1.3 调度"></a>6.1.3 调度</h4><h3 id="6-2-Multics"><a href="#6-2-Multics" class="headerlink" title="6.2 Multics"></a>6.2 Multics</h3><h4 id="6-2-1-系统调用"><a href="#6-2-1-系统调用" class="headerlink" title="6.2.1 系统调用"></a>6.2.1 系统调用</h4><h4 id="6-2-2-进程状态"><a href="#6-2-2-进程状态" class="headerlink" title="6.2.2 进程状态"></a>6.2.2 进程状态</h4><h4 id="6-2-3-调度"><a href="#6-2-3-调度" class="headerlink" title="6.2.3 调度"></a>6.2.3 调度</h4><h3 id="6-3-RT-11"><a href="#6-3-RT-11" class="headerlink" title="6.3 RT-11"></a>6.3 RT-11</h3><h4 id="6-3-1-系统调用"><a href="#6-3-1-系统调用" class="headerlink" title="6.3.1 系统调用"></a>6.3.1 系统调用</h4><h4 id="6-3-2-进程状态"><a href="#6-3-2-进程状态" class="headerlink" title="6.3.2 进程状态"></a>6.3.2 进程状态</h4><h4 id="6-3-3-进程表"><a href="#6-3-3-进程表" class="headerlink" title="6.3.3 进程表"></a>6.3.3 进程表</h4><h4 id="6-3-4-调度"><a href="#6-3-4-调度" class="headerlink" title="6.3.4 调度"></a>6.3.4 调度</h4><h3 id="6-4-第-6-版-UNIX"><a href="#6-4-第-6-版-UNIX" class="headerlink" title="6.4 第 6 版 UNIX"></a>6.4 第 6 版 UNIX</h3><h4 id="6-4-1-系统调用"><a href="#6-4-1-系统调用" class="headerlink" title="6.4.1 系统调用"></a>6.4.1 系统调用</h4><h4 id="6-4-2-进程状态"><a href="#6-4-2-进程状态" class="headerlink" title="6.4.2 进程状态"></a>6.4.2 进程状态</h4><h4 id="6-4-3-进程表"><a href="#6-4-3-进程表" class="headerlink" title="6.4.3 进程表"></a>6.4.3 进程表</h4><h4 id="6-4-4-调度"><a href="#6-4-4-调度" class="headerlink" title="6.4.4 调度"></a>6.4.4 调度</h4><h3 id="6-5-4-3-BSD"><a href="#6-5-4-3-BSD" class="headerlink" title="6.5 4.3 BSD"></a>6.5 4.3 BSD</h3><h4 id="6-5-1-系统调用"><a href="#6-5-1-系统调用" class="headerlink" title="6.5.1 系统调用"></a>6.5.1 系统调用</h4><h4 id="6-5-2-进程状态与进程表"><a href="#6-5-2-进程状态与进程表" class="headerlink" title="6.5.2 进程状态与进程表"></a>6.5.2 进程状态与进程表</h4><h4 id="6-5-3-调度"><a href="#6-5-3-调度" class="headerlink" title="6.5.3 调度"></a>6.5.3 调度</h4><h3 id="6-6-VMS"><a href="#6-6-VMS" class="headerlink" title="6.6 VMS"></a>6.6 VMS</h3><h4 id="6-6-1-系统调用"><a href="#6-6-1-系统调用" class="headerlink" title="6.6.1 系统调用"></a>6.6.1 系统调用</h4><h4 id="6-6-2-进程状态"><a href="#6-6-2-进程状态" class="headerlink" title="6.6.2 进程状态"></a>6.6.2 进程状态</h4><h4 id="6-6-3-调度"><a href="#6-6-3-调度" class="headerlink" title="6.6.3 调度"></a>6.6.3 调度</h4><h3 id="6-7-Windows-NT"><a href="#6-7-Windows-NT" class="headerlink" title="6.7 Windows NT"></a>6.7 Windows NT</h3><h4 id="6-7-1-系统调用"><a href="#6-7-1-系统调用" class="headerlink" title="6.7.1 系统调用"></a>6.7.1 系统调用</h4><h4 id="6-7-2-进程状态"><a href="#6-7-2-进程状态" class="headerlink" title="6.7.2 进程状态"></a>6.7.2 进程状态</h4><h4 id="6-7-3-进程表与线程表"><a href="#6-7-3-进程表与线程表" class="headerlink" title="6.7.3 进程表与线程表"></a>6.7.3 进程表与线程表</h4><h4 id="6-7-4-调度"><a href="#6-7-4-调度" class="headerlink" title="6.7.4 调度"></a>6.7.4 调度</h4><h3 id="6-8-TinyOS"><a href="#6-8-TinyOS" class="headerlink" title="6.8 TinyOS"></a>6.8 TinyOS</h3><h3 id="6-9-Xen"><a href="#6-9-Xen" class="headerlink" title="6.9 Xen"></a>6.9 Xen</h3><h3 id="6-10-本章小结"><a href="#6-10-本章小结" class="headerlink" title="6.10 本章小结"></a>6.10 本章小结</h3><h3 id="6-11-练习"><a href="#6-11-练习" class="headerlink" title="6.11 练习"></a>6.11 练习</h3><h2 id="第-7-章-Inferno-中的进程管理"><a href="#第-7-章-Inferno-中的进程管理" class="headerlink" title="第 7 章 Inferno 中的进程管理"></a>第 7 章 Inferno 中的进程管理</h2><h3 id="7-1-Inferno-中的进程"><a href="#7-1-Inferno-中的进程" class="headerlink" title="7.1 Inferno 中的进程"></a>7.1 Inferno 中的进程</h3><h3 id="7-2-进程的状态"><a href="#7-2-进程的状态" class="headerlink" title="7.2 进程的状态"></a>7.2 进程的状态</h3><h4 id="7-2-1-内核进程"><a href="#7-2-1-内核进程" class="headerlink" title="7.2.1 内核进程"></a>7.2.1 内核进程</h4><h4 id="7-2-2-用户进程"><a href="#7-2-2-用户进程" class="headerlink" title="7.2.2 用户进程"></a>7.2.2 用户进程</h4><h3 id="7-3-进程的数据结构"><a href="#7-3-进程的数据结构" class="headerlink" title="7.3 进程的数据结构"></a>7.3 进程的数据结构</h3><h4 id="7-3-1-内核进程表"><a href="#7-3-1-内核进程表" class="headerlink" title="7.3.1 内核进程表"></a>7.3.1 内核进程表</h4><h4 id="7-3-2-内核进程表项"><a href="#7-3-2-内核进程表项" class="headerlink" title="7.3.2 内核进程表项"></a>7.3.2 内核进程表项</h4><h4 id="7-3-3-用户进程表"><a href="#7-3-3-用户进程表" class="headerlink" title="7.3.3 用户进程表"></a>7.3.3 用户进程表</h4><h4 id="7-3-4-用户进程表项"><a href="#7-3-4-用户进程表项" class="headerlink" title="7.3.4 用户进程表项"></a>7.3.4 用户进程表项</h4><h3 id="7-4-进程的创建"><a href="#7-4-进程的创建" class="headerlink" title="7.4 进程的创建"></a>7.4 进程的创建</h3><h4 id="7-4-1-解释进程创建指令"><a href="#7-4-1-解释进程创建指令" class="headerlink" title="7.4.1 解释进程创建指令"></a>7.4.1 解释进程创建指令</h4><h4 id="7-4-2-实现进程创建"><a href="#7-4-2-实现进程创建" class="headerlink" title="7.4.2 实现进程创建"></a>7.4.2 实现进程创建</h4><h3 id="7-5-进程的终止"><a href="#7-5-进程的终止" class="headerlink" title="7.5 进程的终止"></a>7.5 进程的终止</h3><h3 id="7-6-进程调度"><a href="#7-6-进程调度" class="headerlink" title="7.6 进程调度"></a>7.6 进程调度</h3><h4 id="7-6-1-插入就绪表"><a href="#7-6-1-插入就绪表" class="headerlink" title="7.6.1 插入就绪表"></a>7.6.1 插入就绪表</h4><h4 id="7-6-2-从就绪表中删除"><a href="#7-6-2-从就绪表中删除" class="headerlink" title="7.6.2 从就绪表中删除"></a>7.6.2 从就绪表中删除</h4><h4 id="7-6-3-分时"><a href="#7-6-3-分时" class="headerlink" title="7.6.3 分时"></a>7.6.3 分时</h4><h4 id="7-6-4-运行时间片"><a href="#7-6-4-运行时间片" class="headerlink" title="7.6.4 运行时间片"></a>7.6.4 运行时间片</h4><h3 id="7-7-本章小结"><a href="#7-7-本章小结" class="headerlink" title="7.7 本章小结"></a>7.7 本章小结</h3><h3 id="7-8-练习"><a href="#7-8-练习" class="headerlink" title="7.8 练习"></a>7.8 练习</h3><h2 id="第-8-章-Linux-中的进程管理"><a href="#第-8-章-Linux-中的进程管理" class="headerlink" title="第 8 章 Linux 中的进程管理"></a>第 8 章 Linux 中的进程管理</h2><h3 id="8-1-进程与线程"><a href="#8-1-进程与线程" class="headerlink" title="8.1 进程与线程"></a>8.1 进程与线程</h3><h4 id="8-1-1-Linux-中的内核线程"><a href="#8-1-1-Linux-中的内核线程" class="headerlink" title="8.1.1 Linux 中的内核线程"></a>8.1.1 Linux 中的内核线程</h4><h4 id="8-1-2-进程间的关系"><a href="#8-1-2-进程间的关系" class="headerlink" title="8.1.2 进程间的关系"></a>8.1.2 进程间的关系</h4><h3 id="8-2-系统调用"><a href="#8-2-系统调用" class="headerlink" title="8.2 系统调用"></a>8.2 系统调用</h3><h3 id="8-3-进程状态"><a href="#8-3-进程状态" class="headerlink" title="8.3 进程状态"></a>8.3 进程状态</h3><h3 id="8-4-进程表"><a href="#8-4-进程表" class="headerlink" title="8.4 进程表"></a>8.4 进程表</h3><h3 id="8-5-进程的创建"><a href="#8-5-进程的创建" class="headerlink" title="8.5 进程的创建"></a>8.5 进程的创建</h3><h4 id="8-5-1-处理系统调用"><a href="#8-5-1-处理系统调用" class="headerlink" title="8.5.1 处理系统调用"></a>8.5.1 处理系统调用</h4><h4 id="8-5-2-创建进程"><a href="#8-5-2-创建进程" class="headerlink" title="8.5.2 创建进程"></a>8.5.2 创建进程</h4><h4 id="8-5-3-特定体系结构的步骤"><a href="#8-5-3-特定体系结构的步骤" class="headerlink" title="8.5.3 特定体系结构的步骤"></a>8.5.3 特定体系结构的步骤</h4><h3 id="8-6-进程调度"><a href="#8-6-进程调度" class="headerlink" title="8.6 进程调度"></a>8.6 进程调度</h3><h4 id="8-6-1-优先级"><a href="#8-6-1-优先级" class="headerlink" title="8.6.1 优先级"></a>8.6.1 优先级</h4><h4 id="8-6-2-队列结构"><a href="#8-6-2-队列结构" class="headerlink" title="8.6.2 队列结构"></a>8.6.2 队列结构</h4><h4 id="8-6-3-时钟计时单元"><a href="#8-6-3-时钟计时单元" class="headerlink" title="8.6.3 时钟计时单元"></a>8.6.3 时钟计时单元</h4><h4 id="8-6-4-调度程序"><a href="#8-6-4-调度程序" class="headerlink" title="8.6.4 调度程序"></a>8.6.4 调度程序</h4><h3 id="8-7-本章小结"><a href="#8-7-本章小结" class="headerlink" title="8.7 本章小结"></a>8.7 本章小结</h3><h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h2 id="第-9-章-存储管理原理"><a href="#第-9-章-存储管理原理" class="headerlink" title="第 9 章 存储管理原理"></a>第 9 章 存储管理原理</h2><h3 id="9-1-存储层次结构"><a href="#9-1-存储层次结构" class="headerlink" title="9.1 存储层次结构"></a>9.1 存储层次结构</h3><h3 id="9-2-地址变换"><a href="#9-2-地址变换" class="headerlink" title="9.2 地址变换"></a>9.2 地址变换</h3><h4 id="9-2-1-基址-上下界寄存器"><a href="#9-2-1-基址-上下界寄存器" class="headerlink" title="9.2.1 基址/上下界寄存器"></a>9.2.1 基址/上下界寄存器</h4><h4 id="9-2-2-分段存储"><a href="#9-2-2-分段存储" class="headerlink" title="9.2.2 分段存储"></a>9.2.2 分段存储</h4><h4 id="9-2-3-分页存储"><a href="#9-2-3-分页存储" class="headerlink" title="9.2.3 分页存储"></a>9.2.3 分页存储</h4><h3 id="9-3-存储相关的服务"><a href="#9-3-存储相关的服务" class="headerlink" title="9.3 存储相关的服务"></a>9.3 存储相关的服务</h3><h3 id="9-4-存储布局"><a href="#9-4-存储布局" class="headerlink" title="9.4 存储布局"></a>9.4 存储布局</h3><h3 id="9-5-内存分配技术"><a href="#9-5-内存分配技术" class="headerlink" title="9.5 内存分配技术"></a>9.5 内存分配技术</h3><h4 id="9-5-1-空闲空间管理"><a href="#9-5-1-空闲空间管理" class="headerlink" title="9.5.1 空闲空间管理"></a>9.5.1 空闲空间管理</h4><h4 id="9-5-2-碎片"><a href="#9-5-2-碎片" class="headerlink" title="9.5.2 碎片"></a>9.5.2 碎片</h4><h4 id="9-5-3-分区"><a href="#9-5-3-分区" class="headerlink" title="9.5.3 分区"></a>9.5.3 分区</h4><h4 id="9-5-4-选择策略"><a href="#9-5-4-选择策略" class="headerlink" title="9.5.4 选择策略"></a>9.5.4 选择策略</h4><h4 id="9-5-5-伙伴系统管理"><a href="#9-5-5-伙伴系统管理" class="headerlink" title="9.5.5 伙伴系统管理"></a>9.5.5 伙伴系统管理</h4><h3 id="9-6-过度分配技术"><a href="#9-6-过度分配技术" class="headerlink" title="9.6 过度分配技术"></a>9.6 过度分配技术</h3><h4 id="9-6-1-交换"><a href="#9-6-1-交换" class="headerlink" title="9.6.1 交换"></a>9.6.1 交换</h4><h4 id="9-6-2-段交换"><a href="#9-6-2-段交换" class="headerlink" title="9.6.2 段交换"></a>9.6.2 段交换</h4><h4 id="9-6-3-分页"><a href="#9-6-3-分页" class="headerlink" title="9.6.3 分页"></a>9.6.3 分页</h4><h4 id="9-6-4-段页式"><a href="#9-6-4-段页式" class="headerlink" title="9.6.4 段页式"></a>9.6.4 段页式</h4><h4 id="9-6-5-内存映射文件"><a href="#9-6-5-内存映射文件" class="headerlink" title="9.6.5 内存映射文件"></a>9.6.5 内存映射文件</h4><h4 id="9-6-6-写时复制"><a href="#9-6-6-写时复制" class="headerlink" title="9.6.6 写时复制"></a>9.6.6 写时复制</h4><h4 id="9-6-7-性能问题"><a href="#9-6-7-性能问题" class="headerlink" title="9.6.7 性能问题"></a>9.6.7 性能问题</h4><h3 id="9-7-嵌入式系统的存储管理"><a href="#9-7-嵌入式系统的存储管理" class="headerlink" title="9.7 嵌入式系统的存储管理"></a>9.7 嵌入式系统的存储管理</h3><h3 id="9-8-本章小结"><a href="#9-8-本章小结" class="headerlink" title="9.8 本章小结"></a>9.8 本章小结</h3><h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><h2 id="第-10-章-存储管理示例"><a href="#第-10-章-存储管理示例" class="headerlink" title="第 10 章 存储管理示例"></a>第 10 章 存储管理示例</h2><h3 id="10-1-CTSS"><a href="#10-1-CTSS" class="headerlink" title="10.1 CTSS"></a>10.1 CTSS</h3><h3 id="10-2-Multics"><a href="#10-2-Multics" class="headerlink" title="10.2 Multics"></a>10.2 Multics</h3><h4 id="10-2-1-存储相关的系统调用"><a href="#10-2-1-存储相关的系统调用" class="headerlink" title="10.2.1 存储相关的系统调用"></a>10.2.1 存储相关的系统调用</h4><h4 id="10-2-2-存储布局"><a href="#10-2-2-存储布局" class="headerlink" title="10.2.2 存储布局"></a>10.2.2 存储布局</h4><h4 id="10-2-3-段式管理与页式管理"><a href="#10-2-3-段式管理与页式管理" class="headerlink" title="10.2.3 段式管理与页式管理"></a>10.2.3 段式管理与页式管理</h4><h3 id="10-3-RT-11"><a href="#10-3-RT-11" class="headerlink" title="10.3 RT-11"></a>10.3 RT-11</h3><h4 id="10-3-1-存储相关的系统调用"><a href="#10-3-1-存储相关的系统调用" class="headerlink" title="10.3.1 存储相关的系统调用"></a>10.3.1 存储相关的系统调用</h4><h4 id="10-3-2-存储布局"><a href="#10-3-2-存储布局" class="headerlink" title="10.3.2 存储布局"></a>10.3.2 存储布局</h4><h4 id="10-3-3-USR-与-KMON-交换"><a href="#10-3-3-USR-与-KMON-交换" class="headerlink" title="10.3.3 USR 与 KMON 交换"></a>10.3.3 USR 与 KMON 交换</h4><h3 id="10-4-第-6-版-UNIX"><a href="#10-4-第-6-版-UNIX" class="headerlink" title="10.4 第 6 版 UNIX"></a>10.4 第 6 版 UNIX</h3><h4 id="10-4-1-存储相关的系统调用"><a href="#10-4-1-存储相关的系统调用" class="headerlink" title="10.4.1 存储相关的系统调用"></a>10.4.1 存储相关的系统调用</h4><h4 id="10-4-2-存储布局"><a href="#10-4-2-存储布局" class="headerlink" title="10.4.2 存储布局"></a>10.4.2 存储布局</h4><h4 id="10-4-3-空闲空间管理"><a href="#10-4-3-空闲空间管理" class="headerlink" title="10.4.3 空闲空间管理"></a>10.4.3 空闲空间管理</h4><h4 id="10-4-4-分配"><a href="#10-4-4-分配" class="headerlink" title="10.4.4 分配"></a>10.4.4 分配</h4><h4 id="10-4-5-交换"><a href="#10-4-5-交换" class="headerlink" title="10.4.5 交换"></a>10.4.5 交换</h4><h3 id="10-5-4-3-BSD"><a href="#10-5-4-3-BSD" class="headerlink" title="10.5 4.3 BSD"></a>10.5 4.3 BSD</h3><h4 id="10-5-1-存储相关的系统调用"><a href="#10-5-1-存储相关的系统调用" class="headerlink" title="10.5.1 存储相关的系统调用"></a>10.5.1 存储相关的系统调用</h4><h4 id="10-5-2-存储布局"><a href="#10-5-2-存储布局" class="headerlink" title="10.5.2 存储布局"></a>10.5.2 存储布局</h4><h4 id="10-5-3-空闲空间管理"><a href="#10-5-3-空闲空间管理" class="headerlink" title="10.5.3 空闲空间管理"></a>10.5.3 空闲空间管理</h4><h4 id="10-5-4-交换与页替换"><a href="#10-5-4-交换与页替换" class="headerlink" title="10.5.4 交换与页替换"></a>10.5.4 交换与页替换</h4><h3 id="10-6-VMS"><a href="#10-6-VMS" class="headerlink" title="10.6 VMS"></a>10.6 VMS</h3><h4 id="10-6-1-页表"><a href="#10-6-1-页表" class="headerlink" title="10.6.1 页表"></a>10.6.1 页表</h4><h4 id="10-6-2-存储布局"><a href="#10-6-2-存储布局" class="headerlink" title="10.6.2 存储布局"></a>10.6.2 存储布局</h4><h4 id="10-6-3-空闲空间管理"><a href="#10-6-3-空闲空间管理" class="headerlink" title="10.6.3 空闲空间管理"></a>10.6.3 空闲空间管理</h4><h4 id="10-6-4-交换与页替换"><a href="#10-6-4-交换与页替换" class="headerlink" title="10.6.4 交换与页替换"></a>10.6.4 交换与页替换</h4><h4 id="10-6-5-存储相关的系统调用"><a href="#10-6-5-存储相关的系统调用" class="headerlink" title="10.6.5 存储相关的系统调用"></a>10.6.5 存储相关的系统调用</h4><h3 id="10-7-Windows-NT"><a href="#10-7-Windows-NT" class="headerlink" title="10.7 Windows NT"></a>10.7 Windows NT</h3><h4 id="10-7-1-系统调用"><a href="#10-7-1-系统调用" class="headerlink" title="10.7.1 系统调用"></a>10.7.1 系统调用</h4><h4 id="10-7-2-存储布局"><a href="#10-7-2-存储布局" class="headerlink" title="10.7.2 存储布局"></a>10.7.2 存储布局</h4><h4 id="10-7-3-页式管理"><a href="#10-7-3-页式管理" class="headerlink" title="10.7.3 页式管理"></a>10.7.3 页式管理</h4><h3 id="10-8-TinyOS"><a href="#10-8-TinyOS" class="headerlink" title="10.8 TinyOS"></a>10.8 TinyOS</h3><h3 id="10-9-Xen"><a href="#10-9-Xen" class="headerlink" title="10.9 Xen"></a>10.9 Xen</h3><h4 id="10-9-1-超级调用"><a href="#10-9-1-超级调用" class="headerlink" title="10.9.1 超级调用"></a>10.9.1 超级调用</h4><h4 id="10-9-2-存储布局"><a href="#10-9-2-存储布局" class="headerlink" title="10.9.2 存储布局"></a>10.9.2 存储布局</h4><h4 id="10-9-3-页式管理"><a href="#10-9-3-页式管理" class="headerlink" title="10.9.3 页式管理"></a>10.9.3 页式管理</h4><h3 id="10-10-本章小结"><a href="#10-10-本章小结" class="headerlink" title="10.10 本章小结"></a>10.10 本章小结</h3><h3 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h3><h2 id="第-11-章-Inferno-中的存储管理"><a href="#第-11-章-Inferno-中的存储管理" class="headerlink" title="第 11 章 Inferno 中的存储管理"></a>第 11 章 Inferno 中的存储管理</h2><h3 id="11-1-概述"><a href="#11-1-概述" class="headerlink" title="11.1 概述"></a>11.1 概述</h3><h3 id="11-2-存储布局"><a href="#11-2-存储布局" class="headerlink" title="11.2 存储布局"></a>11.2 存储布局</h3><h3 id="11-3-存储管理的数据结构"><a href="#11-3-存储管理的数据结构" class="headerlink" title="11.3 存储管理的数据结构"></a>11.3 存储管理的数据结构</h3><h4 id="11-3-1-存储池"><a href="#11-3-1-存储池" class="headerlink" title="11.3.1 存储池"></a>11.3.1 存储池</h4><h4 id="11-3-2-存储块"><a href="#11-3-2-存储块" class="headerlink" title="11.3.2 存储块"></a>11.3.2 存储块</h4><h3 id="11-4-存储管理的实现"><a href="#11-4-存储管理的实现" class="headerlink" title="11.4 存储管理的实现"></a>11.4 存储管理的实现</h3><h4 id="11-4-1-分配内存"><a href="#11-4-1-分配内存" class="headerlink" title="11.4.1 分配内存"></a>11.4.1 分配内存</h4><h4 id="11-4-2-从树中删除空闲块"><a href="#11-4-2-从树中删除空闲块" class="headerlink" title="11.4.2 从树中删除空闲块"></a>11.4.2 从树中删除空闲块</h4><h4 id="11-4-3-释放内存"><a href="#11-4-3-释放内存" class="headerlink" title="11.4.3 释放内存"></a>11.4.3 释放内存</h4><h4 id="11-4-4-把空闲块插入树中"><a href="#11-4-4-把空闲块插入树中" class="headerlink" title="11.4.4 把空闲块插入树中"></a>11.4.4 把空闲块插入树中</h4><h3 id="11-5-垃圾收集"><a href="#11-5-垃圾收集" class="headerlink" title="11.5 垃圾收集"></a>11.5 垃圾收集</h3><h4 id="11-5-1-堆结构"><a href="#11-5-1-堆结构" class="headerlink" title="11.5.1 堆结构"></a>11.5.1 堆结构</h4><h4 id="11-5-2-引用计数"><a href="#11-5-2-引用计数" class="headerlink" title="11.5.2 引用计数"></a>11.5.2 引用计数</h4><h4 id="11-5-3-并发垃圾收集器"><a href="#11-5-3-并发垃圾收集器" class="headerlink" title="11.5.3 并发垃圾收集器"></a>11.5.3 并发垃圾收集器</h4><h4 id="11-5-4-实现并发垃圾收集"><a href="#11-5-4-实现并发垃圾收集" class="headerlink" title="11.5.4 实现并发垃圾收集"></a>11.5.4 实现并发垃圾收集</h4><h3 id="11-6-本章小结"><a href="#11-6-本章小结" class="headerlink" title="11.6 本章小结"></a>11.6 本章小结</h3><h3 id="11-7-练习"><a href="#11-7-练习" class="headerlink" title="11.7 练习"></a>11.7 练习</h3><h2 id="第-12-章-Linux-中的存储管理"><a href="#第-12-章-Linux-中的存储管理" class="headerlink" title="第 12 章 Linux 中的存储管理"></a>第 12 章 Linux 中的存储管理</h2><h3 id="12-1-存储布局"><a href="#12-1-存储布局" class="headerlink" title="12.1 存储布局"></a>12.1 存储布局</h3><h3 id="12-2-系统调用"><a href="#12-2-系统调用" class="headerlink" title="12.2 系统调用"></a>12.2 系统调用</h3><h3 id="12-3-分配机制"><a href="#12-3-分配机制" class="headerlink" title="12.3 分配机制"></a>12.3 分配机制</h3><h4 id="12-3-1-管理区页的分配"><a href="#12-3-1-管理区页的分配" class="headerlink" title="12.3.1 管理区页的分配"></a>12.3.1 管理区页的分配</h4><h4 id="12-3-2-slab-分配器"><a href="#12-3-2-slab-分配器" class="headerlink" title="12.3.2 slab 分配器"></a>12.3.2 slab 分配器</h4><h4 id="12-3-3-内核的内存分配"><a href="#12-3-3-内核的内存分配" class="headerlink" title="12.3.3 内核的内存分配"></a>12.3.3 内核的内存分配</h4><h3 id="12-4-页管理"><a href="#12-4-页管理" class="headerlink" title="12.4 页管理"></a>12.4 页管理</h3><h4 id="12-4-1-页表"><a href="#12-4-1-页表" class="headerlink" title="12.4.1 页表"></a>12.4.1 页表</h4><h4 id="12-4-2-页替换"><a href="#12-4-2-页替换" class="headerlink" title="12.4.2 页替换"></a>12.4.2 页替换</h4><h3 id="12-5-存储管理的数据结构"><a href="#12-5-存储管理的数据结构" class="headerlink" title="12.5 存储管理的数据结构"></a>12.5 存储管理的数据结构</h3><h4 id="12-5-1-进程分配的表示"><a href="#12-5-1-进程分配的表示" class="headerlink" title="12.5.1 进程分配的表示"></a>12.5.1 进程分配的表示</h4><h4 id="12-5-2-虚拟内存区表示"><a href="#12-5-2-虚拟内存区表示" class="headerlink" title="12.5.2 虚拟内存区表示"></a>12.5.2 虚拟内存区表示</h4><h3 id="12-6-存储管理的实现"><a href="#12-6-存储管理的实现" class="headerlink" title="12.6 存储管理的实现"></a>12.6 存储管理的实现</h3><h4 id="12-6-1-处理分配系统调用"><a href="#12-6-1-处理分配系统调用" class="headerlink" title="12.6.1 处理分配系统调用"></a>12.6.1 处理分配系统调用</h4><h4 id="12-6-2-增加区域"><a href="#12-6-2-增加区域" class="headerlink" title="12.6.2 增加区域"></a>12.6.2 增加区域</h4><h4 id="12-6-3-处理缺页"><a href="#12-6-3-处理缺页" class="headerlink" title="12.6.3 处理缺页"></a>12.6.3 处理缺页</h4><h4 id="12-6-4-解决缺页错误"><a href="#12-6-4-解决缺页错误" class="headerlink" title="12.6.4 解决缺页错误"></a>12.6.4 解决缺页错误</h4><h4 id="12-6-5-处理新页面"><a href="#12-6-5-处理新页面" class="headerlink" title="12.6.5 处理新页面"></a>12.6.5 处理新页面</h4><h3 id="12-7-本章小结"><a href="#12-7-本章小结" class="headerlink" title="12.7 本章小结"></a>12.7 本章小结</h3><h3 id="12-8-练习"><a href="#12-8-练习" class="headerlink" title="12.8 练习"></a>12.8 练习</h3><h2 id="第-13-章-I-O-设备管理原理"><a href="#第-13-章-I-O-设备管理原理" class="headerlink" title="第 13 章 I/O 设备管理原理"></a>第 13 章 I/O 设备管理原理</h2><h3 id="13-1-I-O-子系统的要素"><a href="#13-1-I-O-子系统的要素" class="headerlink" title="13.1 I/O 子系统的要素"></a>13.1 I/O 子系统的要素</h3><h3 id="13-2-I-O-设备的硬件特性"><a href="#13-2-I-O-设备的硬件特性" class="headerlink" title="13.2 I/O 设备的硬件特性"></a>13.2 I/O 设备的硬件特性</h3><h4 id="13-2-1-磁盘驱动器"><a href="#13-2-1-磁盘驱动器" class="headerlink" title="13.2.1 磁盘驱动器"></a>13.2.1 磁盘驱动器</h4><h4 id="13-2-2-串口通信"><a href="#13-2-2-串口通信" class="headerlink" title="13.2.2 串口通信"></a>13.2.2 串口通信</h4><h4 id="13-2-3-控制器接口技术"><a href="#13-2-3-控制器接口技术" class="headerlink" title="13.2.3 控制器接口技术"></a>13.2.3 控制器接口技术</h4><h3 id="13-3-I-O-设备类型"><a href="#13-3-I-O-设备类型" class="headerlink" title="13.3 I/O 设备类型"></a>13.3 I/O 设备类型</h3><h4 id="13-3-1-通信设备与存储设备"><a href="#13-3-1-通信设备与存储设备" class="headerlink" title="13.3.1 通信设备与存储设备"></a>13.3.1 通信设备与存储设备</h4><h4 id="13-3-2-流设备与块设备"><a href="#13-3-2-流设备与块设备" class="headerlink" title="13.3.2 流设备与块设备"></a>13.3.2 流设备与块设备</h4><h3 id="13-4-I-O-子系统设计的目标"><a href="#13-4-I-O-子系统设计的目标" class="headerlink" title="13.4 I/O 子系统设计的目标"></a>13.4 I/O 子系统设计的目标</h3><h3 id="13-5-I-O-设备服务"><a href="#13-5-I-O-设备服务" class="headerlink" title="13.5 I/O 设备服务"></a>13.5 I/O 设备服务</h3><h3 id="13-6-设备驱动器的结构"><a href="#13-6-设备驱动器的结构" class="headerlink" title="13.6 设备驱动器的结构"></a>13.6 设备驱动器的结构</h3><h3 id="13-7-设备管理技术"><a href="#13-7-设备管理技术" class="headerlink" title="13.7 设备管理技术"></a>13.7 设备管理技术</h3><h4 id="13-7-1-缓冲区"><a href="#13-7-1-缓冲区" class="headerlink" title="13.7.1 缓冲区"></a>13.7.1 缓冲区</h4><h4 id="13-7-2-交叉存取"><a href="#13-7-2-交叉存取" class="headerlink" title="13.7.2 交叉存取"></a>13.7.2 交叉存取</h4><h4 id="13-7-3-电梯算法"><a href="#13-7-3-电梯算法" class="headerlink" title="13.7.3 电梯算法"></a>13.7.3 电梯算法</h4><h4 id="13-7-4-RAID"><a href="#13-7-4-RAID" class="headerlink" title="13.7.4 RAID"></a>13.7.4 RAID</h4><h4 id="13-7-5-水位标志"><a href="#13-7-5-水位标志" class="headerlink" title="13.7.5 水位标志"></a>13.7.5 水位标志</h4><h4 id="13-7-6-人工输入处理"><a href="#13-7-6-人工输入处理" class="headerlink" title="13.7.6 人工输入处理"></a>13.7.6 人工输入处理</h4><h4 id="13-7-7-伪设备"><a href="#13-7-7-伪设备" class="headerlink" title="13.7.7 伪设备"></a>13.7.7 伪设备</h4><h3 id="13-8-本章小结"><a href="#13-8-本章小结" class="headerlink" title="13.8 本章小结"></a>13.8 本章小结</h3><h3 id="13-9-练习"><a href="#13-9-练习" class="headerlink" title="13.9 练习"></a>13.9 练习</h3><h2 id="第-14-章-I-O-设备管理示例"><a href="#第-14-章-I-O-设备管理示例" class="headerlink" title="第 14 章 I/O 设备管理示例"></a>第 14 章 I/O 设备管理示例</h2><h3 id="14-1-CTSS"><a href="#14-1-CTSS" class="headerlink" title="14.1 CTSS"></a>14.1 CTSS</h3><h3 id="14-2-Multics"><a href="#14-2-Multics" class="headerlink" title="14.2 Multics"></a>14.2 Multics</h3><h3 id="14-3-RT-11"><a href="#14-3-RT-11" class="headerlink" title="14.3 RT-11"></a>14.3 RT-11</h3><h3 id="14-4-第-6-版-UNIX"><a href="#14-4-第-6-版-UNIX" class="headerlink" title="14.4 第 6 版 UNIX"></a>14.4 第 6 版 UNIX</h3><h3 id="14-5-4-3-BSD"><a href="#14-5-4-3-BSD" class="headerlink" title="14.5 4.3 BSD"></a>14.5 4.3 BSD</h3><h3 id="14-6-VMS"><a href="#14-6-VMS" class="headerlink" title="14.6 VMS"></a>14.6 VMS</h3><h3 id="14-7-Windows-NT"><a href="#14-7-Windows-NT" class="headerlink" title="14.7 Windows NT"></a>14.7 Windows NT</h3><h3 id="14-8-TinyOS"><a href="#14-8-TinyOS" class="headerlink" title="14.8 TinyOS"></a>14.8 TinyOS</h3><h3 id="14-9-Xen"><a href="#14-9-Xen" class="headerlink" title="14.9 Xen"></a>14.9 Xen</h3><h3 id="14-10-本章小结"><a href="#14-10-本章小结" class="headerlink" title="14.10 本章小结"></a>14.10 本章小结</h3><h3 id="14-11-练习"><a href="#14-11-练习" class="headerlink" title="14.11 练习"></a>14.11 练习</h3><h2 id="第-15-章-Inferno-中的-I-O-设备"><a href="#第-15-章-Inferno-中的-I-O-设备" class="headerlink" title="第 15 章 Inferno 中的 I/O 设备"></a>第 15 章 Inferno 中的 I/O 设备</h2><h3 id="15-1-设备驱动程序结构"><a href="#15-1-设备驱动程序结构" class="headerlink" title="15.1 设备驱动程序结构"></a>15.1 设备驱动程序结构</h3><h3 id="15-2-并行端口支持"><a href="#15-2-并行端口支持" class="headerlink" title="15.2 并行端口支持"></a>15.2 并行端口支持</h3><h4 id="15-2-1-为写请求服务"><a href="#15-2-1-为写请求服务" class="headerlink" title="15.2.1 为写请求服务"></a>15.2.1 为写请求服务</h4><h4 id="15-2-2-写入单字节"><a href="#15-2-2-写入单字节" class="headerlink" title="15.2.2 写入单字节"></a>15.2.2 写入单字节</h4><h3 id="15-3-键盘支持"><a href="#15-3-键盘支持" class="headerlink" title="15.3 键盘支持"></a>15.3 键盘支持</h3><h4 id="15-3-1-初始化键盘控制器"><a href="#15-3-1-初始化键盘控制器" class="headerlink" title="15.3.1 初始化键盘控制器"></a>15.3.1 初始化键盘控制器</h4><h4 id="15-3-2-处理键盘中断"><a href="#15-3-2-处理键盘中断" class="headerlink" title="15.3.2 处理键盘中断"></a>15.3.2 处理键盘中断</h4><h3 id="15-4-IDE-磁盘支持"><a href="#15-4-IDE-磁盘支持" class="headerlink" title="15.4 IDE 磁盘支持"></a>15.4 IDE 磁盘支持</h3><h4 id="15-4-1-处理-I-O-请求"><a href="#15-4-1-处理-I-O-请求" class="headerlink" title="15.4.1 处理 I/O 请求"></a>15.4.1 处理 I/O 请求</h4><h4 id="15-4-2-初始化-IDE-控制器操作"><a href="#15-4-2-初始化-IDE-控制器操作" class="headerlink" title="15.4.2 初始化 IDE 控制器操作"></a>15.4.2 初始化 IDE 控制器操作</h4><h4 id="15-4-3-处理-IDE-控制器中断"><a href="#15-4-3-处理-IDE-控制器中断" class="headerlink" title="15.4.3 处理 IDE 控制器中断"></a>15.4.3 处理 IDE 控制器中断</h4><h3 id="15-5-本章小结"><a href="#15-5-本章小结" class="headerlink" title="15.5 本章小结"></a>15.5 本章小结</h3><h3 id="15-6-练习"><a href="#15-6-练习" class="headerlink" title="15.6 练习"></a>15.6 练习</h3><h2 id="第-16-章-Linux-中的-I-O-设备"><a href="#第-16-章-Linux-中的-I-O-设备" class="headerlink" title="第 16 章 Linux 中的 I/O 设备"></a>第 16 章 Linux 中的 I/O 设备</h2><h3 id="16-1-块请求支持"><a href="#16-1-块请求支持" class="headerlink" title="16.1 块请求支持"></a>16.1 块请求支持</h3><h3 id="16-2-两半中断处理程序结构"><a href="#16-2-两半中断处理程序结构" class="headerlink" title="16.2 两半中断处理程序结构"></a>16.2 两半中断处理程序结构</h3><h3 id="16-3-并行端口驱动程序"><a href="#16-3-并行端口驱动程序" class="headerlink" title="16.3 并行端口驱动程序"></a>16.3 并行端口驱动程序</h3><h4 id="16-3-1-处理系统调用"><a href="#16-3-1-处理系统调用" class="headerlink" title="16.3.1 处理系统调用"></a>16.3.1 处理系统调用</h4><h4 id="16-3-2-选择合适的底层写入"><a href="#16-3-2-选择合适的底层写入" class="headerlink" title="16.3.2 选择合适的底层写入"></a>16.3.2 选择合适的底层写入</h4><h4 id="16-3-3-从缓冲区写入字节"><a href="#16-3-3-从缓冲区写入字节" class="headerlink" title="16.3.3 从缓冲区写入字节"></a>16.3.3 从缓冲区写入字节</h4><h4 id="16-3-4-配置控制器"><a href="#16-3-4-配置控制器" class="headerlink" title="16.3.4 配置控制器"></a>16.3.4 配置控制器</h4><h3 id="16-4-软盘驱动程序"><a href="#16-4-软盘驱动程序" class="headerlink" title="16.4 软盘驱动程序"></a>16.4 软盘驱动程序</h3><h4 id="16-4-1-处理请求"><a href="#16-4-1-处理请求" class="headerlink" title="16.4.1 处理请求"></a>16.4.1 处理请求</h4><h4 id="16-4-2-调度软盘操作"><a href="#16-4-2-调度软盘操作" class="headerlink" title="16.4.2 调度软盘操作"></a>16.4.2 调度软盘操作</h4><h4 id="16-4-3-执行软盘操作"><a href="#16-4-3-执行软盘操作" class="headerlink" title="16.4.3 执行软盘操作"></a>16.4.3 执行软盘操作</h4><h4 id="16-4-4-启动命令"><a href="#16-4-4-启动命令" class="headerlink" title="16.4.4 启动命令"></a>16.4.4 启动命令</h4><h4 id="16-4-5-准备数据传输"><a href="#16-4-5-准备数据传输" class="headerlink" title="16.4.5 准备数据传输"></a>16.4.5 准备数据传输</h4><h4 id="16-4-6-控制器编程"><a href="#16-4-6-控制器编程" class="headerlink" title="16.4.6 控制器编程"></a>16.4.6 控制器编程</h4><h4 id="16-4-7-处理软盘中断"><a href="#16-4-7-处理软盘中断" class="headerlink" title="16.4.7 处理软盘中断"></a>16.4.7 处理软盘中断</h4><h4 id="16-4-8-完成软盘操作"><a href="#16-4-8-完成软盘操作" class="headerlink" title="16.4.8 完成软盘操作"></a>16.4.8 完成软盘操作</h4><h3 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h3><h3 id="练习-3"><a href="#练习-3" class="headerlink" title="练习"></a>练习</h3><h2 id="第-17-章-文件系统原理"><a href="#第-17-章-文件系统原理" class="headerlink" title="第 17 章 文件系统原理"></a>第 17 章 文件系统原理</h2><h3 id="17-1-文件系统服务"><a href="#17-1-文件系统服务" class="headerlink" title="17.1 文件系统服务"></a>17.1 文件系统服务</h3><h4 id="17-1-1-共享与独占访问"><a href="#17-1-1-共享与独占访问" class="headerlink" title="17.1.1 共享与独占访问"></a>17.1.1 共享与独占访问</h4><h4 id="17-1-2-访问模式"><a href="#17-1-2-访问模式" class="headerlink" title="17.1.2 访问模式"></a>17.1.2 访问模式</h4><h4 id="17-1-3-文件结构"><a href="#17-1-3-文件结构" class="headerlink" title="17.1.3 文件结构"></a>17.1.3 文件结构</h4><h4 id="17-1-4-元数据"><a href="#17-1-4-元数据" class="headerlink" title="17.1.4 元数据"></a>17.1.4 元数据</h4><h4 id="17-1-5-内存映射文件"><a href="#17-1-5-内存映射文件" class="headerlink" title="17.1.5 内存映射文件"></a>17.1.5 内存映射文件</h4><h3 id="17-2-总体文件系统设计"><a href="#17-2-总体文件系统设计" class="headerlink" title="17.2 总体文件系统设计"></a>17.2 总体文件系统设计</h3><h4 id="17-2-1-文件系统形式"><a href="#17-2-1-文件系统形式" class="headerlink" title="17.2.1 文件系统形式"></a>17.2.1 文件系统形式</h4><h4 id="17-2-2-主要数据结构"><a href="#17-2-2-主要数据结构" class="headerlink" title="17.2.2 主要数据结构"></a>17.2.2 主要数据结构</h4><h3 id="17-3-名称空间"><a href="#17-3-名称空间" class="headerlink" title="17.3 名称空间"></a>17.3 名称空间</h3><h4 id="17-3-1-驱动器指示符"><a href="#17-3-1-驱动器指示符" class="headerlink" title="17.3.1 驱动器指示符"></a>17.3.1 驱动器指示符</h4><h4 id="17-3-2-账户说明符"><a href="#17-3-2-账户说明符" class="headerlink" title="17.3.2 账户说明符"></a>17.3.2 账户说明符</h4><h4 id="17-3-3-分层命名"><a href="#17-3-3-分层命名" class="headerlink" title="17.3.3 分层命名"></a>17.3.3 分层命名</h4><h4 id="17-3-4-文件扩展名"><a href="#17-3-4-文件扩展名" class="headerlink" title="17.3.4 文件扩展名"></a>17.3.4 文件扩展名</h4><h4 id="17-3-5-文件版本"><a href="#17-3-5-文件版本" class="headerlink" title="17.3.5 文件版本"></a>17.3.5 文件版本</h4><h4 id="17-3-6-特殊文件与目录"><a href="#17-3-6-特殊文件与目录" class="headerlink" title="17.3.6 特殊文件与目录"></a>17.3.6 特殊文件与目录</h4><h4 id="17-3-7-相对路径名与绝对路径名"><a href="#17-3-7-相对路径名与绝对路径名" class="headerlink" title="17.3.7 相对路径名与绝对路径名"></a>17.3.7 相对路径名与绝对路径名</h4><h3 id="17-4-管理存储空间"><a href="#17-4-管理存储空间" class="headerlink" title="17.4 管理存储空间"></a>17.4 管理存储空间</h3><h4 id="17-4-1-文件系统元数据"><a href="#17-4-1-文件系统元数据" class="headerlink" title="17.4.1 文件系统元数据"></a>17.4.1 文件系统元数据</h4><h4 id="17-4-2-数据单位"><a href="#17-4-2-数据单位" class="headerlink" title="17.4.2 数据单位"></a>17.4.2 数据单位</h4><h4 id="17-4-3-空闲空间管理"><a href="#17-4-3-空闲空间管理" class="headerlink" title="17.4.3 空闲空间管理"></a>17.4.3 空闲空间管理</h4><h4 id="17-4-4-普通文件"><a href="#17-4-4-普通文件" class="headerlink" title="17.4.4 普通文件"></a>17.4.4 普通文件</h4><h4 id="17-4-5-稀疏文件"><a href="#17-4-5-稀疏文件" class="headerlink" title="17.4.5 稀疏文件"></a>17.4.5 稀疏文件</h4><h4 id="17-4-6-分支"><a href="#17-4-6-分支" class="headerlink" title="17.4.6 分支"></a>17.4.6 分支</h4><h4 id="17-4-7-目录"><a href="#17-4-7-目录" class="headerlink" title="17.4.7 目录"></a>17.4.7 目录</h4><h4 id="17-4-8-别名"><a href="#17-4-8-别名" class="headerlink" title="17.4.8 别名"></a>17.4.8 别名</h4><h3 id="17-5-一致性检测"><a href="#17-5-一致性检测" class="headerlink" title="17.5 一致性检测"></a>17.5 一致性检测</h3><h3 id="17-6-日志与日志结构的文件系统"><a href="#17-6-日志与日志结构的文件系统" class="headerlink" title="17.6 日志与日志结构的文件系统"></a>17.6 日志与日志结构的文件系统</h3><h3 id="17-7-块高速缓存"><a href="#17-7-块高速缓存" class="headerlink" title="17.7 块高速缓存"></a>17.7 块高速缓存</h3><h3 id="17-8-本章小结"><a href="#17-8-本章小结" class="headerlink" title="17.8 本章小结"></a>17.8 本章小结</h3><h3 id="17-9-练习"><a href="#17-9-练习" class="headerlink" title="17.9 练习"></a>17.9 练习</h3><h2 id="第-18-章-文件系统示例"><a href="#第-18-章-文件系统示例" class="headerlink" title="第 18 章 文件系统示例"></a>第 18 章 文件系统示例</h2><h3 id="18-1-CTSS"><a href="#18-1-CTSS" class="headerlink" title="18.1 CTSS"></a>18.1 CTSS</h3><h4 id="18-1-1-第一个-CTSS-文件系统"><a href="#18-1-1-第一个-CTSS-文件系统" class="headerlink" title="18.1.1 第一个 CTSS 文件系统"></a>18.1.1 第一个 CTSS 文件系统</h4><h4 id="18-1-2-第二个-CTSS-文件系统"><a href="#18-1-2-第二个-CTSS-文件系统" class="headerlink" title="18.1.2 第二个 CTSS 文件系统"></a>18.1.2 第二个 CTSS 文件系统</h4><h3 id="18-2-Multics"><a href="#18-2-Multics" class="headerlink" title="18.2 Multics"></a>18.2 Multics</h3><h3 id="18-3-RT-11"><a href="#18-3-RT-11" class="headerlink" title="18.3 RT-11"></a>18.3 RT-11</h3><h3 id="18-4-第-6-版-UNIX"><a href="#18-4-第-6-版-UNIX" class="headerlink" title="18.4 第 6 版 UNIX"></a>18.4 第 6 版 UNIX</h3><h3 id="18-5-4-3-BSD"><a href="#18-5-4-3-BSD" class="headerlink" title="18.5 4.3 BSD"></a>18.5 4.3 BSD</h3><h3 id="18-6-VMS"><a href="#18-6-VMS" class="headerlink" title="18.6 VMS"></a>18.6 VMS</h3><h3 id="18-7-Windows-NT"><a href="#18-7-Windows-NT" class="headerlink" title="18.7 Windows NT"></a>18.7 Windows NT</h3><h3 id="18-8-本章小结"><a href="#18-8-本章小结" class="headerlink" title="18.8 本章小结"></a>18.8 本章小结</h3><h3 id="18-9-练习"><a href="#18-9-练习" class="headerlink" title="18.9 练习"></a>18.9 练习</h3><h2 id="第-19-章-Inferno-中的文件系统"><a href="#第-19-章-Inferno-中的文件系统" class="headerlink" title="第 19 章 Inferno 中的文件系统"></a>第 19 章 Inferno 中的文件系统</h2><h3 id="19-1-文件服务器的作用"><a href="#19-1-文件服务器的作用" class="headerlink" title="19.1 文件服务器的作用"></a>19.1 文件服务器的作用</h3><h3 id="19-1-1-Styx-协议"><a href="#19-1-1-Styx-协议" class="headerlink" title="19.1.1 Styx 协议"></a>19.1.1 Styx 协议</h3><h3 id="19-1-2-内置内核文件系统"><a href="#19-1-2-内置内核文件系统" class="headerlink" title="19.1.2 内置内核文件系统"></a>19.1.2 内置内核文件系统</h3><h3 id="19-1-3-用户空间文件服务器"><a href="#19-1-3-用户空间文件服务器" class="headerlink" title="19.1.3 用户空间文件服务器"></a>19.1.3 用户空间文件服务器</h3><h3 id="19-2-根设备服务器"><a href="#19-2-根设备服务器" class="headerlink" title="19.2 根设备服务器"></a>19.2 根设备服务器</h3><h4 id="19-2-1-提供命名服务"><a href="#19-2-1-提供命名服务" class="headerlink" title="19.2.1 提供命名服务"></a>19.2.1 提供命名服务</h4><h4 id="19-2-2-遍历根服务器树"><a href="#19-2-2-遍历根服务器树" class="headerlink" title="19.2.2 遍历根服务器树"></a>19.2.2 遍历根服务器树</h4><h4 id="19-2-3-从根服务器读取"><a href="#19-2-3-从根服务器读取" class="headerlink" title="19.2.3 从根服务器读取"></a>19.2.3 从根服务器读取</h4><h3 id="19-3-通用-Styx-消息处理程序"><a href="#19-3-通用-Styx-消息处理程序" class="headerlink" title="19.3 通用 Styx 消息处理程序"></a>19.3 通用 Styx 消息处理程序</h3><h4 id="19-3-1-创建目录项"><a href="#19-3-1-创建目录项" class="headerlink" title="19.3.1 创建目录项"></a>19.3.1 创建目录项</h4><h4 id="19-3-2-生成命名"><a href="#19-3-2-生成命名" class="headerlink" title="19.3.2 生成命名"></a>19.3.2 生成命名</h4><h4 id="19-3-3-遍历目录树"><a href="#19-3-3-遍历目录树" class="headerlink" title="19.3.3 遍历目录树"></a>19.3.3 遍历目录树</h4><h3 id="19-4-本地-Inferno-文件系统"><a href="#19-4-本地-Inferno-文件系统" class="headerlink" title="19.4 本地 Inferno 文件系统"></a>19.4 本地 Inferno 文件系统</h3><h4 id="19-4-1-初始化"><a href="#19-4-1-初始化" class="headerlink" title="19.4.1 初始化"></a>19.4.1 初始化</h4><h4 id="19-4-2-主服务进程"><a href="#19-4-2-主服务进程" class="headerlink" title="19.4.2 主服务进程"></a>19.4.2 主服务进程</h4><h4 id="19-4-3-处理-Styx-请求"><a href="#19-4-3-处理-Styx-请求" class="headerlink" title="19.4.3 处理 Styx 请求"></a>19.4.3 处理 Styx 请求</h4><h4 id="19-4-4-遍历目录树"><a href="#19-4-4-遍历目录树" class="headerlink" title="19.4.4 遍历目录树"></a>19.4.4 遍历目录树</h4><h4 id="19-4-5-搜索目录"><a href="#19-4-5-搜索目录" class="headerlink" title="19.4.5 搜索目录"></a>19.4.5 搜索目录</h4><h4 id="19-4-6-读文件"><a href="#19-4-6-读文件" class="headerlink" title="19.4.6 读文件"></a>19.4.6 读文件</h4><h4 id="19-4-7-磁盘上的数据结构"><a href="#19-4-7-磁盘上的数据结构" class="headerlink" title="19.4.7 磁盘上的数据结构"></a>19.4.7 磁盘上的数据结构</h4><h4 id="19-4-8-读取目录项"><a href="#19-4-8-读取目录项" class="headerlink" title="19.4.8 读取目录项"></a>19.4.8 读取目录项</h4><h4 id="19-4-9-读取文件块"><a href="#19-4-9-读取文件块" class="headerlink" title="19.4.9 读取文件块"></a>19.4.9 读取文件块</h4><h4 id="19-4-10-查找文件块"><a href="#19-4-10-查找文件块" class="headerlink" title="19.4.10 查找文件块"></a>19.4.10 查找文件块</h4><h4 id="19-4-11-处理间接块"><a href="#19-4-11-处理间接块" class="headerlink" title="19.4.11 处理间接块"></a>19.4.11 处理间接块</h4><h4 id="19-4-12-从缓冲区高速缓存中获取"><a href="#19-4-12-从缓冲区高速缓存中获取" class="headerlink" title="19.4.12 从缓冲区高速缓存中获取"></a>19.4.12 从缓冲区高速缓存中获取</h4><h3 id="19-5-本章小结"><a href="#19-5-本章小结" class="headerlink" title="19.5 本章小结"></a>19.5 本章小结</h3><h3 id="19-6-练习"><a href="#19-6-练习" class="headerlink" title="19.6 练习"></a>19.6 练习</h3><h2 id="第-20-章-Linux-中的文件系统"><a href="#第-20-章-Linux-中的文件系统" class="headerlink" title="第 20 章 Linux 中的文件系统"></a>第 20 章 Linux 中的文件系统</h2><h3 id="20-1-虚拟文件系统"><a href="#20-1-虚拟文件系统" class="headerlink" title="20.1 虚拟文件系统"></a>20.1 虚拟文件系统</h3><h4 id="20-1-1-超级块"><a href="#20-1-1-超级块" class="headerlink" title="20.1.1 超级块"></a>20.1.1 超级块</h4><h4 id="20-1-2-i-节点"><a href="#20-1-2-i-节点" class="headerlink" title="20.1.2 i- 节点"></a>20.1.2 i- 节点</h4><h4 id="20-1-3-目录项"><a href="#20-1-3-目录项" class="headerlink" title="20.1.3 目录项"></a>20.1.3 目录项</h4><h4 id="20-1-4-文件"><a href="#20-1-4-文件" class="headerlink" title="20.1.4 文件"></a>20.1.4 文件</h4><h3 id="20-2-EXT3-文件系统"><a href="#20-2-EXT3-文件系统" class="headerlink" title="20.2 EXT3 文件系统"></a>20.2 EXT3 文件系统</h3><h3 id="20-3-EXT3-的磁盘结构"><a href="#20-3-EXT3-的磁盘结构" class="headerlink" title="20.3 EXT3 的磁盘结构"></a>20.3 EXT3 的磁盘结构</h3><h4 id="20-3-1-EXT3-超级块"><a href="#20-3-1-EXT3-超级块" class="headerlink" title="20.3.1 EXT3 超级块"></a>20.3.1 EXT3 超级块</h4><h4 id="20-3-2-EXT3-I-节点"><a href="#20-3-2-EXT3-I-节点" class="headerlink" title="20.3.2 EXT3-I 节点"></a>20.3.2 EXT3-I 节点</h4><h4 id="20-3-3-EXT3-目录项"><a href="#20-3-3-EXT3-目录项" class="headerlink" title="20.3.3 EXT3 目录项"></a>20.3.3 EXT3 目录项</h4><h3 id="20-4-EXT3-命令查找"><a href="#20-4-EXT3-命令查找" class="headerlink" title="20.4 EXT3 命令查找"></a>20.4 EXT3 命令查找</h3><h4 id="20-4-1-遍历路径"><a href="#20-4-1-遍历路径" class="headerlink" title="20.4.1 遍历路径"></a>20.4.1 遍历路径</h4><h4 id="20-4-2-通用目录查找（第一部分）"><a href="#20-4-2-通用目录查找（第一部分）" class="headerlink" title="20.4.2 通用目录查找（第一部分）"></a>20.4.2 通用目录查找（第一部分）</h4><h4 id="20-4-3-通用目录查找（第二部分）"><a href="#20-4-3-通用目录查找（第二部分）" class="headerlink" title="20.4.3 通用目录查找（第二部分）"></a>20.4.3 通用目录查找（第二部分）</h4><h4 id="20-4-4-EXT3-目录查找"><a href="#20-4-4-EXT3-目录查找" class="headerlink" title="20.4.4 EXT3 目录查找"></a>20.4.4 EXT3 目录查找</h4><h4 id="20-4-5-EXT3-目录搜索"><a href="#20-4-5-EXT3-目录搜索" class="headerlink" title="20.4.5 EXT3 目录搜索"></a>20.4.5 EXT3 目录搜索</h4><h4 id="20-4-6-EXT3-目录块搜索"><a href="#20-4-6-EXT3-目录块搜索" class="headerlink" title="20.4.6 EXT3 目录块搜索"></a>20.4.6 EXT3 目录块搜索</h4><h3 id="20-5-写入文件"><a href="#20-5-写入文件" class="headerlink" title="20.5 写入文件"></a>20.5 写入文件</h3><h4 id="20-5-1-Linux-的写入系统调用"><a href="#20-5-1-Linux-的写入系统调用" class="headerlink" title="20.5.1 Linux 的写入系统调用"></a>20.5.1 Linux 的写入系统调用</h4><h4 id="20-5-2-写入通用文件"><a href="#20-5-2-写入通用文件" class="headerlink" title="20.5.2 写入通用文件"></a>20.5.2 写入通用文件</h4><h4 id="20-5-3-写入-EXT3-文件"><a href="#20-5-3-写入-EXT3-文件" class="headerlink" title="20.5.3 写入 EXT3 文件"></a>20.5.3 写入 EXT3 文件</h4><h3 id="20-6-在-EXT3-中定位文件块"><a href="#20-6-在-EXT3-中定位文件块" class="headerlink" title="20.6 在 EXT3 中定位文件块"></a>20.6 在 EXT3 中定位文件块</h3><h4 id="20-5-1-Linux-的写入系统调用-1"><a href="#20-5-1-Linux-的写入系统调用-1" class="headerlink" title="20.5.1 Linux 的写入系统调用"></a>20.5.1 Linux 的写入系统调用</h4><h4 id="20-5-2-写入通用文件-1"><a href="#20-5-2-写入通用文件-1" class="headerlink" title="20.5.2 写入通用文件"></a>20.5.2 写入通用文件</h4><h4 id="20-5-3-写入-EXT3-文件-1"><a href="#20-5-3-写入-EXT3-文件-1" class="headerlink" title="20.5.3 写入 EXT3 文件"></a>20.5.3 写入 EXT3 文件</h4><h3 id="20-6-在-EXT3-中定位文件块-1"><a href="#20-6-在-EXT3-中定位文件块-1" class="headerlink" title="20.6 在 EXT3 中定位文件块"></a>20.6 在 EXT3 中定位文件块</h3><h4 id="20-6-1-标识间接块"><a href="#20-6-1-标识间接块" class="headerlink" title="20.6.1 标识间接块"></a>20.6.1 标识间接块</h4><h4 id="20-6-2-读取间接块"><a href="#20-6-2-读取间接块" class="headerlink" title="20.6.2 读取间接块"></a>20.6.2 读取间接块</h4><h3 id="20-7-本章小结"><a href="#20-7-本章小结" class="headerlink" title="20.7 本章小结"></a>20.7 本章小结</h3><h3 id="20-8-练习"><a href="#20-8-练习" class="headerlink" title="20.8 练习"></a>20.8 练习</h3><h2 id="第-21-章-操作系统安全原理"><a href="#第-21-章-操作系统安全原理" class="headerlink" title="第 21 章 操作系统安全原理"></a>第 21 章 操作系统安全原理</h2><h3 id="21-1-用户认证"><a href="#21-1-用户认证" class="headerlink" title="21.1 用户认证"></a>21.1 用户认证</h3><h4 id="21-1-1-用户名与密码"><a href="#21-1-1-用户名与密码" class="headerlink" title="21.1.1 用户名与密码"></a>21.1.1 用户名与密码</h4><h4 id="21-1-2-散列函数加密"><a href="#21-1-2-散列函数加密" class="headerlink" title="21.1.2 散列函数加密"></a>21.1.2 散列函数加密</h4><h4 id="21-1-3-回调"><a href="#21-1-3-回调" class="headerlink" title="21.1.3 回调"></a>21.1.3 回调</h4><h4 id="21-1-4-挑战-响应认证"><a href="#21-1-4-挑战-响应认证" class="headerlink" title="21.1.4 挑战/响应认证"></a>21.1.4 挑战/响应认证</h4><h4 id="21-1-5-一次性密码"><a href="#21-1-5-一次性密码" class="headerlink" title="21.1.5 一次性密码"></a>21.1.5 一次性密码</h4><h4 id="21-1-6-生物认证"><a href="#21-1-6-生物认证" class="headerlink" title="21.1.6 生物认证"></a>21.1.6 生物认证</h4><h3 id="21-2-基本资源保护"><a href="#21-2-基本资源保护" class="headerlink" title="21.2 基本资源保护"></a>21.2 基本资源保护</h3><h4 id="21-2-1-特权用户"><a href="#21-2-1-特权用户" class="headerlink" title="21.2.1 特权用户"></a>21.2.1 特权用户</h4><h4 id="21-2-2-访问-CPU-特性"><a href="#21-2-2-访问-CPU-特性" class="headerlink" title="21.2.2 访问 CPU 特性"></a>21.2.2 访问 CPU 特性</h4><h4 id="21-2-3-内存访问"><a href="#21-2-3-内存访问" class="headerlink" title="21.2.3 内存访问"></a>21.2.3 内存访问</h4><h4 id="21-2-4-简单的代码保护"><a href="#21-2-4-简单的代码保护" class="headerlink" title="21.2.4 简单的代码保护"></a>21.2.4 简单的代码保护</h4><h4 id="21-2-5-访问控制列表"><a href="#21-2-5-访问控制列表" class="headerlink" title="21.2.5 访问控制列表"></a>21.2.5 访问控制列表</h4><h4 id="21-2-6-权能"><a href="#21-2-6-权能" class="headerlink" title="21.2.6 权能"></a>21.2.6 权能</h4><h3 id="21-3-威胁类型"><a href="#21-3-威胁类型" class="headerlink" title="21.3 威胁类型"></a>21.3 威胁类型</h3><h4 id="21-3-1-中间人攻击"><a href="#21-3-1-中间人攻击" class="headerlink" title="21.3.1 中间人攻击"></a>21.3.1 中间人攻击</h4><h4 id="21-3-2-特洛伊木马"><a href="#21-3-2-特洛伊木马" class="headerlink" title="21.3.2 特洛伊木马"></a>21.3.2 特洛伊木马</h4><h4 id="21-3-3-陷阱门"><a href="#21-3-3-陷阱门" class="headerlink" title="21.3.3 陷阱门"></a>21.3.3 陷阱门</h4><h4 id="21-3-4-逻辑-时间炸弹"><a href="#21-3-4-逻辑-时间炸弹" class="headerlink" title="21.3.4 逻辑/时间炸弹"></a>21.3.4 逻辑/时间炸弹</h4><h4 id="21-3-5-病毒"><a href="#21-3-5-病毒" class="headerlink" title="21.3.5 病毒"></a>21.3.5 病毒</h4><h4 id="21-3-6-蠕虫"><a href="#21-3-6-蠕虫" class="headerlink" title="21.3.6 蠕虫"></a>21.3.6 蠕虫</h4><h4 id="21-3-7-隐蔽通道"><a href="#21-3-7-隐蔽通道" class="headerlink" title="21.3.7 隐蔽通道"></a>21.3.7 隐蔽通道</h4><h4 id="21-3-8-拒绝服务"><a href="#21-3-8-拒绝服务" class="headerlink" title="21.3.8 拒绝服务"></a>21.3.8 拒绝服务</h4><h3 id="21-4-橙皮书分级"><a href="#21-4-橙皮书分级" class="headerlink" title="21.4 橙皮书分级"></a>21.4 橙皮书分级</h3><h4 id="21-4-1-D-组"><a href="#21-4-1-D-组" class="headerlink" title="21.4.1 D 组"></a>21.4.1 D 组</h4><h4 id="21-4-2-C-组"><a href="#21-4-2-C-组" class="headerlink" title="21.4.2 C 组"></a>21.4.2 C 组</h4><h4 id="21-4-3-B-组"><a href="#21-4-3-B-组" class="headerlink" title="21.4.3 B 组"></a>21.4.3 B 组</h4><h4 id="21-4-4-A-组"><a href="#21-4-4-A-组" class="headerlink" title="21.4.4 A 组"></a>21.4.4 A 组</h4><h3 id="21-5-加密"><a href="#21-5-加密" class="headerlink" title="21.5 加密"></a>21.5 加密</h3><h4 id="21-5-1-对称加密"><a href="#21-5-1-对称加密" class="headerlink" title="21.5.1 对称加密"></a>21.5.1 对称加密</h4><h4 id="21-5-2-公钥加密学"><a href="#21-5-2-公钥加密学" class="headerlink" title="21.5.2 公钥加密学"></a>21.5.2 公钥加密学</h4><h3 id="21-6-Multics-的保护环"><a href="#21-6-Multics-的保护环" class="headerlink" title="21.6 Multics 的保护环"></a>21.6 Multics 的保护环</h3><h3 id="21-7-Inferno-的安全"><a href="#21-7-Inferno-的安全" class="headerlink" title="21.7 Inferno 的安全"></a>21.7 Inferno 的安全</h3><h3 id="21-8-Linux-的安全"><a href="#21-8-Linux-的安全" class="headerlink" title="21.8 Linux 的安全"></a>21.8 Linux 的安全</h3><h3 id="21-9-本章小结"><a href="#21-9-本章小结" class="headerlink" title="21.9 本章小结"></a>21.9 本章小结</h3><h3 id="21-10-练习"><a href="#21-10-练习" class="headerlink" title="21.10 练习"></a>21.10 练习</h3><h2 id="第-22-章-分布式系统原理"><a href="#第-22-章-分布式系统原理" class="headerlink" title="第 22 章 分布式系统原理"></a>第 22 章 分布式系统原理</h2><h3 id="22-1-基本概念"><a href="#22-1-基本概念" class="headerlink" title="22.1 基本概念"></a>22.1 基本概念</h3><h4 id="22-1-1-资源共享"><a href="#22-1-1-资源共享" class="headerlink" title="22.1.1 资源共享"></a>22.1.1 资源共享</h4><h4 id="22-1-2-同步操作"><a href="#22-1-2-同步操作" class="headerlink" title="22.1.2 同步操作"></a>22.1.2 同步操作</h4><h4 id="22-1-3-一致性"><a href="#22-1-3-一致性" class="headerlink" title="22.1.3 一致性"></a>22.1.3 一致性</h4><h4 id="22-1-4-分布式互斥"><a href="#22-1-4-分布式互斥" class="headerlink" title="22.1.4 分布式互斥"></a>22.1.4 分布式互斥</h4><h4 id="22-1-5-容错"><a href="#22-1-5-容错" class="headerlink" title="22.1.5 容错"></a>22.1.5 容错</h4><h4 id="22-1-6-自稳定"><a href="#22-1-6-自稳定" class="headerlink" title="22.1.6 自稳定"></a>22.1.6 自稳定</h4><h3 id="22-2-处理器共享"><a href="#22-2-处理器共享" class="headerlink" title="22.2 处理器共享"></a>22.2 处理器共享</h3><h4 id="22-2-1-对称多处理"><a href="#22-2-1-对称多处理" class="headerlink" title="22.2.1 对称多处理"></a>22.2.1 对称多处理</h4><h4 id="22-2-2-集群"><a href="#22-2-2-集群" class="headerlink" title="22.2.2 集群"></a>22.2.2 集群</h4><h4 id="22-2-3-网格"><a href="#22-2-3-网格" class="headerlink" title="22.2.3 网格"></a>22.2.3 网格</h4><h3 id="22-3-分布式时钟"><a href="#22-3-分布式时钟" class="headerlink" title="22.3 分布式时钟"></a>22.3 分布式时钟</h3><h4 id="22-3-1-逻辑时钟"><a href="#22-3-1-逻辑时钟" class="headerlink" title="22.3.1 逻辑时钟"></a>22.3.1 逻辑时钟</h4><h4 id="22-3-2-物理时钟"><a href="#22-3-2-物理时钟" class="headerlink" title="22.3.2 物理时钟"></a>22.3.2 物理时钟</h4><h3 id="22-4-选举算法"><a href="#22-4-选举算法" class="headerlink" title="22.4 选举算法"></a>22.4 选举算法</h3><h4 id="22-4-1-欺负算法"><a href="#22-4-1-欺负算法" class="headerlink" title="22.4.1 欺负算法"></a>22.4.1 欺负算法</h4><h4 id="22-4-2-环算法"><a href="#22-4-2-环算法" class="headerlink" title="22.4.2 环算法"></a>22.4.2 环算法</h4><h3 id="22-5-本章小结"><a href="#22-5-本章小结" class="headerlink" title="22.5 本章小结"></a>22.5 本章小结</h3><h3 id="22-6-练习"><a href="#22-6-练习" class="headerlink" title="22.6 练习"></a>22.6 练习</h3><h2 id="附录-A-便于宿主-Inferno"><a href="#附录-A-便于宿主-Inferno" class="headerlink" title="附录 A 便于宿主 Inferno"></a>附录 A 便于宿主 Inferno</h2><h3 id="A-1-建立配置"><a href="#A-1-建立配置" class="headerlink" title="A.1 建立配置"></a>A.1 建立配置</h3><h3 id="A-2-编译器与开发工具"><a href="#A-2-编译器与开发工具" class="headerlink" title="A.2 编译器与开发工具"></a>A.2 编译器与开发工具</h3><h3 id="A-3-PATH-环境变量"><a href="#A-3-PATH-环境变量" class="headerlink" title="A.3 PATH 环境变量"></a>A.3 PATH 环境变量</h3><h3 id="A-4-其他环境变量"><a href="#A-4-其他环境变量" class="headerlink" title="A.4 其他环境变量"></a>A.4 其他环境变量</h3><h3 id="A-5-编译系统"><a href="#A-5-编译系统" class="headerlink" title="A.5 编译系统"></a>A.5 编译系统</h3><h3 id="A-6-运行新版本"><a href="#A-6-运行新版本" class="headerlink" title="A.6 运行新版本"></a>A.6 运行新版本</h3><h3 id="A-7-小结"><a href="#A-7-小结" class="headerlink" title="A.7 小结"></a>A.7 小结</h3><h2 id="附录-B-编译本地-Inferno"><a href="#附录-B-编译本地-Inferno" class="headerlink" title="附录 B 编译本地 Inferno"></a>附录 B 编译本地 Inferno</h2><h3 id="B-1-建立配置"><a href="#B-1-建立配置" class="headerlink" title="B.1 建立配置"></a>B.1 建立配置</h3><h3 id="B-2-创建工具链"><a href="#B-2-创建工具链" class="headerlink" title="B.2 创建工具链"></a>B.2 创建工具链</h3><h3 id="B-3-创建引导程序代码"><a href="#B-3-创建引导程序代码" class="headerlink" title="B.3 创建引导程序代码"></a>B.3 创建引导程序代码</h3><h3 id="B-4-建立内核配置"><a href="#B-4-建立内核配置" class="headerlink" title="B.4 建立内核配置"></a>B.4 建立内核配置</h3><h3 id="B-5-生成加载程序配置"><a href="#B-5-生成加载程序配置" class="headerlink" title="B.5 生成加载程序配置"></a>B.5 生成加载程序配置</h3><h3 id="B-6-创建内核镜像"><a href="#B-6-创建内核镜像" class="headerlink" title="B.6 创建内核镜像"></a>B.6 创建内核镜像</h3><h3 id="B-7-生成软盘镜像"><a href="#B-7-生成软盘镜像" class="headerlink" title="B.7 生成软盘镜像"></a>B.7 生成软盘镜像</h3><h3 id="B-8-运行新内核"><a href="#B-8-运行新内核" class="headerlink" title="B.8 运行新内核"></a>B.8 运行新内核</h3><h3 id="B-9-小结"><a href="#B-9-小结" class="headerlink" title="B.9 小结"></a>B.9 小结</h3><blockquote>
+<ul>
+<li>书名《操作系统原理、设计与应用》</li>
+<li>英文名 Principle of Operating Systems：Design and Applications</li>
+<li>书号 ISBN 978-7-302-22318-4</li>
+<li>Brian L. Stuart 著，葛秀慧 田浩 刘展威 等译</li>
+<li>清华大学出版社</li>
+<li>2010 年 6 月第 1 版第 1 次印刷</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.jpg" alt="Arcticfox WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward.jpg" alt="Arcticfox Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Arcticfox
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://blog.longgen.me/2014/05/31/43045/" title="操作系统原理、设计与应用">http://blog.longgen.me/2014/05/31/43045/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Operation-System/" rel="tag"># Operation System</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/30/12169/" rel="next" title="Eclipse 配置及优化">
+                <i class="fa fa-chevron-left"></i> Eclipse 配置及优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/06/02/50389/" rel="prev" title="C Primer Plus">
+                C Primer Plus <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/fox.jpg"
+               alt="Arcticfox" />
+          <p class="site-author-name" itemprop="name">Arcticfox</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fjarcticfox" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/onelark" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第-1-章-操作系统简介"><span class="nav-number">1.</span> <span class="nav-text">第 1 章 操作系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-什么是操作系统"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 什么是操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-资源管理者"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 资源管理者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-服务提供者"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 服务提供者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-虚拟机"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 虚拟机</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-操作系统的功能"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 操作系统的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-进程"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-存储器"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 存储器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-I-O-设备"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 I/O 设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-文件系统"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-5-安全性"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.2.5 安全性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-6-联网"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.2.6 联网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-7-用户接口"><span class="nav-number">1.2.7.</span> <span class="nav-text">1.2.7 用户接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-操作系统的历史"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 操作系统的历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-裸机"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 裸机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-批处理操作系统"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 批处理操作系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-分时操作系统"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 分时操作系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-分布式操作系统"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 分布式操作系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-组织操作系统的技术"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 组织操作系统的技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-单块设计"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1 单块设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-2-分层设计"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2 分层设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-3-微内核设计"><span class="nav-number">1.4.3.</span> <span class="nav-text">1.4.3 微内核设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-虚拟机设计"><span class="nav-number">1.4.4.</span> <span class="nav-text">1.4.4 虚拟机设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-引导"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 引导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-系统调用"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 系统调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-1-系统调用示例"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.6.1 系统调用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-2-系统调用机制"><span class="nav-number">1.6.2.</span> <span class="nav-text">1.6.2 系统调用机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-本章小结"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-练习"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-2-章-操作系统示例"><span class="nav-number">2.</span> <span class="nav-text">第 2 章 操作系统示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-兼容分时系统"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 兼容分时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-组织结构"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-引导"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 引导</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-多路信息和计算服务"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 多路信息和计算服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-组织结构"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-系统调用"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-RT-11"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 RT-11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-组织结构"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-第-6-版-UNIX"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 第 6 版 UNIX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-组织结构"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-系统调用"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2 系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-虚拟内存系统"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 虚拟内存系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-1-组织结构"><span class="nav-number">2.5.1.</span> <span class="nav-text">2.5.1 组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-2-引导"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.5.2 引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-3-系统调用"><span class="nav-number">2.5.3.</span> <span class="nav-text">2.5.3 系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-4-3-BSD"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 4.3 BSD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-1-组织结构"><span class="nav-number">2.6.1.</span> <span class="nav-text">2.6.1 组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-2-系统调用"><span class="nav-number">2.6.2.</span> <span class="nav-text">2.6.2 系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-Windows-NT"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 Windows NT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-1-组织结构"><span class="nav-number">2.7.1.</span> <span class="nav-text">2.7.1 组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-TinyOS"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 TinyOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-1-组织结构"><span class="nav-number">2.8.1.</span> <span class="nav-text">2.8.1 组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-Xen"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 Xen</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-9-1-组织结构"><span class="nav-number">2.9.1.</span> <span class="nav-text">2.9.1 组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-本章小结"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-练习"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-3-章-Inferno-的结构与初始化"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 Inferno 的结构与初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Inferno-的起源"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Inferno 的起源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-基本概念"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-组织结构"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 组织结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-基本体系结构"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 基本体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-源代码组织结构"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 源代码组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-初始化"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-启动-Inferno"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1 启动 Inferno</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-宿主操作系统的特定初始化"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2 宿主操作系统的特定初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-3-与宿主操作系统无关的初始化"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3 与宿主操作系统无关的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-4-启动分时"><span class="nav-number">3.4.4.</span> <span class="nav-text">3.4.4 启动分时</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-系统调用"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 系统调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-本章小结"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-练习"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-4-章-Linux-的结构与初始化"><span class="nav-number">4.</span> <span class="nav-text">第 4 章 Linux 的结构与初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Linux-的起源"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 Linux 的起源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-组织结构"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 组织结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-基本体系结构"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1 基本体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-模块"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2 模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-源代码组织结构"><span class="nav-number">4.2.3.</span> <span class="nav-text">4.2.3 源代码组织结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-初始化"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-引导"><span class="nav-number">4.3.1.</span> <span class="nav-text">4.3.1 引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2-特定处理器初始化"><span class="nav-number">4.3.2.</span> <span class="nav-text">4.3.2 特定处理器初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-3-与处理器无关的初始化"><span class="nav-number">4.3.3.</span> <span class="nav-text">4.3.3 与处理器无关的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-4-启动分时"><span class="nav-number">4.3.4.</span> <span class="nav-text">4.3.4 启动分时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-5-初始化管理级的初始化"><span class="nav-number">4.3.5.</span> <span class="nav-text">4.3.5 初始化管理级的初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-系统调用"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 系统调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-1-处理应用方得系统调用"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.4.1 处理应用方得系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-2-处理内核方的系统调用"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.4.2 处理内核方的系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-本章小结"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-练习"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-5-章-进程管理原理"><span class="nav-number">5.</span> <span class="nav-text">第 5 章 进程管理原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-进程的概念"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 进程的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-实现进程"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 实现进程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-进程操作"><span class="nav-number">5.2.1.</span> <span class="nav-text">5.2.1 进程操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-进程状态"><span class="nav-number">5.2.2.</span> <span class="nav-text">5.2.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-进程表"><span class="nav-number">5.2.3.</span> <span class="nav-text">5.2.3 进程表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-线程"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-调度"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-1-先来先服务"><span class="nav-number">5.4.1.</span> <span class="nav-text">5.4.1 先来先服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-2-最短作业优先"><span class="nav-number">5.4.2.</span> <span class="nav-text">5.4.2 最短作业优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-3-轮转法"><span class="nav-number">5.4.3.</span> <span class="nav-text">5.4.3 轮转法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-4-优先级调度"><span class="nav-number">5.4.4.</span> <span class="nav-text">5.4.4 优先级调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-5-调整调度参数"><span class="nav-number">5.4.5.</span> <span class="nav-text">5.4.5 调整调度参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-6-两级调度"><span class="nav-number">5.4.6.</span> <span class="nav-text">5.4.6 两级调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-7-实时调度"><span class="nav-number">5.4.7.</span> <span class="nav-text">5.4.7 实时调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-8-嵌入式系统的调度"><span class="nav-number">5.4.8.</span> <span class="nav-text">5.4.8 嵌入式系统的调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-上下文切换"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 上下文切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-进程的创建与终止"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 进程的创建与终止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-临界区"><span class="nav-number">5.7.</span> <span class="nav-text">5.7 临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-1-中断控制"><span class="nav-number">5.7.1.</span> <span class="nav-text">5.7.1 中断控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-2-原子操作指令"><span class="nav-number">5.7.2.</span> <span class="nav-text">5.7.2 原子操作指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-3-Peterson-算法"><span class="nav-number">5.7.3.</span> <span class="nav-text">5.7.3 Peterson 算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-4-信号量"><span class="nav-number">5.7.4.</span> <span class="nav-text">5.7.4 信号量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-5-管程"><span class="nav-number">5.7.5.</span> <span class="nav-text">5.7.5 管程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-6-消息传递"><span class="nav-number">5.7.6.</span> <span class="nav-text">5.7.6 消息传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-7-示例"><span class="nav-number">5.7.7.</span> <span class="nav-text">5.7.7 示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-死锁"><span class="nav-number">5.8.</span> <span class="nav-text">5.8 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-8-1-充分必要条件"><span class="nav-number">5.8.1.</span> <span class="nav-text">5.8.1 充分必要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-8-2-处理死锁"><span class="nav-number">5.8.2.</span> <span class="nav-text">5.8.2 处理死锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-本章小结"><span class="nav-number">5.9.</span> <span class="nav-text">5.9 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-10-练习"><span class="nav-number">5.10.</span> <span class="nav-text">5.10 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-6-章-进程管理示例"><span class="nav-number">6.</span> <span class="nav-text">第 6 章 进程管理示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-CTSS"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 CTSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-进程状态"><span class="nav-number">6.1.1.</span> <span class="nav-text">6.1.1 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-系统调用"><span class="nav-number">6.1.2.</span> <span class="nav-text">6.1.2 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-3-调度"><span class="nav-number">6.1.3.</span> <span class="nav-text">6.1.3 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-Multics"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 Multics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-系统调用"><span class="nav-number">6.2.1.</span> <span class="nav-text">6.2.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-进程状态"><span class="nav-number">6.2.2.</span> <span class="nav-text">6.2.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-3-调度"><span class="nav-number">6.2.3.</span> <span class="nav-text">6.2.3 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-RT-11"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 RT-11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-系统调用"><span class="nav-number">6.3.1.</span> <span class="nav-text">6.3.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-进程状态"><span class="nav-number">6.3.2.</span> <span class="nav-text">6.3.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-3-进程表"><span class="nav-number">6.3.3.</span> <span class="nav-text">6.3.3 进程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-4-调度"><span class="nav-number">6.3.4.</span> <span class="nav-text">6.3.4 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-第-6-版-UNIX"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 第 6 版 UNIX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-1-系统调用"><span class="nav-number">6.4.1.</span> <span class="nav-text">6.4.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-2-进程状态"><span class="nav-number">6.4.2.</span> <span class="nav-text">6.4.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-3-进程表"><span class="nav-number">6.4.3.</span> <span class="nav-text">6.4.3 进程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-4-调度"><span class="nav-number">6.4.4.</span> <span class="nav-text">6.4.4 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-4-3-BSD"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 4.3 BSD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-1-系统调用"><span class="nav-number">6.5.1.</span> <span class="nav-text">6.5.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-2-进程状态与进程表"><span class="nav-number">6.5.2.</span> <span class="nav-text">6.5.2 进程状态与进程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-3-调度"><span class="nav-number">6.5.3.</span> <span class="nav-text">6.5.3 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-VMS"><span class="nav-number">6.6.</span> <span class="nav-text">6.6 VMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-1-系统调用"><span class="nav-number">6.6.1.</span> <span class="nav-text">6.6.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-2-进程状态"><span class="nav-number">6.6.2.</span> <span class="nav-text">6.6.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-3-调度"><span class="nav-number">6.6.3.</span> <span class="nav-text">6.6.3 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-Windows-NT"><span class="nav-number">6.7.</span> <span class="nav-text">6.7 Windows NT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-1-系统调用"><span class="nav-number">6.7.1.</span> <span class="nav-text">6.7.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-2-进程状态"><span class="nav-number">6.7.2.</span> <span class="nav-text">6.7.2 进程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-3-进程表与线程表"><span class="nav-number">6.7.3.</span> <span class="nav-text">6.7.3 进程表与线程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-4-调度"><span class="nav-number">6.7.4.</span> <span class="nav-text">6.7.4 调度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-TinyOS"><span class="nav-number">6.8.</span> <span class="nav-text">6.8 TinyOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-Xen"><span class="nav-number">6.9.</span> <span class="nav-text">6.9 Xen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-本章小结"><span class="nav-number">6.10.</span> <span class="nav-text">6.10 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-11-练习"><span class="nav-number">6.11.</span> <span class="nav-text">6.11 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-7-章-Inferno-中的进程管理"><span class="nav-number">7.</span> <span class="nav-text">第 7 章 Inferno 中的进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-Inferno-中的进程"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 Inferno 中的进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-进程的状态"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 进程的状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-内核进程"><span class="nav-number">7.2.1.</span> <span class="nav-text">7.2.1 内核进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-2-用户进程"><span class="nav-number">7.2.2.</span> <span class="nav-text">7.2.2 用户进程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-进程的数据结构"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 进程的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-1-内核进程表"><span class="nav-number">7.3.1.</span> <span class="nav-text">7.3.1 内核进程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-2-内核进程表项"><span class="nav-number">7.3.2.</span> <span class="nav-text">7.3.2 内核进程表项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-3-用户进程表"><span class="nav-number">7.3.3.</span> <span class="nav-text">7.3.3 用户进程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-4-用户进程表项"><span class="nav-number">7.3.4.</span> <span class="nav-text">7.3.4 用户进程表项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-进程的创建"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 进程的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-1-解释进程创建指令"><span class="nav-number">7.4.1.</span> <span class="nav-text">7.4.1 解释进程创建指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-2-实现进程创建"><span class="nav-number">7.4.2.</span> <span class="nav-text">7.4.2 实现进程创建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-进程的终止"><span class="nav-number">7.5.</span> <span class="nav-text">7.5 进程的终止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-进程调度"><span class="nav-number">7.6.</span> <span class="nav-text">7.6 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-1-插入就绪表"><span class="nav-number">7.6.1.</span> <span class="nav-text">7.6.1 插入就绪表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-2-从就绪表中删除"><span class="nav-number">7.6.2.</span> <span class="nav-text">7.6.2 从就绪表中删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-3-分时"><span class="nav-number">7.6.3.</span> <span class="nav-text">7.6.3 分时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-4-运行时间片"><span class="nav-number">7.6.4.</span> <span class="nav-text">7.6.4 运行时间片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-本章小结"><span class="nav-number">7.7.</span> <span class="nav-text">7.7 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-8-练习"><span class="nav-number">7.8.</span> <span class="nav-text">7.8 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-8-章-Linux-中的进程管理"><span class="nav-number">8.</span> <span class="nav-text">第 8 章 Linux 中的进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-进程与线程"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 进程与线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-Linux-中的内核线程"><span class="nav-number">8.1.1.</span> <span class="nav-text">8.1.1 Linux 中的内核线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-2-进程间的关系"><span class="nav-number">8.1.2.</span> <span class="nav-text">8.1.2 进程间的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-系统调用"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 系统调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-进程状态"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 进程状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-进程表"><span class="nav-number">8.4.</span> <span class="nav-text">8.4 进程表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-进程的创建"><span class="nav-number">8.5.</span> <span class="nav-text">8.5 进程的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-1-处理系统调用"><span class="nav-number">8.5.1.</span> <span class="nav-text">8.5.1 处理系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-2-创建进程"><span class="nav-number">8.5.2.</span> <span class="nav-text">8.5.2 创建进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-3-特定体系结构的步骤"><span class="nav-number">8.5.3.</span> <span class="nav-text">8.5.3 特定体系结构的步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-进程调度"><span class="nav-number">8.6.</span> <span class="nav-text">8.6 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-1-优先级"><span class="nav-number">8.6.1.</span> <span class="nav-text">8.6.1 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-2-队列结构"><span class="nav-number">8.6.2.</span> <span class="nav-text">8.6.2 队列结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-3-时钟计时单元"><span class="nav-number">8.6.3.</span> <span class="nav-text">8.6.3 时钟计时单元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-4-调度程序"><span class="nav-number">8.6.4.</span> <span class="nav-text">8.6.4 调度程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-本章小结"><span class="nav-number">8.7.</span> <span class="nav-text">8.7 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">8.8.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-9-章-存储管理原理"><span class="nav-number">9.</span> <span class="nav-text">第 9 章 存储管理原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-存储层次结构"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 存储层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-地址变换"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 地址变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-1-基址-上下界寄存器"><span class="nav-number">9.2.1.</span> <span class="nav-text">9.2.1 基址/上下界寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-2-分段存储"><span class="nav-number">9.2.2.</span> <span class="nav-text">9.2.2 分段存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-3-分页存储"><span class="nav-number">9.2.3.</span> <span class="nav-text">9.2.3 分页存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-存储相关的服务"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 存储相关的服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-存储布局"><span class="nav-number">9.4.</span> <span class="nav-text">9.4 存储布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-内存分配技术"><span class="nav-number">9.5.</span> <span class="nav-text">9.5 内存分配技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-1-空闲空间管理"><span class="nav-number">9.5.1.</span> <span class="nav-text">9.5.1 空闲空间管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-2-碎片"><span class="nav-number">9.5.2.</span> <span class="nav-text">9.5.2 碎片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-3-分区"><span class="nav-number">9.5.3.</span> <span class="nav-text">9.5.3 分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-4-选择策略"><span class="nav-number">9.5.4.</span> <span class="nav-text">9.5.4 选择策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-5-伙伴系统管理"><span class="nav-number">9.5.5.</span> <span class="nav-text">9.5.5 伙伴系统管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-过度分配技术"><span class="nav-number">9.6.</span> <span class="nav-text">9.6 过度分配技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-1-交换"><span class="nav-number">9.6.1.</span> <span class="nav-text">9.6.1 交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-2-段交换"><span class="nav-number">9.6.2.</span> <span class="nav-text">9.6.2 段交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-3-分页"><span class="nav-number">9.6.3.</span> <span class="nav-text">9.6.3 分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-4-段页式"><span class="nav-number">9.6.4.</span> <span class="nav-text">9.6.4 段页式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-5-内存映射文件"><span class="nav-number">9.6.5.</span> <span class="nav-text">9.6.5 内存映射文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-6-写时复制"><span class="nav-number">9.6.6.</span> <span class="nav-text">9.6.6 写时复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-7-性能问题"><span class="nav-number">9.6.7.</span> <span class="nav-text">9.6.7 性能问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-7-嵌入式系统的存储管理"><span class="nav-number">9.7.</span> <span class="nav-text">9.7 嵌入式系统的存储管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-8-本章小结"><span class="nav-number">9.8.</span> <span class="nav-text">9.8 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-1"><span class="nav-number">9.9.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-10-章-存储管理示例"><span class="nav-number">10.</span> <span class="nav-text">第 10 章 存储管理示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-CTSS"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 CTSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-Multics"><span class="nav-number">10.2.</span> <span class="nav-text">10.2 Multics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-1-存储相关的系统调用"><span class="nav-number">10.2.1.</span> <span class="nav-text">10.2.1 存储相关的系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-2-存储布局"><span class="nav-number">10.2.2.</span> <span class="nav-text">10.2.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-3-段式管理与页式管理"><span class="nav-number">10.2.3.</span> <span class="nav-text">10.2.3 段式管理与页式管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-RT-11"><span class="nav-number">10.3.</span> <span class="nav-text">10.3 RT-11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-1-存储相关的系统调用"><span class="nav-number">10.3.1.</span> <span class="nav-text">10.3.1 存储相关的系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-2-存储布局"><span class="nav-number">10.3.2.</span> <span class="nav-text">10.3.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-3-USR-与-KMON-交换"><span class="nav-number">10.3.3.</span> <span class="nav-text">10.3.3 USR 与 KMON 交换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-第-6-版-UNIX"><span class="nav-number">10.4.</span> <span class="nav-text">10.4 第 6 版 UNIX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-1-存储相关的系统调用"><span class="nav-number">10.4.1.</span> <span class="nav-text">10.4.1 存储相关的系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-2-存储布局"><span class="nav-number">10.4.2.</span> <span class="nav-text">10.4.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-3-空闲空间管理"><span class="nav-number">10.4.3.</span> <span class="nav-text">10.4.3 空闲空间管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-4-分配"><span class="nav-number">10.4.4.</span> <span class="nav-text">10.4.4 分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-5-交换"><span class="nav-number">10.4.5.</span> <span class="nav-text">10.4.5 交换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-5-4-3-BSD"><span class="nav-number">10.5.</span> <span class="nav-text">10.5 4.3 BSD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-1-存储相关的系统调用"><span class="nav-number">10.5.1.</span> <span class="nav-text">10.5.1 存储相关的系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-2-存储布局"><span class="nav-number">10.5.2.</span> <span class="nav-text">10.5.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-3-空闲空间管理"><span class="nav-number">10.5.3.</span> <span class="nav-text">10.5.3 空闲空间管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-4-交换与页替换"><span class="nav-number">10.5.4.</span> <span class="nav-text">10.5.4 交换与页替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-6-VMS"><span class="nav-number">10.6.</span> <span class="nav-text">10.6 VMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-1-页表"><span class="nav-number">10.6.1.</span> <span class="nav-text">10.6.1 页表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-2-存储布局"><span class="nav-number">10.6.2.</span> <span class="nav-text">10.6.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-3-空闲空间管理"><span class="nav-number">10.6.3.</span> <span class="nav-text">10.6.3 空闲空间管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-4-交换与页替换"><span class="nav-number">10.6.4.</span> <span class="nav-text">10.6.4 交换与页替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-5-存储相关的系统调用"><span class="nav-number">10.6.5.</span> <span class="nav-text">10.6.5 存储相关的系统调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-7-Windows-NT"><span class="nav-number">10.7.</span> <span class="nav-text">10.7 Windows NT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-1-系统调用"><span class="nav-number">10.7.1.</span> <span class="nav-text">10.7.1 系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-2-存储布局"><span class="nav-number">10.7.2.</span> <span class="nav-text">10.7.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-3-页式管理"><span class="nav-number">10.7.3.</span> <span class="nav-text">10.7.3 页式管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-8-TinyOS"><span class="nav-number">10.8.</span> <span class="nav-text">10.8 TinyOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-9-Xen"><span class="nav-number">10.9.</span> <span class="nav-text">10.9 Xen</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-9-1-超级调用"><span class="nav-number">10.9.1.</span> <span class="nav-text">10.9.1 超级调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-9-2-存储布局"><span class="nav-number">10.9.2.</span> <span class="nav-text">10.9.2 存储布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-9-3-页式管理"><span class="nav-number">10.9.3.</span> <span class="nav-text">10.9.3 页式管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-10-本章小结"><span class="nav-number">10.10.</span> <span class="nav-text">10.10 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-2"><span class="nav-number">10.11.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-11-章-Inferno-中的存储管理"><span class="nav-number">11.</span> <span class="nav-text">第 11 章 Inferno 中的存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-概述"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-存储布局"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 存储布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-存储管理的数据结构"><span class="nav-number">11.3.</span> <span class="nav-text">11.3 存储管理的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-1-存储池"><span class="nav-number">11.3.1.</span> <span class="nav-text">11.3.1 存储池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-2-存储块"><span class="nav-number">11.3.2.</span> <span class="nav-text">11.3.2 存储块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-4-存储管理的实现"><span class="nav-number">11.4.</span> <span class="nav-text">11.4 存储管理的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-1-分配内存"><span class="nav-number">11.4.1.</span> <span class="nav-text">11.4.1 分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-2-从树中删除空闲块"><span class="nav-number">11.4.2.</span> <span class="nav-text">11.4.2 从树中删除空闲块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-3-释放内存"><span class="nav-number">11.4.3.</span> <span class="nav-text">11.4.3 释放内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-4-把空闲块插入树中"><span class="nav-number">11.4.4.</span> <span class="nav-text">11.4.4 把空闲块插入树中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-垃圾收集"><span class="nav-number">11.5.</span> <span class="nav-text">11.5 垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-1-堆结构"><span class="nav-number">11.5.1.</span> <span class="nav-text">11.5.1 堆结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-2-引用计数"><span class="nav-number">11.5.2.</span> <span class="nav-text">11.5.2 引用计数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-3-并发垃圾收集器"><span class="nav-number">11.5.3.</span> <span class="nav-text">11.5.3 并发垃圾收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-4-实现并发垃圾收集"><span class="nav-number">11.5.4.</span> <span class="nav-text">11.5.4 实现并发垃圾收集</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-本章小结"><span class="nav-number">11.6.</span> <span class="nav-text">11.6 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-7-练习"><span class="nav-number">11.7.</span> <span class="nav-text">11.7 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-12-章-Linux-中的存储管理"><span class="nav-number">12.</span> <span class="nav-text">第 12 章 Linux 中的存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-1-存储布局"><span class="nav-number">12.1.</span> <span class="nav-text">12.1 存储布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-2-系统调用"><span class="nav-number">12.2.</span> <span class="nav-text">12.2 系统调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-3-分配机制"><span class="nav-number">12.3.</span> <span class="nav-text">12.3 分配机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-3-1-管理区页的分配"><span class="nav-number">12.3.1.</span> <span class="nav-text">12.3.1 管理区页的分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-3-2-slab-分配器"><span class="nav-number">12.3.2.</span> <span class="nav-text">12.3.2 slab 分配器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-3-3-内核的内存分配"><span class="nav-number">12.3.3.</span> <span class="nav-text">12.3.3 内核的内存分配</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-页管理"><span class="nav-number">12.4.</span> <span class="nav-text">12.4 页管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-4-1-页表"><span class="nav-number">12.4.1.</span> <span class="nav-text">12.4.1 页表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-4-2-页替换"><span class="nav-number">12.4.2.</span> <span class="nav-text">12.4.2 页替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-存储管理的数据结构"><span class="nav-number">12.5.</span> <span class="nav-text">12.5 存储管理的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-1-进程分配的表示"><span class="nav-number">12.5.1.</span> <span class="nav-text">12.5.1 进程分配的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-2-虚拟内存区表示"><span class="nav-number">12.5.2.</span> <span class="nav-text">12.5.2 虚拟内存区表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-6-存储管理的实现"><span class="nav-number">12.6.</span> <span class="nav-text">12.6 存储管理的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-1-处理分配系统调用"><span class="nav-number">12.6.1.</span> <span class="nav-text">12.6.1 处理分配系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-2-增加区域"><span class="nav-number">12.6.2.</span> <span class="nav-text">12.6.2 增加区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-3-处理缺页"><span class="nav-number">12.6.3.</span> <span class="nav-text">12.6.3 处理缺页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-4-解决缺页错误"><span class="nav-number">12.6.4.</span> <span class="nav-text">12.6.4 解决缺页错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-5-处理新页面"><span class="nav-number">12.6.5.</span> <span class="nav-text">12.6.5 处理新页面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-7-本章小结"><span class="nav-number">12.7.</span> <span class="nav-text">12.7 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-8-练习"><span class="nav-number">12.8.</span> <span class="nav-text">12.8 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-13-章-I-O-设备管理原理"><span class="nav-number">13.</span> <span class="nav-text">第 13 章 I/O 设备管理原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-I-O-子系统的要素"><span class="nav-number">13.1.</span> <span class="nav-text">13.1 I/O 子系统的要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-I-O-设备的硬件特性"><span class="nav-number">13.2.</span> <span class="nav-text">13.2 I/O 设备的硬件特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#13-2-1-磁盘驱动器"><span class="nav-number">13.2.1.</span> <span class="nav-text">13.2.1 磁盘驱动器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-2-2-串口通信"><span class="nav-number">13.2.2.</span> <span class="nav-text">13.2.2 串口通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-2-3-控制器接口技术"><span class="nav-number">13.2.3.</span> <span class="nav-text">13.2.3 控制器接口技术</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-3-I-O-设备类型"><span class="nav-number">13.3.</span> <span class="nav-text">13.3 I/O 设备类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#13-3-1-通信设备与存储设备"><span class="nav-number">13.3.1.</span> <span class="nav-text">13.3.1 通信设备与存储设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-3-2-流设备与块设备"><span class="nav-number">13.3.2.</span> <span class="nav-text">13.3.2 流设备与块设备</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-4-I-O-子系统设计的目标"><span class="nav-number">13.4.</span> <span class="nav-text">13.4 I/O 子系统设计的目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-5-I-O-设备服务"><span class="nav-number">13.5.</span> <span class="nav-text">13.5 I/O 设备服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-6-设备驱动器的结构"><span class="nav-number">13.6.</span> <span class="nav-text">13.6 设备驱动器的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-7-设备管理技术"><span class="nav-number">13.7.</span> <span class="nav-text">13.7 设备管理技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-1-缓冲区"><span class="nav-number">13.7.1.</span> <span class="nav-text">13.7.1 缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-2-交叉存取"><span class="nav-number">13.7.2.</span> <span class="nav-text">13.7.2 交叉存取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-3-电梯算法"><span class="nav-number">13.7.3.</span> <span class="nav-text">13.7.3 电梯算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-4-RAID"><span class="nav-number">13.7.4.</span> <span class="nav-text">13.7.4 RAID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-5-水位标志"><span class="nav-number">13.7.5.</span> <span class="nav-text">13.7.5 水位标志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-6-人工输入处理"><span class="nav-number">13.7.6.</span> <span class="nav-text">13.7.6 人工输入处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-7-7-伪设备"><span class="nav-number">13.7.7.</span> <span class="nav-text">13.7.7 伪设备</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-8-本章小结"><span class="nav-number">13.8.</span> <span class="nav-text">13.8 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-9-练习"><span class="nav-number">13.9.</span> <span class="nav-text">13.9 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-14-章-I-O-设备管理示例"><span class="nav-number">14.</span> <span class="nav-text">第 14 章 I/O 设备管理示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-1-CTSS"><span class="nav-number">14.1.</span> <span class="nav-text">14.1 CTSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-2-Multics"><span class="nav-number">14.2.</span> <span class="nav-text">14.2 Multics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-3-RT-11"><span class="nav-number">14.3.</span> <span class="nav-text">14.3 RT-11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-第-6-版-UNIX"><span class="nav-number">14.4.</span> <span class="nav-text">14.4 第 6 版 UNIX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-5-4-3-BSD"><span class="nav-number">14.5.</span> <span class="nav-text">14.5 4.3 BSD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-6-VMS"><span class="nav-number">14.6.</span> <span class="nav-text">14.6 VMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-7-Windows-NT"><span class="nav-number">14.7.</span> <span class="nav-text">14.7 Windows NT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-8-TinyOS"><span class="nav-number">14.8.</span> <span class="nav-text">14.8 TinyOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-9-Xen"><span class="nav-number">14.9.</span> <span class="nav-text">14.9 Xen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-10-本章小结"><span class="nav-number">14.10.</span> <span class="nav-text">14.10 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-11-练习"><span class="nav-number">14.11.</span> <span class="nav-text">14.11 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-15-章-Inferno-中的-I-O-设备"><span class="nav-number">15.</span> <span class="nav-text">第 15 章 Inferno 中的 I/O 设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-1-设备驱动程序结构"><span class="nav-number">15.1.</span> <span class="nav-text">15.1 设备驱动程序结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-2-并行端口支持"><span class="nav-number">15.2.</span> <span class="nav-text">15.2 并行端口支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#15-2-1-为写请求服务"><span class="nav-number">15.2.1.</span> <span class="nav-text">15.2.1 为写请求服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-2-2-写入单字节"><span class="nav-number">15.2.2.</span> <span class="nav-text">15.2.2 写入单字节</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-3-键盘支持"><span class="nav-number">15.3.</span> <span class="nav-text">15.3 键盘支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#15-3-1-初始化键盘控制器"><span class="nav-number">15.3.1.</span> <span class="nav-text">15.3.1 初始化键盘控制器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-3-2-处理键盘中断"><span class="nav-number">15.3.2.</span> <span class="nav-text">15.3.2 处理键盘中断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-4-IDE-磁盘支持"><span class="nav-number">15.4.</span> <span class="nav-text">15.4 IDE 磁盘支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#15-4-1-处理-I-O-请求"><span class="nav-number">15.4.1.</span> <span class="nav-text">15.4.1 处理 I/O 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-4-2-初始化-IDE-控制器操作"><span class="nav-number">15.4.2.</span> <span class="nav-text">15.4.2 初始化 IDE 控制器操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-4-3-处理-IDE-控制器中断"><span class="nav-number">15.4.3.</span> <span class="nav-text">15.4.3 处理 IDE 控制器中断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-5-本章小结"><span class="nav-number">15.5.</span> <span class="nav-text">15.5 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-6-练习"><span class="nav-number">15.6.</span> <span class="nav-text">15.6 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-16-章-Linux-中的-I-O-设备"><span class="nav-number">16.</span> <span class="nav-text">第 16 章 Linux 中的 I/O 设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-块请求支持"><span class="nav-number">16.1.</span> <span class="nav-text">16.1 块请求支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-两半中断处理程序结构"><span class="nav-number">16.2.</span> <span class="nav-text">16.2 两半中断处理程序结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-并行端口驱动程序"><span class="nav-number">16.3.</span> <span class="nav-text">16.3 并行端口驱动程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-1-处理系统调用"><span class="nav-number">16.3.1.</span> <span class="nav-text">16.3.1 处理系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-2-选择合适的底层写入"><span class="nav-number">16.3.2.</span> <span class="nav-text">16.3.2 选择合适的底层写入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-3-从缓冲区写入字节"><span class="nav-number">16.3.3.</span> <span class="nav-text">16.3.3 从缓冲区写入字节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-4-配置控制器"><span class="nav-number">16.3.4.</span> <span class="nav-text">16.3.4 配置控制器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-软盘驱动程序"><span class="nav-number">16.4.</span> <span class="nav-text">16.4 软盘驱动程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-1-处理请求"><span class="nav-number">16.4.1.</span> <span class="nav-text">16.4.1 处理请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-2-调度软盘操作"><span class="nav-number">16.4.2.</span> <span class="nav-text">16.4.2 调度软盘操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-3-执行软盘操作"><span class="nav-number">16.4.3.</span> <span class="nav-text">16.4.3 执行软盘操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-4-启动命令"><span class="nav-number">16.4.4.</span> <span class="nav-text">16.4.4 启动命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-5-准备数据传输"><span class="nav-number">16.4.5.</span> <span class="nav-text">16.4.5 准备数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-6-控制器编程"><span class="nav-number">16.4.6.</span> <span class="nav-text">16.4.6 控制器编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-7-处理软盘中断"><span class="nav-number">16.4.7.</span> <span class="nav-text">16.4.7 处理软盘中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-8-完成软盘操作"><span class="nav-number">16.4.8.</span> <span class="nav-text">16.4.8 完成软盘操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本章小结"><span class="nav-number">16.5.</span> <span class="nav-text">本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-3"><span class="nav-number">16.6.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-17-章-文件系统原理"><span class="nav-number">17.</span> <span class="nav-text">第 17 章 文件系统原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#17-1-文件系统服务"><span class="nav-number">17.1.</span> <span class="nav-text">17.1 文件系统服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-1-共享与独占访问"><span class="nav-number">17.1.1.</span> <span class="nav-text">17.1.1 共享与独占访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-2-访问模式"><span class="nav-number">17.1.2.</span> <span class="nav-text">17.1.2 访问模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-3-文件结构"><span class="nav-number">17.1.3.</span> <span class="nav-text">17.1.3 文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-4-元数据"><span class="nav-number">17.1.4.</span> <span class="nav-text">17.1.4 元数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-5-内存映射文件"><span class="nav-number">17.1.5.</span> <span class="nav-text">17.1.5 内存映射文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-2-总体文件系统设计"><span class="nav-number">17.2.</span> <span class="nav-text">17.2 总体文件系统设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-2-1-文件系统形式"><span class="nav-number">17.2.1.</span> <span class="nav-text">17.2.1 文件系统形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-2-2-主要数据结构"><span class="nav-number">17.2.2.</span> <span class="nav-text">17.2.2 主要数据结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-3-名称空间"><span class="nav-number">17.3.</span> <span class="nav-text">17.3 名称空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-1-驱动器指示符"><span class="nav-number">17.3.1.</span> <span class="nav-text">17.3.1 驱动器指示符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-2-账户说明符"><span class="nav-number">17.3.2.</span> <span class="nav-text">17.3.2 账户说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-3-分层命名"><span class="nav-number">17.3.3.</span> <span class="nav-text">17.3.3 分层命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-4-文件扩展名"><span class="nav-number">17.3.4.</span> <span class="nav-text">17.3.4 文件扩展名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-5-文件版本"><span class="nav-number">17.3.5.</span> <span class="nav-text">17.3.5 文件版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-6-特殊文件与目录"><span class="nav-number">17.3.6.</span> <span class="nav-text">17.3.6 特殊文件与目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-7-相对路径名与绝对路径名"><span class="nav-number">17.3.7.</span> <span class="nav-text">17.3.7 相对路径名与绝对路径名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-4-管理存储空间"><span class="nav-number">17.4.</span> <span class="nav-text">17.4 管理存储空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-1-文件系统元数据"><span class="nav-number">17.4.1.</span> <span class="nav-text">17.4.1 文件系统元数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-2-数据单位"><span class="nav-number">17.4.2.</span> <span class="nav-text">17.4.2 数据单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-3-空闲空间管理"><span class="nav-number">17.4.3.</span> <span class="nav-text">17.4.3 空闲空间管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-4-普通文件"><span class="nav-number">17.4.4.</span> <span class="nav-text">17.4.4 普通文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-5-稀疏文件"><span class="nav-number">17.4.5.</span> <span class="nav-text">17.4.5 稀疏文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-6-分支"><span class="nav-number">17.4.6.</span> <span class="nav-text">17.4.6 分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-7-目录"><span class="nav-number">17.4.7.</span> <span class="nav-text">17.4.7 目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-4-8-别名"><span class="nav-number">17.4.8.</span> <span class="nav-text">17.4.8 别名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-5-一致性检测"><span class="nav-number">17.5.</span> <span class="nav-text">17.5 一致性检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-6-日志与日志结构的文件系统"><span class="nav-number">17.6.</span> <span class="nav-text">17.6 日志与日志结构的文件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-7-块高速缓存"><span class="nav-number">17.7.</span> <span class="nav-text">17.7 块高速缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-8-本章小结"><span class="nav-number">17.8.</span> <span class="nav-text">17.8 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-9-练习"><span class="nav-number">17.9.</span> <span class="nav-text">17.9 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-18-章-文件系统示例"><span class="nav-number">18.</span> <span class="nav-text">第 18 章 文件系统示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#18-1-CTSS"><span class="nav-number">18.1.</span> <span class="nav-text">18.1 CTSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#18-1-1-第一个-CTSS-文件系统"><span class="nav-number">18.1.1.</span> <span class="nav-text">18.1.1 第一个 CTSS 文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-1-2-第二个-CTSS-文件系统"><span class="nav-number">18.1.2.</span> <span class="nav-text">18.1.2 第二个 CTSS 文件系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-2-Multics"><span class="nav-number">18.2.</span> <span class="nav-text">18.2 Multics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-3-RT-11"><span class="nav-number">18.3.</span> <span class="nav-text">18.3 RT-11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-4-第-6-版-UNIX"><span class="nav-number">18.4.</span> <span class="nav-text">18.4 第 6 版 UNIX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-5-4-3-BSD"><span class="nav-number">18.5.</span> <span class="nav-text">18.5 4.3 BSD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-6-VMS"><span class="nav-number">18.6.</span> <span class="nav-text">18.6 VMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-7-Windows-NT"><span class="nav-number">18.7.</span> <span class="nav-text">18.7 Windows NT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-8-本章小结"><span class="nav-number">18.8.</span> <span class="nav-text">18.8 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-9-练习"><span class="nav-number">18.9.</span> <span class="nav-text">18.9 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-19-章-Inferno-中的文件系统"><span class="nav-number">19.</span> <span class="nav-text">第 19 章 Inferno 中的文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#19-1-文件服务器的作用"><span class="nav-number">19.1.</span> <span class="nav-text">19.1 文件服务器的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-1-1-Styx-协议"><span class="nav-number">19.2.</span> <span class="nav-text">19.1.1 Styx 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-1-2-内置内核文件系统"><span class="nav-number">19.3.</span> <span class="nav-text">19.1.2 内置内核文件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-1-3-用户空间文件服务器"><span class="nav-number">19.4.</span> <span class="nav-text">19.1.3 用户空间文件服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-2-根设备服务器"><span class="nav-number">19.5.</span> <span class="nav-text">19.2 根设备服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#19-2-1-提供命名服务"><span class="nav-number">19.5.1.</span> <span class="nav-text">19.2.1 提供命名服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-2-2-遍历根服务器树"><span class="nav-number">19.5.2.</span> <span class="nav-text">19.2.2 遍历根服务器树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-2-3-从根服务器读取"><span class="nav-number">19.5.3.</span> <span class="nav-text">19.2.3 从根服务器读取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-3-通用-Styx-消息处理程序"><span class="nav-number">19.6.</span> <span class="nav-text">19.3 通用 Styx 消息处理程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#19-3-1-创建目录项"><span class="nav-number">19.6.1.</span> <span class="nav-text">19.3.1 创建目录项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-3-2-生成命名"><span class="nav-number">19.6.2.</span> <span class="nav-text">19.3.2 生成命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-3-3-遍历目录树"><span class="nav-number">19.6.3.</span> <span class="nav-text">19.3.3 遍历目录树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-4-本地-Inferno-文件系统"><span class="nav-number">19.7.</span> <span class="nav-text">19.4 本地 Inferno 文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-1-初始化"><span class="nav-number">19.7.1.</span> <span class="nav-text">19.4.1 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-2-主服务进程"><span class="nav-number">19.7.2.</span> <span class="nav-text">19.4.2 主服务进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-3-处理-Styx-请求"><span class="nav-number">19.7.3.</span> <span class="nav-text">19.4.3 处理 Styx 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-4-遍历目录树"><span class="nav-number">19.7.4.</span> <span class="nav-text">19.4.4 遍历目录树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-5-搜索目录"><span class="nav-number">19.7.5.</span> <span class="nav-text">19.4.5 搜索目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-6-读文件"><span class="nav-number">19.7.6.</span> <span class="nav-text">19.4.6 读文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-7-磁盘上的数据结构"><span class="nav-number">19.7.7.</span> <span class="nav-text">19.4.7 磁盘上的数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-8-读取目录项"><span class="nav-number">19.7.8.</span> <span class="nav-text">19.4.8 读取目录项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-9-读取文件块"><span class="nav-number">19.7.9.</span> <span class="nav-text">19.4.9 读取文件块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-10-查找文件块"><span class="nav-number">19.7.10.</span> <span class="nav-text">19.4.10 查找文件块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-11-处理间接块"><span class="nav-number">19.7.11.</span> <span class="nav-text">19.4.11 处理间接块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-4-12-从缓冲区高速缓存中获取"><span class="nav-number">19.7.12.</span> <span class="nav-text">19.4.12 从缓冲区高速缓存中获取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-5-本章小结"><span class="nav-number">19.8.</span> <span class="nav-text">19.5 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-6-练习"><span class="nav-number">19.9.</span> <span class="nav-text">19.6 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-20-章-Linux-中的文件系统"><span class="nav-number">20.</span> <span class="nav-text">第 20 章 Linux 中的文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#20-1-虚拟文件系统"><span class="nav-number">20.1.</span> <span class="nav-text">20.1 虚拟文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-1-1-超级块"><span class="nav-number">20.1.1.</span> <span class="nav-text">20.1.1 超级块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-1-2-i-节点"><span class="nav-number">20.1.2.</span> <span class="nav-text">20.1.2 i- 节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-1-3-目录项"><span class="nav-number">20.1.3.</span> <span class="nav-text">20.1.3 目录项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-1-4-文件"><span class="nav-number">20.1.4.</span> <span class="nav-text">20.1.4 文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-2-EXT3-文件系统"><span class="nav-number">20.2.</span> <span class="nav-text">20.2 EXT3 文件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-3-EXT3-的磁盘结构"><span class="nav-number">20.3.</span> <span class="nav-text">20.3 EXT3 的磁盘结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-3-1-EXT3-超级块"><span class="nav-number">20.3.1.</span> <span class="nav-text">20.3.1 EXT3 超级块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-3-2-EXT3-I-节点"><span class="nav-number">20.3.2.</span> <span class="nav-text">20.3.2 EXT3-I 节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-3-3-EXT3-目录项"><span class="nav-number">20.3.3.</span> <span class="nav-text">20.3.3 EXT3 目录项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-4-EXT3-命令查找"><span class="nav-number">20.4.</span> <span class="nav-text">20.4 EXT3 命令查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-1-遍历路径"><span class="nav-number">20.4.1.</span> <span class="nav-text">20.4.1 遍历路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-2-通用目录查找（第一部分）"><span class="nav-number">20.4.2.</span> <span class="nav-text">20.4.2 通用目录查找（第一部分）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-3-通用目录查找（第二部分）"><span class="nav-number">20.4.3.</span> <span class="nav-text">20.4.3 通用目录查找（第二部分）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-4-EXT3-目录查找"><span class="nav-number">20.4.4.</span> <span class="nav-text">20.4.4 EXT3 目录查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-5-EXT3-目录搜索"><span class="nav-number">20.4.5.</span> <span class="nav-text">20.4.5 EXT3 目录搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-4-6-EXT3-目录块搜索"><span class="nav-number">20.4.6.</span> <span class="nav-text">20.4.6 EXT3 目录块搜索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-5-写入文件"><span class="nav-number">20.5.</span> <span class="nav-text">20.5 写入文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-1-Linux-的写入系统调用"><span class="nav-number">20.5.1.</span> <span class="nav-text">20.5.1 Linux 的写入系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-2-写入通用文件"><span class="nav-number">20.5.2.</span> <span class="nav-text">20.5.2 写入通用文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-3-写入-EXT3-文件"><span class="nav-number">20.5.3.</span> <span class="nav-text">20.5.3 写入 EXT3 文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-6-在-EXT3-中定位文件块"><span class="nav-number">20.6.</span> <span class="nav-text">20.6 在 EXT3 中定位文件块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-1-Linux-的写入系统调用-1"><span class="nav-number">20.6.1.</span> <span class="nav-text">20.5.1 Linux 的写入系统调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-2-写入通用文件-1"><span class="nav-number">20.6.2.</span> <span class="nav-text">20.5.2 写入通用文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-5-3-写入-EXT3-文件-1"><span class="nav-number">20.6.3.</span> <span class="nav-text">20.5.3 写入 EXT3 文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-6-在-EXT3-中定位文件块-1"><span class="nav-number">20.7.</span> <span class="nav-text">20.6 在 EXT3 中定位文件块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#20-6-1-标识间接块"><span class="nav-number">20.7.1.</span> <span class="nav-text">20.6.1 标识间接块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-6-2-读取间接块"><span class="nav-number">20.7.2.</span> <span class="nav-text">20.6.2 读取间接块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-7-本章小结"><span class="nav-number">20.8.</span> <span class="nav-text">20.7 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-8-练习"><span class="nav-number">20.9.</span> <span class="nav-text">20.8 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-21-章-操作系统安全原理"><span class="nav-number">21.</span> <span class="nav-text">第 21 章 操作系统安全原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-1-用户认证"><span class="nav-number">21.1.</span> <span class="nav-text">21.1 用户认证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-1-用户名与密码"><span class="nav-number">21.1.1.</span> <span class="nav-text">21.1.1 用户名与密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-2-散列函数加密"><span class="nav-number">21.1.2.</span> <span class="nav-text">21.1.2 散列函数加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-3-回调"><span class="nav-number">21.1.3.</span> <span class="nav-text">21.1.3 回调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-4-挑战-响应认证"><span class="nav-number">21.1.4.</span> <span class="nav-text">21.1.4 挑战/响应认证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-5-一次性密码"><span class="nav-number">21.1.5.</span> <span class="nav-text">21.1.5 一次性密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-1-6-生物认证"><span class="nav-number">21.1.6.</span> <span class="nav-text">21.1.6 生物认证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-2-基本资源保护"><span class="nav-number">21.2.</span> <span class="nav-text">21.2 基本资源保护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-1-特权用户"><span class="nav-number">21.2.1.</span> <span class="nav-text">21.2.1 特权用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-2-访问-CPU-特性"><span class="nav-number">21.2.2.</span> <span class="nav-text">21.2.2 访问 CPU 特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-3-内存访问"><span class="nav-number">21.2.3.</span> <span class="nav-text">21.2.3 内存访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-4-简单的代码保护"><span class="nav-number">21.2.4.</span> <span class="nav-text">21.2.4 简单的代码保护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-5-访问控制列表"><span class="nav-number">21.2.5.</span> <span class="nav-text">21.2.5 访问控制列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-2-6-权能"><span class="nav-number">21.2.6.</span> <span class="nav-text">21.2.6 权能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-3-威胁类型"><span class="nav-number">21.3.</span> <span class="nav-text">21.3 威胁类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-1-中间人攻击"><span class="nav-number">21.3.1.</span> <span class="nav-text">21.3.1 中间人攻击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-2-特洛伊木马"><span class="nav-number">21.3.2.</span> <span class="nav-text">21.3.2 特洛伊木马</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-3-陷阱门"><span class="nav-number">21.3.3.</span> <span class="nav-text">21.3.3 陷阱门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-4-逻辑-时间炸弹"><span class="nav-number">21.3.4.</span> <span class="nav-text">21.3.4 逻辑/时间炸弹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-5-病毒"><span class="nav-number">21.3.5.</span> <span class="nav-text">21.3.5 病毒</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-6-蠕虫"><span class="nav-number">21.3.6.</span> <span class="nav-text">21.3.6 蠕虫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-7-隐蔽通道"><span class="nav-number">21.3.7.</span> <span class="nav-text">21.3.7 隐蔽通道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-3-8-拒绝服务"><span class="nav-number">21.3.8.</span> <span class="nav-text">21.3.8 拒绝服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-4-橙皮书分级"><span class="nav-number">21.4.</span> <span class="nav-text">21.4 橙皮书分级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-4-1-D-组"><span class="nav-number">21.4.1.</span> <span class="nav-text">21.4.1 D 组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-4-2-C-组"><span class="nav-number">21.4.2.</span> <span class="nav-text">21.4.2 C 组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-4-3-B-组"><span class="nav-number">21.4.3.</span> <span class="nav-text">21.4.3 B 组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-4-4-A-组"><span class="nav-number">21.4.4.</span> <span class="nav-text">21.4.4 A 组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-5-加密"><span class="nav-number">21.5.</span> <span class="nav-text">21.5 加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-5-1-对称加密"><span class="nav-number">21.5.1.</span> <span class="nav-text">21.5.1 对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-5-2-公钥加密学"><span class="nav-number">21.5.2.</span> <span class="nav-text">21.5.2 公钥加密学</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-6-Multics-的保护环"><span class="nav-number">21.6.</span> <span class="nav-text">21.6 Multics 的保护环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-7-Inferno-的安全"><span class="nav-number">21.7.</span> <span class="nav-text">21.7 Inferno 的安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-8-Linux-的安全"><span class="nav-number">21.8.</span> <span class="nav-text">21.8 Linux 的安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-9-本章小结"><span class="nav-number">21.9.</span> <span class="nav-text">21.9 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-10-练习"><span class="nav-number">21.10.</span> <span class="nav-text">21.10 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-22-章-分布式系统原理"><span class="nav-number">22.</span> <span class="nav-text">第 22 章 分布式系统原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-1-基本概念"><span class="nav-number">22.1.</span> <span class="nav-text">22.1 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-1-资源共享"><span class="nav-number">22.1.1.</span> <span class="nav-text">22.1.1 资源共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-2-同步操作"><span class="nav-number">22.1.2.</span> <span class="nav-text">22.1.2 同步操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-3-一致性"><span class="nav-number">22.1.3.</span> <span class="nav-text">22.1.3 一致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-4-分布式互斥"><span class="nav-number">22.1.4.</span> <span class="nav-text">22.1.4 分布式互斥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-5-容错"><span class="nav-number">22.1.5.</span> <span class="nav-text">22.1.5 容错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-1-6-自稳定"><span class="nav-number">22.1.6.</span> <span class="nav-text">22.1.6 自稳定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-处理器共享"><span class="nav-number">22.2.</span> <span class="nav-text">22.2 处理器共享</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-1-对称多处理"><span class="nav-number">22.2.1.</span> <span class="nav-text">22.2.1 对称多处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-2-集群"><span class="nav-number">22.2.2.</span> <span class="nav-text">22.2.2 集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-3-网格"><span class="nav-number">22.2.3.</span> <span class="nav-text">22.2.3 网格</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-分布式时钟"><span class="nav-number">22.3.</span> <span class="nav-text">22.3 分布式时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#22-3-1-逻辑时钟"><span class="nav-number">22.3.1.</span> <span class="nav-text">22.3.1 逻辑时钟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-3-2-物理时钟"><span class="nav-number">22.3.2.</span> <span class="nav-text">22.3.2 物理时钟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-4-选举算法"><span class="nav-number">22.4.</span> <span class="nav-text">22.4 选举算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#22-4-1-欺负算法"><span class="nav-number">22.4.1.</span> <span class="nav-text">22.4.1 欺负算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-4-2-环算法"><span class="nav-number">22.4.2.</span> <span class="nav-text">22.4.2 环算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-5-本章小结"><span class="nav-number">22.5.</span> <span class="nav-text">22.5 本章小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-6-练习"><span class="nav-number">22.6.</span> <span class="nav-text">22.6 练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录-A-便于宿主-Inferno"><span class="nav-number">23.</span> <span class="nav-text">附录 A 便于宿主 Inferno</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-1-建立配置"><span class="nav-number">23.1.</span> <span class="nav-text">A.1 建立配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-2-编译器与开发工具"><span class="nav-number">23.2.</span> <span class="nav-text">A.2 编译器与开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-3-PATH-环境变量"><span class="nav-number">23.3.</span> <span class="nav-text">A.3 PATH 环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-4-其他环境变量"><span class="nav-number">23.4.</span> <span class="nav-text">A.4 其他环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-5-编译系统"><span class="nav-number">23.5.</span> <span class="nav-text">A.5 编译系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-6-运行新版本"><span class="nav-number">23.6.</span> <span class="nav-text">A.6 运行新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-7-小结"><span class="nav-number">23.7.</span> <span class="nav-text">A.7 小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录-B-编译本地-Inferno"><span class="nav-number">24.</span> <span class="nav-text">附录 B 编译本地 Inferno</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-1-建立配置"><span class="nav-number">24.1.</span> <span class="nav-text">B.1 建立配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-2-创建工具链"><span class="nav-number">24.2.</span> <span class="nav-text">B.2 创建工具链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-3-创建引导程序代码"><span class="nav-number">24.3.</span> <span class="nav-text">B.3 创建引导程序代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-4-建立内核配置"><span class="nav-number">24.4.</span> <span class="nav-text">B.4 建立内核配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-5-生成加载程序配置"><span class="nav-number">24.5.</span> <span class="nav-text">B.5 生成加载程序配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-6-创建内核镜像"><span class="nav-number">24.6.</span> <span class="nav-text">B.6 创建内核镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-7-生成软盘镜像"><span class="nav-number">24.7.</span> <span class="nav-text">B.7 生成软盘镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-8-运行新内核"><span class="nav-number">24.8.</span> <span class="nav-text">B.8 运行新内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-9-小结"><span class="nav-number">24.9.</span> <span class="nav-text">B.9 小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Arcticfox</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ddb604bcb4fb4d259c017d8452b6d476",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz", "Gqso4MtlbSkab8QQEp2cFX22");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1093 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Eclipse," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逆水行舟" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Windows 环境配置 HOME JAVA_HOME PATH">
+<meta name="keywords" content="Eclipse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse 配置及优化">
+<meta property="og:url" content="http://blog.longgen.me/2014/04/30/12169/index.html">
+<meta property="og:site_name" content="逆水行舟">
+<meta property="og:description" content="Windows 环境配置 HOME JAVA_HOME PATH">
+<meta property="og:updated_time" content="2017-05-28T14:58:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eclipse 配置及优化">
+<meta name="twitter:description" content="Windows 环境配置 HOME JAVA_HOME PATH">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '3S75IDBWI0',
+      apiKey: 'a988f815a9f762629bb4c1c06c948df9',
+      indexName: 'blog_hexo_search_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.longgen.me/2014/04/30/12169/"/>
+
+
+
+
+
+  <title>Eclipse 配置及优化 | 逆水行舟</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e27df63661dd7d99e7c473280f19e32e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逆水行舟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Whatever is worth doing is worth doing well.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.longgen.me/2014/04/30/12169/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Arcticfox">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fox.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆水行舟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Eclipse 配置及优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-30T17:34:25+08:00">
+                2014-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Eclipse/" itemprop="url" rel="index">
+                    <span itemprop="name">Eclipse</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2014/04/30/12169/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/04/30/12169/" class="leancloud_visitors" data-flag-title="Eclipse 配置及优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Windows-环境配置"><a href="#Windows-环境配置" class="headerlink" title="Windows 环境配置"></a>Windows 环境配置</h2><ol>
+<li>HOME</li>
+<li>JAVA_HOME</li>
+<li>PATH</li>
+</ol>
+<a id="more"></a>
+<h2 id="eclipse-插件配置"><a href="#eclipse-插件配置" class="headerlink" title="eclipse 插件配置"></a>eclipse 插件配置</h2><p>安装方式：Help -&gt; Install New Software -&gt; Add -&gt; Archive，或者通过 Help -&gt; Eclipse Marketplace 来安装</p>
+<ol>
+<li>安装 Eclipse Color Theme 插件，配置编辑器样式</li>
+<li>StartExplorer，跨平台的 eclipse 快捷打开文件所在文件夹的插件</li>
+<li>Subversive - SVN Team Provider 插件</li>
+<li>EGit - Git Team Provider 插件，用于 git 管理</li>
+<li>Enide Studio 插件，Node.js，JavaScript 等开发插件</li>
+<li>UML Designer (Eclipse Kepler version) 3.0，UML 设计插件</li>
+</ol>
+<h2 id="eclipse-加速"><a href="#eclipse-加速" class="headerlink" title="eclipse 加速"></a>eclipse 加速</h2><ol>
+<li>validation 中，关闭 build 下的所有校验（可以保留Classpath Dependency Validator），只开启 manual 手工校验</li>
+<li>Plug-in Development &gt; Target Platform &gt; plug-in 中关闭无关或暂且不用的 plug-in</li>
+<li>Preferences &gt; General &gt; Startup and Shutdown 取消无关或暂且不用的 plug-ins</li>
+<li>将 Preferences 中的 Dashboard 调整为不随 eclipse 启动</li>
+</ol>
+<h2 id="编码配置"><a href="#编码配置" class="headerlink" title="编码配置"></a>编码配置</h2><ol>
+<li>Preferences &gt; General &gt; Workspace 中 Text file encoding 改为 UTF-8</li>
+<li>Preferences &gt; General &gt; Content Types 中更改 Text 下的 Java Properties File、Java Source File、Javascript Source File、JSP 为 UTF-8，其余 content types 的编码可以根据需要进行调整</li>
+</ol>
+<h2 id="字体设置"><a href="#字体设置" class="headerlink" title="字体设置"></a>字体设置</h2><ol>
+<li>Preferences &gt; General &gt; Appearance &gt; Colors and Fonts 中 更改 Basic 下的 Text Font，建议字体：Consolas、Courier new、Inconsolata，脚本改为：中欧字符</li>
+</ol>
+<h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><ol>
+<li>Preferences &gt; General &gt; Keys 中 Content Assist 快捷键更改为 alt + /</li>
+</ol>
+<h2 id="标签装饰"><a href="#标签装饰" class="headerlink" title="标签装饰"></a>标签装饰</h2><ol>
+<li>Preferences &gt; General &gt; Appearance &gt; Label Decorations 设置各种标签装饰</li>
+</ol>
+<h2 id="Console-输出"><a href="#Console-输出" class="headerlink" title="Console 输出"></a>Console 输出</h2><ol>
+<li>Preferences &gt; Run/Debug &gt; Console 设置 Console buffer size(characters) 为 800000</li>
+</ol>
+<h2 id="编辑区配置"><a href="#编辑区配置" class="headerlink" title="编辑区配置"></a>编辑区配置</h2><ol>
+<li>Preferences &gt; General &gt; Editors &gt; Text Editors （或者在文件编辑区域左侧边，点击右键），勾选 Show Line Numbers 开启行号显示</li>
+</ol>
+<h2 id="拼写检查"><a href="#拼写检查" class="headerlink" title="拼写检查"></a>拼写检查</h2><ol>
+<li>Preferences &gt; General &gt; Editors &gt; Text Editors &gt; Spelling 中取消勾选 Enable spell checking，关闭拼写检查</li>
+</ol>
+<h2 id="代码风格及代码模板"><a href="#代码风格及代码模板" class="headerlink" title="代码风格及代码模板"></a>代码风格及代码模板</h2><ol>
+<li>Preferences &gt; Java &gt; Code Style &gt; Formatter 中配置 Java 代码风格</li>
+<li>Preferences &gt; Java &gt; Code Style &gt; Code Templates 中勾选 Automatically add comments for new methods and types 开启 comments</li>
+<li>Preferences &gt; Java &gt; Editor &gt; Templates 中配置代码模板</li>
+<li>Preferences &gt; XML &gt; XML Files &gt; Editors 中 Formatting 块中 Line width（行宽） 更改为合适的值，例如：100</li>
+</ol>
+<h2 id="常见警告解决办法"><a href="#常见警告解决办法" class="headerlink" title="常见警告解决办法"></a>常见警告解决办法</h2><ul>
+<li>git 工具未安装：安装 git <a href="http://git-scm.com/" target="_blank" rel="external">http://git-scm.com/</a> 工具，按说明配置 System Settings；或者取消警告消息</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误消息</span></div><div class="line">EGit couldn<span class="string">'t detect the installation path "gitPrefix" of native Git. Hence EGit can'</span>t respect system level Git settings <span class="built_in">which</span> might be configured <span class="keyword">in</span> <span class="variable">$&#123;gitPrefix&#125;</span>/etc/gitconfig under the native Git installation directory. The most important of these settings is core.autocrlf. Git <span class="keyword">for</span> Windows by default sets this parameter to <span class="literal">true</span> <span class="keyword">in</span> this system level configuration. The Git installation location can be configured on the Team &gt; Git &gt; Configuration preference page<span class="string">'s '</span>System Settings<span class="string">' tab. This warning can be switched off on the Team &gt; Git &gt; Confirmations and Warnings preference page.</span></div></pre></td></tr></table></figure>
+<ul>
+<li>HOME 环境变量未设置：设置 HOME 环境变量；或者取消告警消息</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误消息</span></div><div class="line">Warning: The environment variable HOME is not set. The following directory will be used to store the Git</div><div class="line">user global configuration and to define the default location to store repositories: <span class="string">'C:\Documents and Settings\Wizard'</span>. If this is</div><div class="line">not correct please <span class="built_in">set</span> the HOME environment variable and restart Eclipse. Otherwise Git <span class="keyword">for</span> Windows and</div><div class="line">EGit might behave differently since they see different configuration options.</div><div class="line">This warning can be switched off on the Team &gt; Git &gt; Confirmations and Warnings preference page.</div></pre></td></tr></table></figure>
+<ul>
+<li>pom.xml 文件未设置 project.build.sourceEncoding 属性</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误消息</span></div><div class="line">Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 解决办法：在 pom.xml 的 project 节点下增加如下内容 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="常见错误解决办法"><a href="#常见错误解决办法" class="headerlink" title="常见错误解决办法"></a>常见错误解决办法</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.jpg" alt="Arcticfox WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward.jpg" alt="Arcticfox Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Arcticfox
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://blog.longgen.me/2014/04/30/12169/" title="Eclipse 配置及优化">http://blog.longgen.me/2014/04/30/12169/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Eclipse/" rel="tag"># Eclipse</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/30/62995/" rel="next" title="Ubuntu 11.04 下使用 Nexus 搭建 Maven 仓库">
+                <i class="fa fa-chevron-left"></i> Ubuntu 11.04 下使用 Nexus 搭建 Maven 仓库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/05/31/43045/" rel="prev" title="操作系统原理、设计与应用">
+                操作系统原理、设计与应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/fox.jpg"
+               alt="Arcticfox" />
+          <p class="site-author-name" itemprop="name">Arcticfox</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fjarcticfox" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/onelark" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-环境配置"><span class="nav-number">1.</span> <span class="nav-text">Windows 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eclipse-插件配置"><span class="nav-number">2.</span> <span class="nav-text">eclipse 插件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eclipse-加速"><span class="nav-number">3.</span> <span class="nav-text">eclipse 加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码配置"><span class="nav-number">4.</span> <span class="nav-text">编码配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体设置"><span class="nav-number">5.</span> <span class="nav-text">字体设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键设置"><span class="nav-number">6.</span> <span class="nav-text">快捷键设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签装饰"><span class="nav-number">7.</span> <span class="nav-text">标签装饰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Console-输出"><span class="nav-number">8.</span> <span class="nav-text">Console 输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑区配置"><span class="nav-number">9.</span> <span class="nav-text">编辑区配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼写检查"><span class="nav-number">10.</span> <span class="nav-text">拼写检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码风格及代码模板"><span class="nav-number">11.</span> <span class="nav-text">代码风格及代码模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见警告解决办法"><span class="nav-number">12.</span> <span class="nav-text">常见警告解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见错误解决办法"><span class="nav-number">13.</span> <span class="nav-text">常见错误解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Arcticfox</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ddb604bcb4fb4d259c017d8452b6d476",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz", "Gqso4MtlbSkab8QQEp2cFX22");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

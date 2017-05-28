@@ -1,0 +1,1041 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逆水行舟" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第 1 章 概览">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C Primer Plus">
+<meta property="og:url" content="http://blog.longgen.me/2014/06/02/50389/index.html">
+<meta property="og:site_name" content="逆水行舟">
+<meta property="og:description" content="第 1 章 概览">
+<meta property="og:updated_time" content="2017-05-28T15:11:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C Primer Plus">
+<meta name="twitter:description" content="第 1 章 概览">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '3S75IDBWI0',
+      apiKey: 'a988f815a9f762629bb4c1c06c948df9',
+      indexName: 'blog_hexo_search_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.longgen.me/2014/06/02/50389/"/>
+
+
+
+
+
+  <title>C Primer Plus | 逆水行舟</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e27df63661dd7d99e7c473280f19e32e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逆水行舟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Whatever is worth doing is worth doing well.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.longgen.me/2014/06/02/50389/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Arcticfox">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fox.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆水行舟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C Primer Plus</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-02T09:26:15+08:00">
+                2014-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2014/06/02/50389/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/06/02/50389/" class="leancloud_visitors" data-flag-title="C Primer Plus">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第-1-章-概览"><a href="#第-1-章-概览" class="headerlink" title="第 1 章 概览"></a>第 1 章 概览</h2><a id="more"></a>
+<h3 id="1-1-C-语言的起源"><a href="#1-1-C-语言的起源" class="headerlink" title="1.1 C 语言的起源"></a>1.1 C 语言的起源</h3><h3 id="1-2-使用-C-语言的理由"><a href="#1-2-使用-C-语言的理由" class="headerlink" title="1.2 使用 C 语言的理由"></a>1.2 使用 C 语言的理由</h3><h4 id="1-2-1-设计特性"><a href="#1-2-1-设计特性" class="headerlink" title="1.2.1 设计特性"></a>1.2.1 设计特性</h4><h4 id="1-2-2-高效性"><a href="#1-2-2-高效性" class="headerlink" title="1.2.2 高效性"></a>1.2.2 高效性</h4><h4 id="1-2-3-可移植性"><a href="#1-2-3-可移植性" class="headerlink" title="1.2.3 可移植性"></a>1.2.3 可移植性</h4><h4 id="1-2-4-强大的功能和灵活性"><a href="#1-2-4-强大的功能和灵活性" class="headerlink" title="1.2.4 强大的功能和灵活性"></a>1.2.4 强大的功能和灵活性</h4><h4 id="1-2-5-面向编程人员"><a href="#1-2-5-面向编程人员" class="headerlink" title="1.2.5 面向编程人员"></a>1.2.5 面向编程人员</h4><h4 id="1-2-6-缺点"><a href="#1-2-6-缺点" class="headerlink" title="1.2.6 缺点"></a>1.2.6 缺点</h4><h3 id="1-3-C-语言的发展方向"><a href="#1-3-C-语言的发展方向" class="headerlink" title="1.3 C 语言的发展方向"></a>1.3 C 语言的发展方向</h3><h3 id="1-4-计算机工作的基本原理"><a href="#1-4-计算机工作的基本原理" class="headerlink" title="1.4 计算机工作的基本原理"></a>1.4 计算机工作的基本原理</h3><h3 id="1-5-高级计算机语言和编译器"><a href="#1-5-高级计算机语言和编译器" class="headerlink" title="1.5 高级计算机语言和编译器"></a>1.5 高级计算机语言和编译器</h3><h3 id="1-6-使用-C-语言的-7-个步骤"><a href="#1-6-使用-C-语言的-7-个步骤" class="headerlink" title="1.6 使用 C 语言的 7 个步骤"></a>1.6 使用 C 语言的 7 个步骤</h3><h4 id="1-6-1-第-1-步：定义程序目标"><a href="#1-6-1-第-1-步：定义程序目标" class="headerlink" title="1.6.1 第 1 步：定义程序目标"></a>1.6.1 第 1 步：定义程序目标</h4><h4 id="1-6-2-第-2-步：设计程序"><a href="#1-6-2-第-2-步：设计程序" class="headerlink" title="1.6.2 第 2 步：设计程序"></a>1.6.2 第 2 步：设计程序</h4><h4 id="1-6-3-第-3-步-编写代码"><a href="#1-6-3-第-3-步-编写代码" class="headerlink" title="1.6.3 第 3 步 编写代码"></a>1.6.3 第 3 步 编写代码</h4><h4 id="1-6-4-第-4-步：编译"><a href="#1-6-4-第-4-步：编译" class="headerlink" title="1.6.4 第 4 步：编译"></a>1.6.4 第 4 步：编译</h4><h4 id="1-6-5-第-5-步：运行程序"><a href="#1-6-5-第-5-步：运行程序" class="headerlink" title="1.6.5 第 5 步：运行程序"></a>1.6.5 第 5 步：运行程序</h4><h4 id="1-6-6-第-6-步：测试和调试程序"><a href="#1-6-6-第-6-步：测试和调试程序" class="headerlink" title="1.6.6 第 6 步：测试和调试程序"></a>1.6.6 第 6 步：测试和调试程序</h4><h4 id="1-6-7-第-7-步：维护和修改程序"><a href="#1-6-7-第-7-步：维护和修改程序" class="headerlink" title="1.6.7 第 7 步：维护和修改程序"></a>1.6.7 第 7 步：维护和修改程序</h4><h4 id="1-6-8-总结"><a href="#1-6-8-总结" class="headerlink" title="1.6.8 总结"></a>1.6.8 总结</h4><h3 id="1-7-编程机制"><a href="#1-7-编程机制" class="headerlink" title="1.7 编程机制"></a>1.7 编程机制</h3><h4 id="1-7-1-目标代码文件、可执行文件和库"><a href="#1-7-1-目标代码文件、可执行文件和库" class="headerlink" title="1.7.1 目标代码文件、可执行文件和库"></a>1.7.1 目标代码文件、可执行文件和库</h4><h4 id="1-7-2-UNIX-系统"><a href="#1-7-2-UNIX-系统" class="headerlink" title="1.7.2 UNIX 系统"></a>1.7.2 UNIX 系统</h4><h4 id="1-7-3-Linux-系统"><a href="#1-7-3-Linux-系统" class="headerlink" title="1.7.3 Linux 系统"></a>1.7.3 Linux 系统</h4><h4 id="1-7-4-集成开发环境（Windows-系统下）"><a href="#1-7-4-集成开发环境（Windows-系统下）" class="headerlink" title="1.7.4 集成开发环境（Windows 系统下）"></a>1.7.4 集成开发环境（Windows 系统下）</h4><h4 id="1-7-5-IBM-PC-的-DOS-编译器"><a href="#1-7-5-IBM-PC-的-DOS-编译器" class="headerlink" title="1.7.5 IBM PC 的 DOS 编译器"></a>1.7.5 IBM PC 的 DOS 编译器</h4><h4 id="1-7-6-Macintosh-上的-C"><a href="#1-7-6-Macintosh-上的-C" class="headerlink" title="1.7.6 Macintosh 上的 C"></a>1.7.6 Macintosh 上的 C</h4><h3 id="1-8-语言标准"><a href="#1-8-语言标准" class="headerlink" title="1.8 语言标准"></a>1.8 语言标准</h3><h4 id="1-8-1-第-1-个-ANSI-ISO-C-标准"><a href="#1-8-1-第-1-个-ANSI-ISO-C-标准" class="headerlink" title="1.8.1 第 1 个 ANSI/ISO C 标准"></a>1.8.1 第 1 个 ANSI/ISO C 标准</h4><h4 id="1-8-2-C99-标准"><a href="#1-8-2-C99-标准" class="headerlink" title="1.8.2 C99 标准"></a>1.8.2 C99 标准</h4><h3 id="1-9-本书的组织结构"><a href="#1-9-本书的组织结构" class="headerlink" title="1.9 本书的组织结构"></a>1.9 本书的组织结构</h3><h3 id="1-10-本书体例"><a href="#1-10-本书体例" class="headerlink" title="1.10 本书体例"></a>1.10 本书体例</h3><h4 id="1-10-1-字体"><a href="#1-10-1-字体" class="headerlink" title="1.10.1 字体"></a>1.10.1 字体</h4><h4 id="1-10-2-屏幕输出"><a href="#1-10-2-屏幕输出" class="headerlink" title="1.10.2 屏幕输出"></a>1.10.2 屏幕输出</h4><h3 id="1-11-总结"><a href="#1-11-总结" class="headerlink" title="1.11 总结"></a>1.11 总结</h3><h3 id="1-12-复习题"><a href="#1-12-复习题" class="headerlink" title="1.12 复习题"></a>1.12 复习题</h3><h3 id="1-13-编程练习"><a href="#1-13-编程练习" class="headerlink" title="1.13 编程练习"></a>1.13 编程练习</h3><h2 id="第-2-章-C-语言概述"><a href="#第-2-章-C-语言概述" class="headerlink" title="第 2 章 C 语言概述"></a>第 2 章 C 语言概述</h2><h3 id="2-1-C-语言的一个简单实例"><a href="#2-1-C-语言的一个简单实例" class="headerlink" title="2.1 C 语言的一个简单实例"></a>2.1 C 语言的一个简单实例</h3><h3 id="2-2-实例说明"><a href="#2-2-实例说明" class="headerlink" title="2.2 实例说明"></a>2.2 实例说明</h3><h4 id="2-2-1-第一遍-快速简介"><a href="#2-2-1-第一遍-快速简介" class="headerlink" title="2.2.1 第一遍 快速简介"></a>2.2.1 第一遍 快速简介</h4><h4 id="2-2-2-第二遍-程序细节"><a href="#2-2-2-第二遍-程序细节" class="headerlink" title="2.2.2 第二遍 程序细节"></a>2.2.2 第二遍 程序细节</h4><h3 id="2-3-一个简单程序的结构"><a href="#2-3-一个简单程序的结构" class="headerlink" title="2.3 一个简单程序的结构"></a>2.3 一个简单程序的结构</h3><h3 id="2-4-使程序可读的技巧"><a href="#2-4-使程序可读的技巧" class="headerlink" title="2.4 使程序可读的技巧"></a>2.4 使程序可读的技巧</h3><h3 id="2-5-更进一步"><a href="#2-5-更进一步" class="headerlink" title="2.5 更进一步"></a>2.5 更进一步</h3><h4 id="2-5-1-说明"><a href="#2-5-1-说明" class="headerlink" title="2.5.1 说明"></a>2.5.1 说明</h4><h4 id="2-5-2-多个声明"><a href="#2-5-2-多个声明" class="headerlink" title="2.5.2 多个声明"></a>2.5.2 多个声明</h4><h4 id="2-5-3-乘法"><a href="#2-5-3-乘法" class="headerlink" title="2.5.3 乘法"></a>2.5.3 乘法</h4><h4 id="2-5-4-输出多个值"><a href="#2-5-4-输出多个值" class="headerlink" title="2.5.4 输出多个值"></a>2.5.4 输出多个值</h4><h3 id="2-6-多个函数"><a href="#2-6-多个函数" class="headerlink" title="2.6 多个函数"></a>2.6 多个函数</h3><h3 id="2-7-调试"><a href="#2-7-调试" class="headerlink" title="2.7 调试"></a>2.7 调试</h3><h4 id="2-7-1-语法错误"><a href="#2-7-1-语法错误" class="headerlink" title="2.7.1 语法错误"></a>2.7.1 语法错误</h4><h4 id="2-7-2-语义错误"><a href="#2-7-2-语义错误" class="headerlink" title="2.7.2 语义错误"></a>2.7.2 语义错误</h4><h4 id="2-7-3-程序状态"><a href="#2-7-3-程序状态" class="headerlink" title="2.7.3 程序状态"></a>2.7.3 程序状态</h4><h3 id="2-8-关键字和保留标示符"><a href="#2-8-关键字和保留标示符" class="headerlink" title="2.8 关键字和保留标示符"></a>2.8 关键字和保留标示符</h3><h3 id="2-9-关键概念"><a href="#2-9-关键概念" class="headerlink" title="2.9 关键概念"></a>2.9 关键概念</h3><h3 id="2-10-总结"><a href="#2-10-总结" class="headerlink" title="2.10 总结"></a>2.10 总结</h3><h3 id="2-11-复习题"><a href="#2-11-复习题" class="headerlink" title="2.11 复习题"></a>2.11 复习题</h3><h3 id="2-12-编程练习"><a href="#2-12-编程练习" class="headerlink" title="2.12 编程练习"></a>2.12 编程练习</h3><h2 id="第-3-章-数据和-C"><a href="#第-3-章-数据和-C" class="headerlink" title="第 3 章 数据和 C"></a>第 3 章 数据和 C</h2><h3 id="3-1-示例程序"><a href="#3-1-示例程序" class="headerlink" title="3.1 示例程序"></a>3.1 示例程序</h3><h3 id="3-2-变量与常量数据"><a href="#3-2-变量与常量数据" class="headerlink" title="3.2 变量与常量数据"></a>3.2 变量与常量数据</h3><h3 id="3-3-数据：数据类型关键字"><a href="#3-3-数据：数据类型关键字" class="headerlink" title="3.3 数据：数据类型关键字"></a>3.3 数据：数据类型关键字</h3><h4 id="3-3-1-整数类型与浮点数类型"><a href="#3-3-1-整数类型与浮点数类型" class="headerlink" title="3.3.1 整数类型与浮点数类型"></a>3.3.1 整数类型与浮点数类型</h4><h4 id="3-3-2-整数"><a href="#3-3-2-整数" class="headerlink" title="3.3.2 整数"></a>3.3.2 整数</h4><h4 id="3-3-3-浮点数"><a href="#3-3-3-浮点数" class="headerlink" title="3.3.3 浮点数"></a>3.3.3 浮点数</h4><h3 id="3-4-C-数据类型"><a href="#3-4-C-数据类型" class="headerlink" title="3.4 C 数据类型"></a>3.4 C 数据类型</h3><h4 id="3-4-1-int-类型"><a href="#3-4-1-int-类型" class="headerlink" title="3.4.1 int 类型"></a>3.4.1 int 类型</h4><h4 id="3-4-2-其他整数类型"><a href="#3-4-2-其他整数类型" class="headerlink" title="3.4.2 其他整数类型"></a>3.4.2 其他整数类型</h4><h4 id="3-4-3-使用字符：char-类型"><a href="#3-4-3-使用字符：char-类型" class="headerlink" title="3.4.3 使用字符：char 类型"></a>3.4.3 使用字符：char 类型</h4><h4 id="3-4-4-Bool-类型"><a href="#3-4-4-Bool-类型" class="headerlink" title="3.4.4 _Bool 类型"></a>3.4.4 _Bool 类型</h4><h4 id="3-4-5-可移植的类型：inttypes-h"><a href="#3-4-5-可移植的类型：inttypes-h" class="headerlink" title="3.4.5 可移植的类型：inttypes.h"></a>3.4.5 可移植的类型：inttypes.h</h4><h4 id="3-4-6-float、double-和-long-double-类型"><a href="#3-4-6-float、double-和-long-double-类型" class="headerlink" title="3.4.6 float、double 和 long double 类型"></a>3.4.6 float、double 和 long double 类型</h4><h4 id="3-4-7-复数和虚数类型"><a href="#3-4-7-复数和虚数类型" class="headerlink" title="3.4.7 复数和虚数类型"></a>3.4.7 复数和虚数类型</h4><h4 id="3-4-8-其他类型"><a href="#3-4-8-其他类型" class="headerlink" title="3.4.8 其他类型"></a>3.4.8 其他类型</h4><h4 id="3-4-9-类型大小"><a href="#3-4-9-类型大小" class="headerlink" title="3.4.9 类型大小"></a>3.4.9 类型大小</h4><h3 id="3-5-使用数据类型"><a href="#3-5-使用数据类型" class="headerlink" title="3.5 使用数据类型"></a>3.5 使用数据类型</h3><h3 id="3-6-参数和易犯的错误"><a href="#3-6-参数和易犯的错误" class="headerlink" title="3.6 参数和易犯的错误"></a>3.6 参数和易犯的错误</h3><h3 id="3-7-另一个例子：转义序列"><a href="#3-7-另一个例子：转义序列" class="headerlink" title="3.7 另一个例子：转义序列"></a>3.7 另一个例子：转义序列</h3><h4 id="3-7-1-过程分析"><a href="#3-7-1-过程分析" class="headerlink" title="3.7.1 过程分析"></a>3.7.1 过程分析</h4><h4 id="3-7-2-刷新输出"><a href="#3-7-2-刷新输出" class="headerlink" title="3.7.2 刷新输出"></a>3.7.2 刷新输出</h4><h3 id="3-8-关键概念"><a href="#3-8-关键概念" class="headerlink" title="3.8 关键概念"></a>3.8 关键概念</h3><h3 id="3-9-总结"><a href="#3-9-总结" class="headerlink" title="3.9 总结"></a>3.9 总结</h3><h3 id="3-10-复习题"><a href="#3-10-复习题" class="headerlink" title="3.10 复习题"></a>3.10 复习题</h3><h3 id="3-11-编程练习"><a href="#3-11-编程练习" class="headerlink" title="3.11 编程练习"></a>3.11 编程练习</h3><h2 id="第-4-章-字符串和格式化输入-输出"><a href="#第-4-章-字符串和格式化输入-输出" class="headerlink" title="第 4 章 字符串和格式化输入/输出"></a>第 4 章 字符串和格式化输入/输出</h2><h3 id="4-1-前导程序"><a href="#4-1-前导程序" class="headerlink" title="4.1 前导程序"></a>4.1 前导程序</h3><h3 id="4-2-字符串简介"><a href="#4-2-字符串简介" class="headerlink" title="4.2 字符串简介"></a>4.2 字符串简介</h3><h4 id="4-2-1-char-数组类型和空字符"><a href="#4-2-1-char-数组类型和空字符" class="headerlink" title="4.2.1 char 数组类型和空字符"></a>4.2.1 char 数组类型和空字符</h4><h4 id="4-2-2-使用字符串"><a href="#4-2-2-使用字符串" class="headerlink" title="4.2.2 使用字符串"></a>4.2.2 使用字符串</h4><h4 id="4-2-3-strlen-函数"><a href="#4-2-3-strlen-函数" class="headerlink" title="4.2.3 strlen() 函数"></a>4.2.3 strlen() 函数</h4><h3 id="4-3-常量和-C-预处理器"><a href="#4-3-常量和-C-预处理器" class="headerlink" title="4.3 常量和 C 预处理器"></a>4.3 常量和 C 预处理器</h3><h4 id="4-3-1-const-修饰符"><a href="#4-3-1-const-修饰符" class="headerlink" title="4.3.1 const 修饰符"></a>4.3.1 const 修饰符</h4><h4 id="4-3-2-系统定义的明显常量"><a href="#4-3-2-系统定义的明显常量" class="headerlink" title="4.3.2 系统定义的明显常量"></a>4.3.2 系统定义的明显常量</h4><h3 id="4-4-研究和利用-printf-和-scanf"><a href="#4-4-研究和利用-printf-和-scanf" class="headerlink" title="4.4 研究和利用 printf() 和 scanf()"></a>4.4 研究和利用 printf() 和 scanf()</h3><h4 id="4-4-1-printf-函数"><a href="#4-4-1-printf-函数" class="headerlink" title="4.4.1 printf() 函数"></a>4.4.1 printf() 函数</h4><h4 id="4-4-2-使用-printf"><a href="#4-4-2-使用-printf" class="headerlink" title="4.4.2 使用 printf()"></a>4.4.2 使用 printf()</h4><h4 id="4-4-3-printf-的转换说明修饰符"><a href="#4-4-3-printf-的转换说明修饰符" class="headerlink" title="4.4.3 printf() 的转换说明修饰符"></a>4.4.3 printf() 的转换说明修饰符</h4><h4 id="4-4-4-转换说明的意义"><a href="#4-4-4-转换说明的意义" class="headerlink" title="4.4.4 转换说明的意义"></a>4.4.4 转换说明的意义</h4><h4 id="4-4-5-使用-scanf"><a href="#4-4-5-使用-scanf" class="headerlink" title="4.4.5 使用 scanf()"></a>4.4.5 使用 scanf()</h4><h4 id="4-4-6-printf-和-scanf-的-修饰符"><a href="#4-4-6-printf-和-scanf-的-修饰符" class="headerlink" title="4.4.6 printf() 和 scanf() 的 * 修饰符"></a>4.4.6 printf() 和 scanf() 的 * 修饰符</h4><h4 id="4-4-7-printf-的用法提示"><a href="#4-4-7-printf-的用法提示" class="headerlink" title="4.4.7 printf 的用法提示"></a>4.4.7 printf 的用法提示</h4><h3 id="4-5-关键概念"><a href="#4-5-关键概念" class="headerlink" title="4.5 关键概念"></a>4.5 关键概念</h3><h3 id="4-6-总结"><a href="#4-6-总结" class="headerlink" title="4.6 总结"></a>4.6 总结</h3><h3 id="4-7-复习题"><a href="#4-7-复习题" class="headerlink" title="4.7 复习题"></a>4.7 复习题</h3><h3 id="4-8-编程练习"><a href="#4-8-编程练习" class="headerlink" title="4.8 编程练习"></a>4.8 编程练习</h3><h2 id="第-5-章-运算符、表达式和语句"><a href="#第-5-章-运算符、表达式和语句" class="headerlink" title="第 5 章 运算符、表达式和语句"></a>第 5 章 运算符、表达式和语句</h2><h3 id="5-1-循环简介"><a href="#5-1-循环简介" class="headerlink" title="5.1 循环简介"></a>5.1 循环简介</h3><h3 id="5-2-基本运算符"><a href="#5-2-基本运算符" class="headerlink" title="5.2 基本运算符"></a>5.2 基本运算符</h3><h4 id="5-2-1-赋值运算符："><a href="#5-2-1-赋值运算符：" class="headerlink" title="5.2.1 赋值运算符：="></a>5.2.1 赋值运算符：=</h4><h4 id="5-2-2-加法运算符："><a href="#5-2-2-加法运算符：" class="headerlink" title="5.2.2 加法运算符：+"></a>5.2.2 加法运算符：+</h4><h4 id="5-2-3-减法运算符："><a href="#5-2-3-减法运算符：" class="headerlink" title="5.2.3 减法运算符：-"></a>5.2.3 减法运算符：-</h4><h4 id="5-2-4-符号运算符：-和"><a href="#5-2-4-符号运算符：-和" class="headerlink" title="5.2.4 符号运算符：- 和 +"></a>5.2.4 符号运算符：- 和 +</h4><h4 id="5-2-5-乘法运算符："><a href="#5-2-5-乘法运算符：" class="headerlink" title="5.2.5 乘法运算符：*"></a>5.2.5 乘法运算符：*</h4><h4 id="5-2-6-除法运算符："><a href="#5-2-6-除法运算符：" class="headerlink" title="5.2.6 除法运算符：/"></a>5.2.6 除法运算符：/</h4><h4 id="5-2-7-运算符的优先级"><a href="#5-2-7-运算符的优先级" class="headerlink" title="5.2.7 运算符的优先级"></a>5.2.7 运算符的优先级</h4><h4 id="5-2-8-优先级和求值顺序"><a href="#5-2-8-优先级和求值顺序" class="headerlink" title="5.2.8 优先级和求值顺序"></a>5.2.8 优先级和求值顺序</h4><h3 id="5-3-其他运算符"><a href="#5-3-其他运算符" class="headerlink" title="5.3 其他运算符"></a>5.3 其他运算符</h3><h4 id="5-3-1-sizeof-运算符和-size-t-类型"><a href="#5-3-1-sizeof-运算符和-size-t-类型" class="headerlink" title="5.3.1 sizeof 运算符和 size_t 类型"></a>5.3.1 sizeof 运算符和 size_t 类型</h4><h4 id="5-3-2-取模运算符："><a href="#5-3-2-取模运算符：" class="headerlink" title="5.3.2 取模运算符：%"></a>5.3.2 取模运算符：%</h4><h4 id="5-3-3-增量和减量运算符：-和-–"><a href="#5-3-3-增量和减量运算符：-和-–" class="headerlink" title="5.3.3 增量和减量运算符：++ 和 –"></a>5.3.3 增量和减量运算符：++ 和 –</h4><h4 id="5-3-4-减量：–"><a href="#5-3-4-减量：–" class="headerlink" title="5.3.4 减量：–"></a>5.3.4 减量：–</h4><h4 id="5-3-5-优先级"><a href="#5-3-5-优先级" class="headerlink" title="5.3.5 优先级"></a>5.3.5 优先级</h4><h4 id="5-3-6-不要太聪明"><a href="#5-3-6-不要太聪明" class="headerlink" title="5.3.6 不要太聪明"></a>5.3.6 不要太聪明</h4><h3 id="5-4-表达式和语句"><a href="#5-4-表达式和语句" class="headerlink" title="5.4 表达式和语句"></a>5.4 表达式和语句</h3><h3 id="5-4-1-表达式"><a href="#5-4-1-表达式" class="headerlink" title="5.4.1 表达式"></a>5.4.1 表达式</h3><h3 id="5-4-2-语句"><a href="#5-4-2-语句" class="headerlink" title="5.4.2 语句"></a>5.4.2 语句</h3><h3 id="5-4-3-符合语句（代码块）"><a href="#5-4-3-符合语句（代码块）" class="headerlink" title="5.4.3 符合语句（代码块）"></a>5.4.3 符合语句（代码块）</h3><h3 id="5-5-类型转换"><a href="#5-5-类型转换" class="headerlink" title="5.5 类型转换"></a>5.5 类型转换</h3><h3 id="5-6-带有参数的函数"><a href="#5-6-带有参数的函数" class="headerlink" title="5.6 带有参数的函数"></a>5.6 带有参数的函数</h3><h3 id="5-7-一个示例程序"><a href="#5-7-一个示例程序" class="headerlink" title="5.7 一个示例程序"></a>5.7 一个示例程序</h3><h3 id="5-8-关键概念"><a href="#5-8-关键概念" class="headerlink" title="5.8 关键概念"></a>5.8 关键概念</h3><h3 id="5-9-总结"><a href="#5-9-总结" class="headerlink" title="5.9 总结"></a>5.9 总结</h3><h3 id="5-10-复习题"><a href="#5-10-复习题" class="headerlink" title="5.10 复习题"></a>5.10 复习题</h3><h3 id="5-11-编程练习"><a href="#5-11-编程练习" class="headerlink" title="5.11 编程练习"></a>5.11 编程练习</h3><h2 id="第-6-章-C-控制语句：循环"><a href="#第-6-章-C-控制语句：循环" class="headerlink" title="第 6 章 C 控制语句：循环"></a>第 6 章 C 控制语句：循环</h2><h3 id="6-1-再探-while-循环"><a href="#6-1-再探-while-循环" class="headerlink" title="6.1 再探 while 循环"></a>6.1 再探 while 循环</h3><h4 id="6-1-1-程序注解"><a href="#6-1-1-程序注解" class="headerlink" title="6.1.1 程序注解"></a>6.1.1 程序注解</h4><h4 id="6-1-2-C-风格的读循环"><a href="#6-1-2-C-风格的读循环" class="headerlink" title="6.1.2 C 风格的读循环"></a>6.1.2 C 风格的读循环</h4><h3 id="6-2-while-语句"><a href="#6-2-while-语句" class="headerlink" title="6.2 while 语句"></a>6.2 while 语句</h3><h4 id="6-2-1-终止-while-循环"><a href="#6-2-1-终止-while-循环" class="headerlink" title="6.2.1 终止 while 循环"></a>6.2.1 终止 while 循环</h4><h4 id="6-2-2-循环何时终止"><a href="#6-2-2-循环何时终止" class="headerlink" title="6.2.2 循环何时终止"></a>6.2.2 循环何时终止</h4><h4 id="6-2-3-while：入口条件循环"><a href="#6-2-3-while：入口条件循环" class="headerlink" title="6.2.3 while：入口条件循环"></a>6.2.3 while：入口条件循环</h4><h4 id="6-2-4-语法要点"><a href="#6-2-4-语法要点" class="headerlink" title="6.2.4 语法要点"></a>6.2.4 语法要点</h4><h3 id="6-3-比较大小：使用关系运算符和表达式"><a href="#6-3-比较大小：使用关系运算符和表达式" class="headerlink" title="6.3 比较大小：使用关系运算符和表达式"></a>6.3 比较大小：使用关系运算符和表达式</h3><h4 id="6-3-1-什么是真"><a href="#6-3-1-什么是真" class="headerlink" title="6.3.1 什么是真"></a>6.3.1 什么是真</h4><h4 id="6-3-2-还有什么是真"><a href="#6-3-2-还有什么是真" class="headerlink" title="6.3.2 还有什么是真"></a>6.3.2 还有什么是真</h4><h4 id="6-3-3-真值的问题"><a href="#6-3-3-真值的问题" class="headerlink" title="6.3.3 真值的问题"></a>6.3.3 真值的问题</h4><h4 id="6-3-4-新的-Bool-类型"><a href="#6-3-4-新的-Bool-类型" class="headerlink" title="6.3.4 新的 _Bool 类型"></a>6.3.4 新的 _Bool 类型</h4><h4 id="6-3-5-关系运算符的优先级"><a href="#6-3-5-关系运算符的优先级" class="headerlink" title="6.3.5 关系运算符的优先级"></a>6.3.5 关系运算符的优先级</h4><h3 id="6-4-不确定循环与计数循环"><a href="#6-4-不确定循环与计数循环" class="headerlink" title="6.4 不确定循环与计数循环"></a>6.4 不确定循环与计数循环</h3><h3 id="6-5-for-循环"><a href="#6-5-for-循环" class="headerlink" title="6.5 for 循环"></a>6.5 for 循环</h3><h3 id="6-6-更多赋值运算符：-、-、-、-和"><a href="#6-6-更多赋值运算符：-、-、-、-和" class="headerlink" title="6.6 更多赋值运算符：+=、-=、*=、/= 和 %="></a>6.6 更多赋值运算符：+=、-=、*=、/= 和 %=</h3><h3 id="6-7-逗号运算符"><a href="#6-7-逗号运算符" class="headerlink" title="6.7 逗号运算符"></a>6.7 逗号运算符</h3><h3 id="6-8-退出条件循环：do-while"><a href="#6-8-退出条件循环：do-while" class="headerlink" title="6.8 退出条件循环：do while"></a>6.8 退出条件循环：do while</h3><h3 id="6-9-选择哪种循环"><a href="#6-9-选择哪种循环" class="headerlink" title="6.9 选择哪种循环"></a>6.9 选择哪种循环</h3><h3 id="6-10-嵌套循环"><a href="#6-10-嵌套循环" class="headerlink" title="6.10 嵌套循环"></a>6.10 嵌套循环</h3><h4 id="6-10-1-程序讨论"><a href="#6-10-1-程序讨论" class="headerlink" title="6.10.1 程序讨论"></a>6.10.1 程序讨论</h4><h4 id="6-10-2-嵌套变化"><a href="#6-10-2-嵌套变化" class="headerlink" title="6.10.2 嵌套变化"></a>6.10.2 嵌套变化</h4><h3 id="6-11-数组"><a href="#6-11-数组" class="headerlink" title="6.11 数组"></a>6.11 数组</h3><h3 id="6-12-使用函数返回值的循环例子"><a href="#6-12-使用函数返回值的循环例子" class="headerlink" title="6.12 使用函数返回值的循环例子"></a>6.12 使用函数返回值的循环例子</h3><h4 id="6-12-1-程序讨论"><a href="#6-12-1-程序讨论" class="headerlink" title="6.12.1 程序讨论"></a>6.12.1 程序讨论</h4><h4 id="6-12-2-使用具有返回值的函数"><a href="#6-12-2-使用具有返回值的函数" class="headerlink" title="6.12.2 使用具有返回值的函数"></a>6.12.2 使用具有返回值的函数</h4><h3 id="6-13-关键概念"><a href="#6-13-关键概念" class="headerlink" title="6.13 关键概念"></a>6.13 关键概念</h3><h3 id="6-14-总结"><a href="#6-14-总结" class="headerlink" title="6.14 总结"></a>6.14 总结</h3><h3 id="6-15-复习题"><a href="#6-15-复习题" class="headerlink" title="6.15 复习题"></a>6.15 复习题</h3><h3 id="6-16-编程练习"><a href="#6-16-编程练习" class="headerlink" title="6.16 编程练习"></a>6.16 编程练习</h3><h2 id="第-7-章-C-控制语句：分支和跳转"><a href="#第-7-章-C-控制语句：分支和跳转" class="headerlink" title="第 7 章 C 控制语句：分支和跳转"></a>第 7 章 C 控制语句：分支和跳转</h2><h3 id="7-1-if-语句"><a href="#7-1-if-语句" class="headerlink" title="7.1 if 语句"></a>7.1 if 语句</h3><h3 id="7-2-在-if-语句中添加-else-关键字"><a href="#7-2-在-if-语句中添加-else-关键字" class="headerlink" title="7.2 在 if 语句中添加 else 关键字"></a>7.2 在 if 语句中添加 else 关键字</h3><h4 id="7-2-1-另一个例子：介绍-getchar-和-putchar"><a href="#7-2-1-另一个例子：介绍-getchar-和-putchar" class="headerlink" title="7.2.1 另一个例子：介绍 getchar() 和 putchar()"></a>7.2.1 另一个例子：介绍 getchar() 和 putchar()</h4><h4 id="7-2-2-ctype-h-系列字符函数"><a href="#7-2-2-ctype-h-系列字符函数" class="headerlink" title="7.2.2 ctype.h 系列字符函数"></a>7.2.2 ctype.h 系列字符函数</h4><h4 id="7-2-3-多重选择-else-if"><a href="#7-2-3-多重选择-else-if" class="headerlink" title="7.2.3 多重选择 else if"></a>7.2.3 多重选择 else if</h4><h4 id="7-2-4-把-else-与-if-配对"><a href="#7-2-4-把-else-与-if-配对" class="headerlink" title="7.2.4 把 else 与 if 配对"></a>7.2.4 把 else 与 if 配对</h4><h4 id="7-2-5-多层嵌套的-if"><a href="#7-2-5-多层嵌套的-if" class="headerlink" title="7.2.5 多层嵌套的 if"></a>7.2.5 多层嵌套的 if</h4><h3 id="7-3-获得逻辑性"><a href="#7-3-获得逻辑性" class="headerlink" title="7.3 获得逻辑性"></a>7.3 获得逻辑性</h3><h4 id="7-3-1-改变拼写法：iso646-h-头文件"><a href="#7-3-1-改变拼写法：iso646-h-头文件" class="headerlink" title="7.3.1 改变拼写法：iso646.h 头文件"></a>7.3.1 改变拼写法：iso646.h 头文件</h4><h4 id="7-3-2-优先级"><a href="#7-3-2-优先级" class="headerlink" title="7.3.2 优先级"></a>7.3.2 优先级</h4><h4 id="7-3-3-求值的顺序"><a href="#7-3-3-求值的顺序" class="headerlink" title="7.3.3 求值的顺序"></a>7.3.3 求值的顺序</h4><h4 id="7-3-4-范围"><a href="#7-3-4-范围" class="headerlink" title="7.3.4 范围"></a>7.3.4 范围</h4><h3 id="7-4-一个统计字数的程序"><a href="#7-4-一个统计字数的程序" class="headerlink" title="7.4 一个统计字数的程序"></a>7.4 一个统计字数的程序</h3><h3 id="7-5-条件运算符"><a href="#7-5-条件运算符" class="headerlink" title="7.5 条件运算符 ?:"></a>7.5 条件运算符 ?:</h3><h3 id="7-6-循环辅助手段：continue-和-break"><a href="#7-6-循环辅助手段：continue-和-break" class="headerlink" title="7.6 循环辅助手段：continue 和 break"></a>7.6 循环辅助手段：continue 和 break</h3><h4 id="7-6-1-continue-语句"><a href="#7-6-1-continue-语句" class="headerlink" title="7.6.1 continue 语句"></a>7.6.1 continue 语句</h4><h4 id="7-6-2-break-语句"><a href="#7-6-2-break-语句" class="headerlink" title="7.6.2 break 语句"></a>7.6.2 break 语句</h4><h3 id="7-7-多重选择：switch-和-break"><a href="#7-7-多重选择：switch-和-break" class="headerlink" title="7.7 多重选择：switch 和 break"></a>7.7 多重选择：switch 和 break</h3><h4 id="7-7-1-使用-switch-语句"><a href="#7-7-1-使用-switch-语句" class="headerlink" title="7.7.1 使用 switch 语句"></a>7.7.1 使用 switch 语句</h4><h4 id="7-7-2-只读取一行的首字符"><a href="#7-7-2-只读取一行的首字符" class="headerlink" title="7.7.2 只读取一行的首字符"></a>7.7.2 只读取一行的首字符</h4><h4 id="7-7-3-多重标签"><a href="#7-7-3-多重标签" class="headerlink" title="7.7.3 多重标签"></a>7.7.3 多重标签</h4><h4 id="7-7-4-switch-和-if-else"><a href="#7-7-4-switch-和-if-else" class="headerlink" title="7.7.4 switch 和 if else"></a>7.7.4 switch 和 if else</h4><h3 id="7-8-goto-语句"><a href="#7-8-goto-语句" class="headerlink" title="7.8 goto 语句"></a>7.8 goto 语句</h3><h3 id="7-9-关键概念"><a href="#7-9-关键概念" class="headerlink" title="7.9 关键概念"></a>7.9 关键概念</h3><h3 id="7-10-总结"><a href="#7-10-总结" class="headerlink" title="7.10 总结"></a>7.10 总结</h3><h3 id="7-11-复习题"><a href="#7-11-复习题" class="headerlink" title="7.11 复习题"></a>7.11 复习题</h3><h3 id="7-12-编程练习"><a href="#7-12-编程练习" class="headerlink" title="7.12 编程练习"></a>7.12 编程练习</h3><h2 id="第-8-章-字符输入-输出和输入确认"><a href="#第-8-章-字符输入-输出和输入确认" class="headerlink" title="第 8 章 字符输入/输出和输入确认"></a>第 8 章 字符输入/输出和输入确认</h2><h3 id="8-1-单字符-I-O：getchar-和-putchar"><a href="#8-1-单字符-I-O：getchar-和-putchar" class="headerlink" title="8.1 单字符 I/O：getchar() 和 putchar()"></a>8.1 单字符 I/O：getchar() 和 putchar()</h3><h3 id="8-2-缓冲区"><a href="#8-2-缓冲区" class="headerlink" title="8.2 缓冲区"></a>8.2 缓冲区</h3><h3 id="8-3-终止键盘输入"><a href="#8-3-终止键盘输入" class="headerlink" title="8.3 终止键盘输入"></a>8.3 终止键盘输入</h3><h4 id="8-3-1-文件、流和键盘输入"><a href="#8-3-1-文件、流和键盘输入" class="headerlink" title="8.3.1 文件、流和键盘输入"></a>8.3.1 文件、流和键盘输入</h4><h4 id="8-3-2-文件结尾"><a href="#8-3-2-文件结尾" class="headerlink" title="8.3.2 文件结尾"></a>8.3.2 文件结尾</h4><h3 id="8-4-重定向和文件"><a href="#8-4-重定向和文件" class="headerlink" title="8.4 重定向和文件"></a>8.4 重定向和文件</h3><h3 id="8-5-创建一个更友好的用户界面"><a href="#8-5-创建一个更友好的用户界面" class="headerlink" title="8.5 创建一个更友好的用户界面"></a>8.5 创建一个更友好的用户界面</h3><h4 id="8-5-1-使用缓冲输入"><a href="#8-5-1-使用缓冲输入" class="headerlink" title="8.5.1 使用缓冲输入"></a>8.5.1 使用缓冲输入</h4><h4 id="8-5-2-混合输入数字和字符"><a href="#8-5-2-混合输入数字和字符" class="headerlink" title="8.5.2 混合输入数字和字符"></a>8.5.2 混合输入数字和字符</h4><h3 id="8-6-输入确认"><a href="#8-6-输入确认" class="headerlink" title="8.6 输入确认"></a>8.6 输入确认</h3><h4 id="8-6-1-分析程序"><a href="#8-6-1-分析程序" class="headerlink" title="8.6.1 分析程序"></a>8.6.1 分析程序</h4><h4 id="8-6-2-输入流和数值"><a href="#8-6-2-输入流和数值" class="headerlink" title="8.6.2 输入流和数值"></a>8.6.2 输入流和数值</h4><h4 id="8-7-菜单浏览"><a href="#8-7-菜单浏览" class="headerlink" title="8.7 菜单浏览"></a>8.7 菜单浏览</h4><h4 id="8-7-1-任务"><a href="#8-7-1-任务" class="headerlink" title="8.7.1 任务"></a>8.7.1 任务</h4><h4 id="8-7-2-使执行更顺利"><a href="#8-7-2-使执行更顺利" class="headerlink" title="8.7.2 使执行更顺利"></a>8.7.2 使执行更顺利</h4><h4 id="8-7-3-混合字符和数值输入"><a href="#8-7-3-混合字符和数值输入" class="headerlink" title="8.7.3 混合字符和数值输入"></a>8.7.3 混合字符和数值输入</h4><h3 id="8-8-关键概念"><a href="#8-8-关键概念" class="headerlink" title="8.8 关键概念"></a>8.8 关键概念</h3><h3 id="8-9-总结"><a href="#8-9-总结" class="headerlink" title="8.9 总结"></a>8.9 总结</h3><h3 id="8-10-复习题"><a href="#8-10-复习题" class="headerlink" title="8.10 复习题"></a>8.10 复习题</h3><h3 id="8-11-编程练习"><a href="#8-11-编程练习" class="headerlink" title="8.11 编程练习"></a>8.11 编程练习</h3><h2 id="第-9-章-函数"><a href="#第-9-章-函数" class="headerlink" title="第 9 章 函数"></a>第 9 章 函数</h2><h3 id="9-1-函数概述"><a href="#9-1-函数概述" class="headerlink" title="9.1 函数概述"></a>9.1 函数概述</h3><h4 id="9-1-1-编写和使用一个简单的函数"><a href="#9-1-1-编写和使用一个简单的函数" class="headerlink" title="9.1.1 编写和使用一个简单的函数"></a>9.1.1 编写和使用一个简单的函数</h4><h4 id="9-1-2-程序分析"><a href="#9-1-2-程序分析" class="headerlink" title="9.1.2 程序分析"></a>9.1.2 程序分析</h4><h4 id="9-1-3-函数参数"><a href="#9-1-3-函数参数" class="headerlink" title="9.1.3 函数参数"></a>9.1.3 函数参数</h4><h4 id="9-1-4-定义带有参数的函数：形式参量"><a href="#9-1-4-定义带有参数的函数：形式参量" class="headerlink" title="9.1.4 定义带有参数的函数：形式参量"></a>9.1.4 定义带有参数的函数：形式参量</h4><h4 id="9-1-5-带参数函数的原型声明"><a href="#9-1-5-带参数函数的原型声明" class="headerlink" title="9.1.5 带参数函数的原型声明"></a>9.1.5 带参数函数的原型声明</h4><h4 id="9-1-6-调用带有参数的函数：实际参数"><a href="#9-1-6-调用带有参数的函数：实际参数" class="headerlink" title="9.1.6 调用带有参数的函数：实际参数"></a>9.1.6 调用带有参数的函数：实际参数</h4><h4 id="9-1-7-黑盒子观点"><a href="#9-1-7-黑盒子观点" class="headerlink" title="9.1.7 黑盒子观点"></a>9.1.7 黑盒子观点</h4><h4 id="9-1-8-使用-return-从函数中返回一个值"><a href="#9-1-8-使用-return-从函数中返回一个值" class="headerlink" title="9.1.8 使用 return 从函数中返回一个值"></a>9.1.8 使用 return 从函数中返回一个值</h4><h4 id="9-1-9-函数类型"><a href="#9-1-9-函数类型" class="headerlink" title="9.1.9 函数类型"></a>9.1.9 函数类型</h4><h3 id="9-2-ANSI-C-的函数原型"><a href="#9-2-ANSI-C-的函数原型" class="headerlink" title="9.2 ANSI C 的函数原型"></a>9.2 ANSI C 的函数原型</h3><h4 id="9-2-1-产生的问题"><a href="#9-2-1-产生的问题" class="headerlink" title="9.2.1 产生的问题"></a>9.2.1 产生的问题</h4><h4 id="9-2-2-ANSI-的解决方案"><a href="#9-2-2-ANSI-的解决方案" class="headerlink" title="9.2.2 ANSI 的解决方案"></a>9.2.2 ANSI 的解决方案</h4><h4 id="9-2-3-无参数和不确定参数"><a href="#9-2-3-无参数和不确定参数" class="headerlink" title="9.2.3 无参数和不确定参数"></a>9.2.3 无参数和不确定参数</h4><h4 id="9-2-4-函数原型的优点"><a href="#9-2-4-函数原型的优点" class="headerlink" title="9.2.4 函数原型的优点"></a>9.2.4 函数原型的优点</h4><h3 id="9-3-递归"><a href="#9-3-递归" class="headerlink" title="9.3 递归"></a>9.3 递归</h3><h4 id="9-3-1-递归的使用"><a href="#9-3-1-递归的使用" class="headerlink" title="9.3.1 递归的使用"></a>9.3.1 递归的使用</h4><h4 id="9-3-2-递归的基本原理"><a href="#9-3-2-递归的基本原理" class="headerlink" title="9.3.2 递归的基本原理"></a>9.3.2 递归的基本原理</h4><h4 id="9-3-3-尾递归"><a href="#9-3-3-尾递归" class="headerlink" title="9.3.3 尾递归"></a>9.3.3 尾递归</h4><h4 id="9-3-4-递归和反向计算"><a href="#9-3-4-递归和反向计算" class="headerlink" title="9.3.4 递归和反向计算"></a>9.3.4 递归和反向计算</h4><h4 id="9-3-5-递归的优缺点"><a href="#9-3-5-递归的优缺点" class="headerlink" title="9.3.5 递归的优缺点"></a>9.3.5 递归的优缺点</h4><h3 id="9-4-多源代码文件程序的编译"><a href="#9-4-多源代码文件程序的编译" class="headerlink" title="9.4 多源代码文件程序的编译"></a>9.4 多源代码文件程序的编译</h3><h4 id="9-4-1-UNIX"><a href="#9-4-1-UNIX" class="headerlink" title="9.4.1 UNIX"></a>9.4.1 UNIX</h4><h4 id="9-4-2-Linux"><a href="#9-4-2-Linux" class="headerlink" title="9.4.2 Linux"></a>9.4.2 Linux</h4><h4 id="9-4-3-DOS-命令行编译器"><a href="#9-4-3-DOS-命令行编译器" class="headerlink" title="9.4.3 DOS 命令行编译器"></a>9.4.3 DOS 命令行编译器</h4><h4 id="9-4-4-Windows-和-Macintosh-编译器"><a href="#9-4-4-Windows-和-Macintosh-编译器" class="headerlink" title="9.4.4 Windows 和 Macintosh 编译器"></a>9.4.4 Windows 和 Macintosh 编译器</h4><h4 id="9-4-5-头文件的使用"><a href="#9-4-5-头文件的使用" class="headerlink" title="9.4.5 头文件的使用"></a>9.4.5 头文件的使用</h4><h3 id="9-5-地址运算符：-amp"><a href="#9-5-地址运算符：-amp" class="headerlink" title="9.5 地址运算符：&amp;"></a>9.5 地址运算符：&amp;</h3><h3 id="9-6-改变调用函数中的变量"><a href="#9-6-改变调用函数中的变量" class="headerlink" title="9.6 改变调用函数中的变量"></a>9.6 改变调用函数中的变量</h3><h3 id="9-7-指针简介"><a href="#9-7-指针简介" class="headerlink" title="9.7 指针简介"></a>9.7 指针简介</h3><h4 id="9-7-1-间接运算符："><a href="#9-7-1-间接运算符：" class="headerlink" title="9.7.1 间接运算符：*"></a>9.7.1 间接运算符：*</h4><h4 id="9-7-2-指针声明"><a href="#9-7-2-指针声明" class="headerlink" title="9.7.2 指针声明"></a>9.7.2 指针声明</h4><h4 id="9-7-3-使用指针在函数间通信"><a href="#9-7-3-使用指针在函数间通信" class="headerlink" title="9.7.3 使用指针在函数间通信"></a>9.7.3 使用指针在函数间通信</h4><h3 id="9-8-关键概念"><a href="#9-8-关键概念" class="headerlink" title="9.8 关键概念"></a>9.8 关键概念</h3><h3 id="9-9-总结"><a href="#9-9-总结" class="headerlink" title="9.9 总结"></a>9.9 总结</h3><h3 id="9-10-复习题"><a href="#9-10-复习题" class="headerlink" title="9.10 复习题"></a>9.10 复习题</h3><h3 id="9-11-编程练习"><a href="#9-11-编程练习" class="headerlink" title="9.11 编程练习"></a>9.11 编程练习</h3><h2 id="第-10-章-数组和指针"><a href="#第-10-章-数组和指针" class="headerlink" title="第 10 章 数组和指针"></a>第 10 章 数组和指针</h2><h3 id="10-1-数组"><a href="#10-1-数组" class="headerlink" title="10.1 数组"></a>10.1 数组</h3><h4 id="10-1-1-初始化"><a href="#10-1-1-初始化" class="headerlink" title="10.1.1 初始化"></a>10.1.1 初始化</h4><h4 id="10-1-2-指定初始化项目（C99）"><a href="#10-1-2-指定初始化项目（C99）" class="headerlink" title="10.1.2 指定初始化项目（C99）"></a>10.1.2 指定初始化项目（C99）</h4><h4 id="10-1-3-为数组赋值"><a href="#10-1-3-为数组赋值" class="headerlink" title="10.1.3 为数组赋值"></a>10.1.3 为数组赋值</h4><h4 id="10-1-4-数组边界"><a href="#10-1-4-数组边界" class="headerlink" title="10.1.4 数组边界"></a>10.1.4 数组边界</h4><h4 id="10-1-5-指定数组大小"><a href="#10-1-5-指定数组大小" class="headerlink" title="10.1.5 指定数组大小"></a>10.1.5 指定数组大小</h4><h3 id="10-2-多维数组"><a href="#10-2-多维数组" class="headerlink" title="10.2 多维数组"></a>10.2 多维数组</h3><h4 id="10-2-1-初始化二维数组"><a href="#10-2-1-初始化二维数组" class="headerlink" title="10.2.1 初始化二维数组"></a>10.2.1 初始化二维数组</h4><h4 id="10-2-2-更多维的数组"><a href="#10-2-2-更多维的数组" class="headerlink" title="10.2.2 更多维的数组"></a>10.2.2 更多维的数组</h4><h3 id="10-3-指针和数组"><a href="#10-3-指针和数组" class="headerlink" title="10.3 指针和数组"></a>10.3 指针和数组</h3><h3 id="10-4-函数、数组和指针"><a href="#10-4-函数、数组和指针" class="headerlink" title="10.4 函数、数组和指针"></a>10.4 函数、数组和指针</h3><h4 id="10-4-1-使用指针参数"><a href="#10-4-1-使用指针参数" class="headerlink" title="10.4.1 使用指针参数"></a>10.4.1 使用指针参数</h4><h4 id="10-4-2-评论：指针和数组"><a href="#10-4-2-评论：指针和数组" class="headerlink" title="10.4.2 评论：指针和数组"></a>10.4.2 评论：指针和数组</h4><h3 id="10-5-指针操作"><a href="#10-5-指针操作" class="headerlink" title="10.5 指针操作"></a>10.5 指针操作</h3><h3 id="10-6-保护数组内容"><a href="#10-6-保护数组内容" class="headerlink" title="10.6 保护数组内容"></a>10.6 保护数组内容</h3><h4 id="10-6-1-对形式参量使用-const"><a href="#10-6-1-对形式参量使用-const" class="headerlink" title="10.6.1 对形式参量使用 const"></a>10.6.1 对形式参量使用 const</h4><h4 id="10-6-2-有关-const-的其他内容"><a href="#10-6-2-有关-const-的其他内容" class="headerlink" title="10.6.2 有关 const 的其他内容"></a>10.6.2 有关 const 的其他内容</h4><h3 id="10-7-指针和多维数组"><a href="#10-7-指针和多维数组" class="headerlink" title="10.7 指针和多维数组"></a>10.7 指针和多维数组</h3><h4 id="10-7-1-指向多维数组的指针"><a href="#10-7-1-指向多维数组的指针" class="headerlink" title="10.7.1 指向多维数组的指针"></a>10.7.1 指向多维数组的指针</h4><h4 id="10-7-2-指针兼容性"><a href="#10-7-2-指针兼容性" class="headerlink" title="10.7.2 指针兼容性"></a>10.7.2 指针兼容性</h4><h4 id="10-7-3-函数和多维数组"><a href="#10-7-3-函数和多维数组" class="headerlink" title="10.7.3 函数和多维数组"></a>10.7.3 函数和多维数组</h4><h3 id="10-8-变长数组（VLA）"><a href="#10-8-变长数组（VLA）" class="headerlink" title="10.8 变长数组（VLA）"></a>10.8 变长数组（VLA）</h3><h3 id="10-9-复合文字"><a href="#10-9-复合文字" class="headerlink" title="10.9 复合文字"></a>10.9 复合文字</h3><h3 id="10-10-关键概念"><a href="#10-10-关键概念" class="headerlink" title="10.10 关键概念"></a>10.10 关键概念</h3><h3 id="10-11-总结"><a href="#10-11-总结" class="headerlink" title="10.11 总结"></a>10.11 总结</h3><h3 id="10-12-复习题"><a href="#10-12-复习题" class="headerlink" title="10.12 复习题"></a>10.12 复习题</h3><h3 id="10-13-编程练习"><a href="#10-13-编程练习" class="headerlink" title="10.13 编程练习"></a>10.13 编程练习</h3><h2 id="第-11-章-字符串和字符串函数"><a href="#第-11-章-字符串和字符串函数" class="headerlink" title="第 11 章 字符串和字符串函数"></a>第 11 章 字符串和字符串函数</h2><h3 id="11-1-字符串表示和字符串-I-O"><a href="#11-1-字符串表示和字符串-I-O" class="headerlink" title="11.1 字符串表示和字符串 I/O"></a>11.1 字符串表示和字符串 I/O</h3><h4 id="11-1-1-在程序中定义字符串"><a href="#11-1-1-在程序中定义字符串" class="headerlink" title="11.1.1 在程序中定义字符串"></a>11.1.1 在程序中定义字符串</h4><h4 id="11-1-2-指针和字符串"><a href="#11-1-2-指针和字符串" class="headerlink" title="11.1.2 指针和字符串"></a>11.1.2 指针和字符串</h4><h3 id="11-2-字符串输入"><a href="#11-2-字符串输入" class="headerlink" title="11.2 字符串输入"></a>11.2 字符串输入</h3><h4 id="11-2-1-创建存储空间"><a href="#11-2-1-创建存储空间" class="headerlink" title="11.2.1 创建存储空间"></a>11.2.1 创建存储空间</h4><h4 id="11-2-2-gets-函数"><a href="#11-2-2-gets-函数" class="headerlink" title="11.2.2 gets() 函数"></a>11.2.2 gets() 函数</h4><h4 id="11-2-3-fgets-函数"><a href="#11-2-3-fgets-函数" class="headerlink" title="11.2.3 fgets() 函数"></a>11.2.3 fgets() 函数</h4><h4 id="11-2-4-scanf-函数"><a href="#11-2-4-scanf-函数" class="headerlink" title="11.2.4 scanf() 函数"></a>11.2.4 scanf() 函数</h4><h3 id="11-3-字符串输出"><a href="#11-3-字符串输出" class="headerlink" title="11.3 字符串输出"></a>11.3 字符串输出</h3><h4 id="11-3-1-puts-函数"><a href="#11-3-1-puts-函数" class="headerlink" title="11.3.1 puts() 函数"></a>11.3.1 puts() 函数</h4><h4 id="11-3-2-fputs-函数"><a href="#11-3-2-fputs-函数" class="headerlink" title="11.3.2 fputs() 函数"></a>11.3.2 fputs() 函数</h4><h4 id="11-3-3-printf-函数"><a href="#11-3-3-printf-函数" class="headerlink" title="11.3.3 printf() 函数"></a>11.3.3 printf() 函数</h4><h3 id="11-4-自定义字符串输入-输出函数"><a href="#11-4-自定义字符串输入-输出函数" class="headerlink" title="11.4 自定义字符串输入/输出函数"></a>11.4 自定义字符串输入/输出函数</h3><h3 id="11-5-字符串函数"><a href="#11-5-字符串函数" class="headerlink" title="11.5 字符串函数"></a>11.5 字符串函数</h3><h4 id="11-5-1-strlen-函数"><a href="#11-5-1-strlen-函数" class="headerlink" title="11.5.1 strlen() 函数"></a>11.5.1 strlen() 函数</h4><h4 id="11-5-2-strcat-函数"><a href="#11-5-2-strcat-函数" class="headerlink" title="11.5.2 strcat() 函数"></a>11.5.2 strcat() 函数</h4><h4 id="11-5-3-strncat-函数"><a href="#11-5-3-strncat-函数" class="headerlink" title="11.5.3 strncat() 函数"></a>11.5.3 strncat() 函数</h4><h4 id="11-5-4-strcmp-函数"><a href="#11-5-4-strcmp-函数" class="headerlink" title="11.5.4 strcmp() 函数"></a>11.5.4 strcmp() 函数</h4><h4 id="11-5-5-strncmp-函数"><a href="#11-5-5-strncmp-函数" class="headerlink" title="11.5.5 strncmp() 函数"></a>11.5.5 strncmp() 函数</h4><h4 id="11-5-6-strcpy-和-strncpy-函数"><a href="#11-5-6-strcpy-和-strncpy-函数" class="headerlink" title="11.5.6 strcpy() 和 strncpy() 函数"></a>11.5.6 strcpy() 和 strncpy() 函数</h4><blockquote>
+<ul>
+<li>书名《C Primer Plus（第五版）》</li>
+<li>书号 ISBN 7-115-13022-1/TP 4411</li>
+<li>Stephen Prata 著，云巅工作室 译</li>
+<li>清华大学出版社</li>
+<li>2005 年 2 月第 1 版第 1 次印刷</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.jpg" alt="Arcticfox WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward.jpg" alt="Arcticfox Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Arcticfox
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://blog.longgen.me/2014/06/02/50389/" title="C Primer Plus">http://blog.longgen.me/2014/06/02/50389/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/05/31/43045/" rel="next" title="操作系统原理、设计与应用">
+                <i class="fa fa-chevron-left"></i> 操作系统原理、设计与应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/06/23/5677/" rel="prev" title="Google Analytics 在页面中的使用">
+                Google Analytics 在页面中的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/fox.jpg"
+               alt="Arcticfox" />
+          <p class="site-author-name" itemprop="name">Arcticfox</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fjarcticfox" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/onelark" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第-1-章-概览"><span class="nav-number">1.</span> <span class="nav-text">第 1 章 概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-C-语言的起源"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 C 语言的起源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-使用-C-语言的理由"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 使用 C 语言的理由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-设计特性"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 设计特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-高效性"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 高效性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-可移植性"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 可移植性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-强大的功能和灵活性"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 强大的功能和灵活性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-5-面向编程人员"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.2.5 面向编程人员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-6-缺点"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.2.6 缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-C-语言的发展方向"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 C 语言的发展方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-计算机工作的基本原理"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 计算机工作的基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-高级计算机语言和编译器"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 高级计算机语言和编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-使用-C-语言的-7-个步骤"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 使用 C 语言的 7 个步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-1-第-1-步：定义程序目标"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.6.1 第 1 步：定义程序目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-2-第-2-步：设计程序"><span class="nav-number">1.6.2.</span> <span class="nav-text">1.6.2 第 2 步：设计程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-3-第-3-步-编写代码"><span class="nav-number">1.6.3.</span> <span class="nav-text">1.6.3 第 3 步 编写代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-4-第-4-步：编译"><span class="nav-number">1.6.4.</span> <span class="nav-text">1.6.4 第 4 步：编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-5-第-5-步：运行程序"><span class="nav-number">1.6.5.</span> <span class="nav-text">1.6.5 第 5 步：运行程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-6-第-6-步：测试和调试程序"><span class="nav-number">1.6.6.</span> <span class="nav-text">1.6.6 第 6 步：测试和调试程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-7-第-7-步：维护和修改程序"><span class="nav-number">1.6.7.</span> <span class="nav-text">1.6.7 第 7 步：维护和修改程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-8-总结"><span class="nav-number">1.6.8.</span> <span class="nav-text">1.6.8 总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-编程机制"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 编程机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-1-目标代码文件、可执行文件和库"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.7.1 目标代码文件、可执行文件和库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-2-UNIX-系统"><span class="nav-number">1.7.2.</span> <span class="nav-text">1.7.2 UNIX 系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-3-Linux-系统"><span class="nav-number">1.7.3.</span> <span class="nav-text">1.7.3 Linux 系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-4-集成开发环境（Windows-系统下）"><span class="nav-number">1.7.4.</span> <span class="nav-text">1.7.4 集成开发环境（Windows 系统下）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-5-IBM-PC-的-DOS-编译器"><span class="nav-number">1.7.5.</span> <span class="nav-text">1.7.5 IBM PC 的 DOS 编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-6-Macintosh-上的-C"><span class="nav-number">1.7.6.</span> <span class="nav-text">1.7.6 Macintosh 上的 C</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-语言标准"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 语言标准</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-1-第-1-个-ANSI-ISO-C-标准"><span class="nav-number">1.8.1.</span> <span class="nav-text">1.8.1 第 1 个 ANSI/ISO C 标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-2-C99-标准"><span class="nav-number">1.8.2.</span> <span class="nav-text">1.8.2 C99 标准</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-本书的组织结构"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 本书的组织结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-本书体例"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 本书体例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-10-1-字体"><span class="nav-number">1.10.1.</span> <span class="nav-text">1.10.1 字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-10-2-屏幕输出"><span class="nav-number">1.10.2.</span> <span class="nav-text">1.10.2 屏幕输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-总结"><span class="nav-number">1.11.</span> <span class="nav-text">1.11 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-12-复习题"><span class="nav-number">1.12.</span> <span class="nav-text">1.12 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-13-编程练习"><span class="nav-number">1.13.</span> <span class="nav-text">1.13 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-2-章-C-语言概述"><span class="nav-number">2.</span> <span class="nav-text">第 2 章 C 语言概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-C-语言的一个简单实例"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 C 语言的一个简单实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-实例说明"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 实例说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-第一遍-快速简介"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 第一遍 快速简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-第二遍-程序细节"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 第二遍 程序细节</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-一个简单程序的结构"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 一个简单程序的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-使程序可读的技巧"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 使程序可读的技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-更进一步"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 更进一步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-1-说明"><span class="nav-number">2.5.1.</span> <span class="nav-text">2.5.1 说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-2-多个声明"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.5.2 多个声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-3-乘法"><span class="nav-number">2.5.3.</span> <span class="nav-text">2.5.3 乘法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-4-输出多个值"><span class="nav-number">2.5.4.</span> <span class="nav-text">2.5.4 输出多个值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-多个函数"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 多个函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-调试"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-1-语法错误"><span class="nav-number">2.7.1.</span> <span class="nav-text">2.7.1 语法错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-2-语义错误"><span class="nav-number">2.7.2.</span> <span class="nav-text">2.7.2 语义错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-3-程序状态"><span class="nav-number">2.7.3.</span> <span class="nav-text">2.7.3 程序状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-关键字和保留标示符"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 关键字和保留标示符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-关键概念"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-总结"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-复习题"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-编程练习"><span class="nav-number">2.12.</span> <span class="nav-text">2.12 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-3-章-数据和-C"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 数据和 C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-示例程序"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 示例程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-变量与常量数据"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 变量与常量数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-数据：数据类型关键字"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 数据：数据类型关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-整数类型与浮点数类型"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 整数类型与浮点数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-整数"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-浮点数"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 浮点数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-C-数据类型"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 C 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-int-类型"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1 int 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-其他整数类型"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2 其他整数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-3-使用字符：char-类型"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3 使用字符：char 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-4-Bool-类型"><span class="nav-number">3.4.4.</span> <span class="nav-text">3.4.4 _Bool 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-5-可移植的类型：inttypes-h"><span class="nav-number">3.4.5.</span> <span class="nav-text">3.4.5 可移植的类型：inttypes.h</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-6-float、double-和-long-double-类型"><span class="nav-number">3.4.6.</span> <span class="nav-text">3.4.6 float、double 和 long double 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-7-复数和虚数类型"><span class="nav-number">3.4.7.</span> <span class="nav-text">3.4.7 复数和虚数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-8-其他类型"><span class="nav-number">3.4.8.</span> <span class="nav-text">3.4.8 其他类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-9-类型大小"><span class="nav-number">3.4.9.</span> <span class="nav-text">3.4.9 类型大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-使用数据类型"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 使用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-参数和易犯的错误"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 参数和易犯的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-另一个例子：转义序列"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 另一个例子：转义序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-1-过程分析"><span class="nav-number">3.7.1.</span> <span class="nav-text">3.7.1 过程分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-2-刷新输出"><span class="nav-number">3.7.2.</span> <span class="nav-text">3.7.2 刷新输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-关键概念"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-9-总结"><span class="nav-number">3.9.</span> <span class="nav-text">3.9 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-复习题"><span class="nav-number">3.10.</span> <span class="nav-text">3.10 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-11-编程练习"><span class="nav-number">3.11.</span> <span class="nav-text">3.11 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-4-章-字符串和格式化输入-输出"><span class="nav-number">4.</span> <span class="nav-text">第 4 章 字符串和格式化输入/输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-前导程序"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 前导程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-字符串简介"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 字符串简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-char-数组类型和空字符"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1 char 数组类型和空字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-使用字符串"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2 使用字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-strlen-函数"><span class="nav-number">4.2.3.</span> <span class="nav-text">4.2.3 strlen() 函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-常量和-C-预处理器"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 常量和 C 预处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-const-修饰符"><span class="nav-number">4.3.1.</span> <span class="nav-text">4.3.1 const 修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2-系统定义的明显常量"><span class="nav-number">4.3.2.</span> <span class="nav-text">4.3.2 系统定义的明显常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-研究和利用-printf-和-scanf"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 研究和利用 printf() 和 scanf()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-1-printf-函数"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.4.1 printf() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-2-使用-printf"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.4.2 使用 printf()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-3-printf-的转换说明修饰符"><span class="nav-number">4.4.3.</span> <span class="nav-text">4.4.3 printf() 的转换说明修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-4-转换说明的意义"><span class="nav-number">4.4.4.</span> <span class="nav-text">4.4.4 转换说明的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-5-使用-scanf"><span class="nav-number">4.4.5.</span> <span class="nav-text">4.4.5 使用 scanf()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-6-printf-和-scanf-的-修饰符"><span class="nav-number">4.4.6.</span> <span class="nav-text">4.4.6 printf() 和 scanf() 的 * 修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-7-printf-的用法提示"><span class="nav-number">4.4.7.</span> <span class="nav-text">4.4.7 printf 的用法提示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-关键概念"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-总结"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-复习题"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-编程练习"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-5-章-运算符、表达式和语句"><span class="nav-number">5.</span> <span class="nav-text">第 5 章 运算符、表达式和语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-循环简介"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 循环简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-基本运算符"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 基本运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-赋值运算符："><span class="nav-number">5.2.1.</span> <span class="nav-text">5.2.1 赋值运算符：=</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-加法运算符："><span class="nav-number">5.2.2.</span> <span class="nav-text">5.2.2 加法运算符：+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-减法运算符："><span class="nav-number">5.2.3.</span> <span class="nav-text">5.2.3 减法运算符：-</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-4-符号运算符：-和"><span class="nav-number">5.2.4.</span> <span class="nav-text">5.2.4 符号运算符：- 和 +</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-5-乘法运算符："><span class="nav-number">5.2.5.</span> <span class="nav-text">5.2.5 乘法运算符：*</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-6-除法运算符："><span class="nav-number">5.2.6.</span> <span class="nav-text">5.2.6 除法运算符：/</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-7-运算符的优先级"><span class="nav-number">5.2.7.</span> <span class="nav-text">5.2.7 运算符的优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-8-优先级和求值顺序"><span class="nav-number">5.2.8.</span> <span class="nav-text">5.2.8 优先级和求值顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-其他运算符"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-sizeof-运算符和-size-t-类型"><span class="nav-number">5.3.1.</span> <span class="nav-text">5.3.1 sizeof 运算符和 size_t 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-取模运算符："><span class="nav-number">5.3.2.</span> <span class="nav-text">5.3.2 取模运算符：%</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-增量和减量运算符：-和-–"><span class="nav-number">5.3.3.</span> <span class="nav-text">5.3.3 增量和减量运算符：++ 和 –</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-4-减量：–"><span class="nav-number">5.3.4.</span> <span class="nav-text">5.3.4 减量：–</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-5-优先级"><span class="nav-number">5.3.5.</span> <span class="nav-text">5.3.5 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-6-不要太聪明"><span class="nav-number">5.3.6.</span> <span class="nav-text">5.3.6 不要太聪明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-表达式和语句"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 表达式和语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-1-表达式"><span class="nav-number">5.5.</span> <span class="nav-text">5.4.1 表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-2-语句"><span class="nav-number">5.6.</span> <span class="nav-text">5.4.2 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-3-符合语句（代码块）"><span class="nav-number">5.7.</span> <span class="nav-text">5.4.3 符合语句（代码块）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-类型转换"><span class="nav-number">5.8.</span> <span class="nav-text">5.5 类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-带有参数的函数"><span class="nav-number">5.9.</span> <span class="nav-text">5.6 带有参数的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-一个示例程序"><span class="nav-number">5.10.</span> <span class="nav-text">5.7 一个示例程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-关键概念"><span class="nav-number">5.11.</span> <span class="nav-text">5.8 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-总结"><span class="nav-number">5.12.</span> <span class="nav-text">5.9 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-10-复习题"><span class="nav-number">5.13.</span> <span class="nav-text">5.10 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-11-编程练习"><span class="nav-number">5.14.</span> <span class="nav-text">5.11 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-6-章-C-控制语句：循环"><span class="nav-number">6.</span> <span class="nav-text">第 6 章 C 控制语句：循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-再探-while-循环"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 再探 while 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-程序注解"><span class="nav-number">6.1.1.</span> <span class="nav-text">6.1.1 程序注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-C-风格的读循环"><span class="nav-number">6.1.2.</span> <span class="nav-text">6.1.2 C 风格的读循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-while-语句"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 while 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-终止-while-循环"><span class="nav-number">6.2.1.</span> <span class="nav-text">6.2.1 终止 while 循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-循环何时终止"><span class="nav-number">6.2.2.</span> <span class="nav-text">6.2.2 循环何时终止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-3-while：入口条件循环"><span class="nav-number">6.2.3.</span> <span class="nav-text">6.2.3 while：入口条件循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-4-语法要点"><span class="nav-number">6.2.4.</span> <span class="nav-text">6.2.4 语法要点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-比较大小：使用关系运算符和表达式"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 比较大小：使用关系运算符和表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-什么是真"><span class="nav-number">6.3.1.</span> <span class="nav-text">6.3.1 什么是真</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-还有什么是真"><span class="nav-number">6.3.2.</span> <span class="nav-text">6.3.2 还有什么是真</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-3-真值的问题"><span class="nav-number">6.3.3.</span> <span class="nav-text">6.3.3 真值的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-4-新的-Bool-类型"><span class="nav-number">6.3.4.</span> <span class="nav-text">6.3.4 新的 _Bool 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-5-关系运算符的优先级"><span class="nav-number">6.3.5.</span> <span class="nav-text">6.3.5 关系运算符的优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-不确定循环与计数循环"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 不确定循环与计数循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-for-循环"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-更多赋值运算符：-、-、-、-和"><span class="nav-number">6.6.</span> <span class="nav-text">6.6 更多赋值运算符：+=、-=、*=、/= 和 %=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-逗号运算符"><span class="nav-number">6.7.</span> <span class="nav-text">6.7 逗号运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-退出条件循环：do-while"><span class="nav-number">6.8.</span> <span class="nav-text">6.8 退出条件循环：do while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-选择哪种循环"><span class="nav-number">6.9.</span> <span class="nav-text">6.9 选择哪种循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-嵌套循环"><span class="nav-number">6.10.</span> <span class="nav-text">6.10 嵌套循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-10-1-程序讨论"><span class="nav-number">6.10.1.</span> <span class="nav-text">6.10.1 程序讨论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-10-2-嵌套变化"><span class="nav-number">6.10.2.</span> <span class="nav-text">6.10.2 嵌套变化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-11-数组"><span class="nav-number">6.11.</span> <span class="nav-text">6.11 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-12-使用函数返回值的循环例子"><span class="nav-number">6.12.</span> <span class="nav-text">6.12 使用函数返回值的循环例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-1-程序讨论"><span class="nav-number">6.12.1.</span> <span class="nav-text">6.12.1 程序讨论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-2-使用具有返回值的函数"><span class="nav-number">6.12.2.</span> <span class="nav-text">6.12.2 使用具有返回值的函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-13-关键概念"><span class="nav-number">6.13.</span> <span class="nav-text">6.13 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-14-总结"><span class="nav-number">6.14.</span> <span class="nav-text">6.14 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-15-复习题"><span class="nav-number">6.15.</span> <span class="nav-text">6.15 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-16-编程练习"><span class="nav-number">6.16.</span> <span class="nav-text">6.16 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-7-章-C-控制语句：分支和跳转"><span class="nav-number">7.</span> <span class="nav-text">第 7 章 C 控制语句：分支和跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-if-语句"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 if 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-在-if-语句中添加-else-关键字"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 在 if 语句中添加 else 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-另一个例子：介绍-getchar-和-putchar"><span class="nav-number">7.2.1.</span> <span class="nav-text">7.2.1 另一个例子：介绍 getchar() 和 putchar()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-2-ctype-h-系列字符函数"><span class="nav-number">7.2.2.</span> <span class="nav-text">7.2.2 ctype.h 系列字符函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-3-多重选择-else-if"><span class="nav-number">7.2.3.</span> <span class="nav-text">7.2.3 多重选择 else if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-4-把-else-与-if-配对"><span class="nav-number">7.2.4.</span> <span class="nav-text">7.2.4 把 else 与 if 配对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-5-多层嵌套的-if"><span class="nav-number">7.2.5.</span> <span class="nav-text">7.2.5 多层嵌套的 if</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-获得逻辑性"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 获得逻辑性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-1-改变拼写法：iso646-h-头文件"><span class="nav-number">7.3.1.</span> <span class="nav-text">7.3.1 改变拼写法：iso646.h 头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-2-优先级"><span class="nav-number">7.3.2.</span> <span class="nav-text">7.3.2 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-3-求值的顺序"><span class="nav-number">7.3.3.</span> <span class="nav-text">7.3.3 求值的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-4-范围"><span class="nav-number">7.3.4.</span> <span class="nav-text">7.3.4 范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-一个统计字数的程序"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 一个统计字数的程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-条件运算符"><span class="nav-number">7.5.</span> <span class="nav-text">7.5 条件运算符 ?:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-循环辅助手段：continue-和-break"><span class="nav-number">7.6.</span> <span class="nav-text">7.6 循环辅助手段：continue 和 break</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-1-continue-语句"><span class="nav-number">7.6.1.</span> <span class="nav-text">7.6.1 continue 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-2-break-语句"><span class="nav-number">7.6.2.</span> <span class="nav-text">7.6.2 break 语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-多重选择：switch-和-break"><span class="nav-number">7.7.</span> <span class="nav-text">7.7 多重选择：switch 和 break</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-1-使用-switch-语句"><span class="nav-number">7.7.1.</span> <span class="nav-text">7.7.1 使用 switch 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-2-只读取一行的首字符"><span class="nav-number">7.7.2.</span> <span class="nav-text">7.7.2 只读取一行的首字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-3-多重标签"><span class="nav-number">7.7.3.</span> <span class="nav-text">7.7.3 多重标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-4-switch-和-if-else"><span class="nav-number">7.7.4.</span> <span class="nav-text">7.7.4 switch 和 if else</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-8-goto-语句"><span class="nav-number">7.8.</span> <span class="nav-text">7.8 goto 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-关键概念"><span class="nav-number">7.9.</span> <span class="nav-text">7.9 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-10-总结"><span class="nav-number">7.10.</span> <span class="nav-text">7.10 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-11-复习题"><span class="nav-number">7.11.</span> <span class="nav-text">7.11 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-12-编程练习"><span class="nav-number">7.12.</span> <span class="nav-text">7.12 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-8-章-字符输入-输出和输入确认"><span class="nav-number">8.</span> <span class="nav-text">第 8 章 字符输入/输出和输入确认</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-单字符-I-O：getchar-和-putchar"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 单字符 I/O：getchar() 和 putchar()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-缓冲区"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-终止键盘输入"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 终止键盘输入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-1-文件、流和键盘输入"><span class="nav-number">8.3.1.</span> <span class="nav-text">8.3.1 文件、流和键盘输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-2-文件结尾"><span class="nav-number">8.3.2.</span> <span class="nav-text">8.3.2 文件结尾</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-重定向和文件"><span class="nav-number">8.4.</span> <span class="nav-text">8.4 重定向和文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-创建一个更友好的用户界面"><span class="nav-number">8.5.</span> <span class="nav-text">8.5 创建一个更友好的用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-1-使用缓冲输入"><span class="nav-number">8.5.1.</span> <span class="nav-text">8.5.1 使用缓冲输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-2-混合输入数字和字符"><span class="nav-number">8.5.2.</span> <span class="nav-text">8.5.2 混合输入数字和字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-输入确认"><span class="nav-number">8.6.</span> <span class="nav-text">8.6 输入确认</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-1-分析程序"><span class="nav-number">8.6.1.</span> <span class="nav-text">8.6.1 分析程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-2-输入流和数值"><span class="nav-number">8.6.2.</span> <span class="nav-text">8.6.2 输入流和数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-7-菜单浏览"><span class="nav-number">8.6.3.</span> <span class="nav-text">8.7 菜单浏览</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-7-1-任务"><span class="nav-number">8.6.4.</span> <span class="nav-text">8.7.1 任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-7-2-使执行更顺利"><span class="nav-number">8.6.5.</span> <span class="nav-text">8.7.2 使执行更顺利</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-7-3-混合字符和数值输入"><span class="nav-number">8.6.6.</span> <span class="nav-text">8.7.3 混合字符和数值输入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-关键概念"><span class="nav-number">8.7.</span> <span class="nav-text">8.8 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-9-总结"><span class="nav-number">8.8.</span> <span class="nav-text">8.9 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-10-复习题"><span class="nav-number">8.9.</span> <span class="nav-text">8.10 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-11-编程练习"><span class="nav-number">8.10.</span> <span class="nav-text">8.11 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-9-章-函数"><span class="nav-number">9.</span> <span class="nav-text">第 9 章 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-函数概述"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 函数概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-1-编写和使用一个简单的函数"><span class="nav-number">9.1.1.</span> <span class="nav-text">9.1.1 编写和使用一个简单的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-2-程序分析"><span class="nav-number">9.1.2.</span> <span class="nav-text">9.1.2 程序分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-3-函数参数"><span class="nav-number">9.1.3.</span> <span class="nav-text">9.1.3 函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-4-定义带有参数的函数：形式参量"><span class="nav-number">9.1.4.</span> <span class="nav-text">9.1.4 定义带有参数的函数：形式参量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-5-带参数函数的原型声明"><span class="nav-number">9.1.5.</span> <span class="nav-text">9.1.5 带参数函数的原型声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-6-调用带有参数的函数：实际参数"><span class="nav-number">9.1.6.</span> <span class="nav-text">9.1.6 调用带有参数的函数：实际参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-7-黑盒子观点"><span class="nav-number">9.1.7.</span> <span class="nav-text">9.1.7 黑盒子观点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-8-使用-return-从函数中返回一个值"><span class="nav-number">9.1.8.</span> <span class="nav-text">9.1.8 使用 return 从函数中返回一个值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-9-函数类型"><span class="nav-number">9.1.9.</span> <span class="nav-text">9.1.9 函数类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-ANSI-C-的函数原型"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 ANSI C 的函数原型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-1-产生的问题"><span class="nav-number">9.2.1.</span> <span class="nav-text">9.2.1 产生的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-2-ANSI-的解决方案"><span class="nav-number">9.2.2.</span> <span class="nav-text">9.2.2 ANSI 的解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-3-无参数和不确定参数"><span class="nav-number">9.2.3.</span> <span class="nav-text">9.2.3 无参数和不确定参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-4-函数原型的优点"><span class="nav-number">9.2.4.</span> <span class="nav-text">9.2.4 函数原型的优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-递归"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 递归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-1-递归的使用"><span class="nav-number">9.3.1.</span> <span class="nav-text">9.3.1 递归的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-2-递归的基本原理"><span class="nav-number">9.3.2.</span> <span class="nav-text">9.3.2 递归的基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-3-尾递归"><span class="nav-number">9.3.3.</span> <span class="nav-text">9.3.3 尾递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-4-递归和反向计算"><span class="nav-number">9.3.4.</span> <span class="nav-text">9.3.4 递归和反向计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-5-递归的优缺点"><span class="nav-number">9.3.5.</span> <span class="nav-text">9.3.5 递归的优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-多源代码文件程序的编译"><span class="nav-number">9.4.</span> <span class="nav-text">9.4 多源代码文件程序的编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-1-UNIX"><span class="nav-number">9.4.1.</span> <span class="nav-text">9.4.1 UNIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-2-Linux"><span class="nav-number">9.4.2.</span> <span class="nav-text">9.4.2 Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-3-DOS-命令行编译器"><span class="nav-number">9.4.3.</span> <span class="nav-text">9.4.3 DOS 命令行编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-4-Windows-和-Macintosh-编译器"><span class="nav-number">9.4.4.</span> <span class="nav-text">9.4.4 Windows 和 Macintosh 编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-5-头文件的使用"><span class="nav-number">9.4.5.</span> <span class="nav-text">9.4.5 头文件的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-地址运算符：-amp"><span class="nav-number">9.5.</span> <span class="nav-text">9.5 地址运算符：&</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-改变调用函数中的变量"><span class="nav-number">9.6.</span> <span class="nav-text">9.6 改变调用函数中的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-7-指针简介"><span class="nav-number">9.7.</span> <span class="nav-text">9.7 指针简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7-1-间接运算符："><span class="nav-number">9.7.1.</span> <span class="nav-text">9.7.1 间接运算符：*</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7-2-指针声明"><span class="nav-number">9.7.2.</span> <span class="nav-text">9.7.2 指针声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7-3-使用指针在函数间通信"><span class="nav-number">9.7.3.</span> <span class="nav-text">9.7.3 使用指针在函数间通信</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-8-关键概念"><span class="nav-number">9.8.</span> <span class="nav-text">9.8 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-9-总结"><span class="nav-number">9.9.</span> <span class="nav-text">9.9 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-10-复习题"><span class="nav-number">9.10.</span> <span class="nav-text">9.10 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-11-编程练习"><span class="nav-number">9.11.</span> <span class="nav-text">9.11 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-10-章-数组和指针"><span class="nav-number">10.</span> <span class="nav-text">第 10 章 数组和指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-数组"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-1-初始化"><span class="nav-number">10.1.1.</span> <span class="nav-text">10.1.1 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-2-指定初始化项目（C99）"><span class="nav-number">10.1.2.</span> <span class="nav-text">10.1.2 指定初始化项目（C99）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-3-为数组赋值"><span class="nav-number">10.1.3.</span> <span class="nav-text">10.1.3 为数组赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-4-数组边界"><span class="nav-number">10.1.4.</span> <span class="nav-text">10.1.4 数组边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-5-指定数组大小"><span class="nav-number">10.1.5.</span> <span class="nav-text">10.1.5 指定数组大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-多维数组"><span class="nav-number">10.2.</span> <span class="nav-text">10.2 多维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-1-初始化二维数组"><span class="nav-number">10.2.1.</span> <span class="nav-text">10.2.1 初始化二维数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-2-更多维的数组"><span class="nav-number">10.2.2.</span> <span class="nav-text">10.2.2 更多维的数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-指针和数组"><span class="nav-number">10.3.</span> <span class="nav-text">10.3 指针和数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-函数、数组和指针"><span class="nav-number">10.4.</span> <span class="nav-text">10.4 函数、数组和指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-1-使用指针参数"><span class="nav-number">10.4.1.</span> <span class="nav-text">10.4.1 使用指针参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-2-评论：指针和数组"><span class="nav-number">10.4.2.</span> <span class="nav-text">10.4.2 评论：指针和数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-5-指针操作"><span class="nav-number">10.5.</span> <span class="nav-text">10.5 指针操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-6-保护数组内容"><span class="nav-number">10.6.</span> <span class="nav-text">10.6 保护数组内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-1-对形式参量使用-const"><span class="nav-number">10.6.1.</span> <span class="nav-text">10.6.1 对形式参量使用 const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-2-有关-const-的其他内容"><span class="nav-number">10.6.2.</span> <span class="nav-text">10.6.2 有关 const 的其他内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-7-指针和多维数组"><span class="nav-number">10.7.</span> <span class="nav-text">10.7 指针和多维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-1-指向多维数组的指针"><span class="nav-number">10.7.1.</span> <span class="nav-text">10.7.1 指向多维数组的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-2-指针兼容性"><span class="nav-number">10.7.2.</span> <span class="nav-text">10.7.2 指针兼容性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-3-函数和多维数组"><span class="nav-number">10.7.3.</span> <span class="nav-text">10.7.3 函数和多维数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-8-变长数组（VLA）"><span class="nav-number">10.8.</span> <span class="nav-text">10.8 变长数组（VLA）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-9-复合文字"><span class="nav-number">10.9.</span> <span class="nav-text">10.9 复合文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-10-关键概念"><span class="nav-number">10.10.</span> <span class="nav-text">10.10 关键概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-11-总结"><span class="nav-number">10.11.</span> <span class="nav-text">10.11 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-12-复习题"><span class="nav-number">10.12.</span> <span class="nav-text">10.12 复习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-13-编程练习"><span class="nav-number">10.13.</span> <span class="nav-text">10.13 编程练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-11-章-字符串和字符串函数"><span class="nav-number">11.</span> <span class="nav-text">第 11 章 字符串和字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-字符串表示和字符串-I-O"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 字符串表示和字符串 I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-1-在程序中定义字符串"><span class="nav-number">11.1.1.</span> <span class="nav-text">11.1.1 在程序中定义字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-2-指针和字符串"><span class="nav-number">11.1.2.</span> <span class="nav-text">11.1.2 指针和字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-字符串输入"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 字符串输入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-1-创建存储空间"><span class="nav-number">11.2.1.</span> <span class="nav-text">11.2.1 创建存储空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-2-gets-函数"><span class="nav-number">11.2.2.</span> <span class="nav-text">11.2.2 gets() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-3-fgets-函数"><span class="nav-number">11.2.3.</span> <span class="nav-text">11.2.3 fgets() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-4-scanf-函数"><span class="nav-number">11.2.4.</span> <span class="nav-text">11.2.4 scanf() 函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-字符串输出"><span class="nav-number">11.3.</span> <span class="nav-text">11.3 字符串输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-1-puts-函数"><span class="nav-number">11.3.1.</span> <span class="nav-text">11.3.1 puts() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-2-fputs-函数"><span class="nav-number">11.3.2.</span> <span class="nav-text">11.3.2 fputs() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-3-printf-函数"><span class="nav-number">11.3.3.</span> <span class="nav-text">11.3.3 printf() 函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-4-自定义字符串输入-输出函数"><span class="nav-number">11.4.</span> <span class="nav-text">11.4 自定义字符串输入/输出函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-字符串函数"><span class="nav-number">11.5.</span> <span class="nav-text">11.5 字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-1-strlen-函数"><span class="nav-number">11.5.1.</span> <span class="nav-text">11.5.1 strlen() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-2-strcat-函数"><span class="nav-number">11.5.2.</span> <span class="nav-text">11.5.2 strcat() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-3-strncat-函数"><span class="nav-number">11.5.3.</span> <span class="nav-text">11.5.3 strncat() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-4-strcmp-函数"><span class="nav-number">11.5.4.</span> <span class="nav-text">11.5.4 strcmp() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-5-strncmp-函数"><span class="nav-number">11.5.5.</span> <span class="nav-text">11.5.5 strncmp() 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-5-6-strcpy-和-strncpy-函数"><span class="nav-number">11.5.6.</span> <span class="nav-text">11.5.6 strcpy() 和 strncpy() 函数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Arcticfox</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ddb604bcb4fb4d259c017d8452b6d476",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz", "Gqso4MtlbSkab8QQEp2cFX22");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1070 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Ubuntu,Software," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逆水行舟" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="软件包的安装、卸载软件包的安装 APT 方式  12345678# 普通安装apt-get install softname1 softname2 ...;# 修复安装（-f Atemp to correct broken dependencies）apt-get -f install softname1 softname2 ...;# 重新安装apt-get --reinstall instal">
+<meta name="keywords" content="Ubuntu,Software">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 软件安装与卸载">
+<meta property="og:url" content="http://blog.longgen.me/2014/06/27/64845/index.html">
+<meta property="og:site_name" content="逆水行舟">
+<meta property="og:description" content="软件包的安装、卸载软件包的安装 APT 方式  12345678# 普通安装apt-get install softname1 softname2 ...;# 修复安装（-f Atemp to correct broken dependencies）apt-get -f install softname1 softname2 ...;# 重新安装apt-get --reinstall instal">
+<meta property="og:updated_time" content="2017-05-28T15:14:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 软件安装与卸载">
+<meta name="twitter:description" content="软件包的安装、卸载软件包的安装 APT 方式  12345678# 普通安装apt-get install softname1 softname2 ...;# 修复安装（-f Atemp to correct broken dependencies）apt-get -f install softname1 softname2 ...;# 重新安装apt-get --reinstall instal">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '3S75IDBWI0',
+      apiKey: 'a988f815a9f762629bb4c1c06c948df9',
+      indexName: 'blog_hexo_search_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.longgen.me/2014/06/27/64845/"/>
+
+
+
+
+
+  <title>Ubuntu 软件安装与卸载 | 逆水行舟</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e27df63661dd7d99e7c473280f19e32e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逆水行舟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Whatever is worth doing is worth doing well.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.longgen.me/2014/06/27/64845/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Arcticfox">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fox.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆水行舟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu 软件安装与卸载</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-27T11:56:37+08:00">
+                2014-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2014/06/27/64845/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2014/06/27/64845/" class="leancloud_visitors" data-flag-title="Ubuntu 软件安装与卸载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="软件包的安装、卸载"><a href="#软件包的安装、卸载" class="headerlink" title="软件包的安装、卸载"></a>软件包的安装、卸载</h2><h3 id="软件包的安装"><a href="#软件包的安装" class="headerlink" title="软件包的安装"></a>软件包的安装</h3><ul>
+<li>APT 方式</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 普通安装</span></div><div class="line">apt-get install softname1 softname2 ...;</div><div class="line"></div><div class="line"><span class="comment"># 修复安装（-f Atemp to correct broken dependencies）</span></div><div class="line">apt-get <span class="_">-f</span> install softname1 softname2 ...;</div><div class="line"></div><div class="line"><span class="comment"># 重新安装</span></div><div class="line">apt-get --reinstall install softname1 softname2 ...;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>Dpkg 方式</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 普通安装</span></div><div class="line">dpkg -i package_name.deb</div></pre></td></tr></table></figure>
+<ul>
+<li>源码安装（.tar、tar.gz、tar.bz2、tar.Z）</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 首先解压源码压缩包，通过 tar 命令来完成</span></div><div class="line">tar zxf xx.tar.gz</div><div class="line">tar zxf xx.tar.Z</div><div class="line">tar zxf xx.tgz</div><div class="line">bunzip2 xx.bz2</div><div class="line">tar xf xx.tar</div><div class="line"></div><div class="line"><span class="comment"># 进入到解压出的目录中，查看README之类的说明文件，或使用`ls -F --color`或`ls -F`命令查看下可执行文件，可执行文件会以*号的尾部标识。一般依次执行一下操作即可完成安装：</span></div><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="软件包的卸载"><a href="#软件包的卸载" class="headerlink" title="软件包的卸载"></a>软件包的卸载</h3><ul>
+<li>APT 方式</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 移除式卸载（移除软件包，当尾部有+时，表示安装）</span></div><div class="line">apt-get remove softname1 softname2 ...;</div><div class="line"></div><div class="line"><span class="comment"># 清除式卸载（卸载同时，清除配置）</span></div><div class="line">apt-get --purge remove softname1 softname2 ...;</div><div class="line"></div><div class="line"><span class="comment"># 清除式卸载（卸载同时，清除配置）</span></div><div class="line">apt-get purge softname1 softname2 ...;</div></pre></td></tr></table></figure>
+<ul>
+<li>Dpkg 方式</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 移除式卸载</span></div><div class="line">dpkg -r pkg1 pkg2 ...;</div><div class="line"></div><div class="line"><span class="comment"># 清除式卸载</span></div><div class="line">dpkg -P pkg1 pkg2 ...;</div></pre></td></tr></table></figure>
+<h2 id="查看是否安装某软件包"><a href="#查看是否安装某软件包" class="headerlink" title="查看是否安装某软件包"></a>查看是否安装某软件包</h2><ul>
+<li>Dpkg 使用文本文件来作为数据库，通常在<code>/var/lib/dpkg</code>目录下。通常在<code>status</code>文件中存储软件状态和控制信息，在<code>info/</code>目录下备份控制文件，并在其下的<code>.list</code>文件中记录安装文件清单，其下<code>.md5sums</code>保存文件的 MD5 编码。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">dpkg <span class="_">-l</span></div><div class="line">Desired=Unknown/Install/Remove/Purge/Hold</div><div class="line">| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig<span class="_">-a</span>Wait/Trig-pend</div><div class="line">|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)</div><div class="line">||/ Name                                   Version                  Architecture             Description</div><div class="line">+++-======================================-========================-========================-==================================================================================</div><div class="line">ii  account-plugin-aim                     3.8.6-0ubuntu9           amd64                    Messaging account plugin <span class="keyword">for</span> AIM</div><div class="line">ii  account-plugin-facebook                0.11+14.04.20140409.1-0u all                      GNOME Control Center account plugin <span class="keyword">for</span> single signon - facebook</div><div class="line">ii  account-plugin-flickr                  0.11+14.04.20140409.1-0u all                      GNOME Control Center account plugin <span class="keyword">for</span> single signon - flickr</div><div class="line">ii  account-plugin-google                  0.11+14.04.20140409.1-0u all                      GNOME Control Center account plugin <span class="keyword">for</span> single signon</div><div class="line">ii  account-plugin-jabber                  3.8.6-0ubuntu9           amd64                    Messaging account plugin <span class="keyword">for</span> Jabber/XMPP</div><div class="line">......</div></pre></td></tr></table></figure>
+<ul>
+<li>以上每条记录对应一个软件包，每条记录前三个字符表示软件包的状态标识，后边依次是软件包名称、版本号和简单描述</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 第一个字符为期望值，它包括：</div><div class="line"></div><div class="line">    * u 状态未知，这意味着软件包未安装，并且用户也未发出安装请求</div><div class="line">    * i 用户请求安装软件包</div><div class="line">    * r 用户请求卸载软件包</div><div class="line">    * p 用户请求清除软件包</div><div class="line">    * h 用户请求保持软件包版本锁定</div><div class="line"></div><div class="line"># 第二个字符为软件包当前状态，包括：</div><div class="line"></div><div class="line">    * n 软件包未安装</div><div class="line">    * i 软件包安装并完成配置</div><div class="line">    * c 软件包以前安装过，现在删除了，但是它的配置文件还留在系统中</div><div class="line">    * u 软件包被解包，但还未配置</div><div class="line">    * f 试图配置软件包，但是失败了</div><div class="line">    * h 软件包安装，但是没有安装成功</div><div class="line"></div><div class="line"># 第三个字符为错误状态，包括</div><div class="line"></div><div class="line">    * 空 表示没有问题</div><div class="line">    * h 软件包被强制保持，因为有其他软件包依赖需求，无法升级</div><div class="line">    * r 软件包被破坏，可能需要重新安装才能正常使用（包括删除）</div><div class="line">    * x 软件包被破坏，并且被强制保持</div></pre></td></tr></table></figure>
+<ul>
+<li>其他查询方式</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通配符模糊查询</span></div><div class="line">dpkg <span class="_">-l</span> nano*</div><div class="line"></div><div class="line"><span class="comment"># 查询系统中属于 nano 的文件</span></div><div class="line">dpkg --listfiles nano</div><div class="line"><span class="comment"># 或</span></div><div class="line">dpkg-query -L nano</div><div class="line"></div><div class="line"><span class="comment"># 查看软件nano的详细信息</span></div><div class="line">dpkg <span class="_">-s</span> nano</div><div class="line"><span class="comment"># 或</span></div><div class="line">dpkg-query <span class="_">-s</span> nano</div><div class="line"></div><div class="line"><span class="comment"># 查看系统中软件包状态，支持模糊查询</span></div><div class="line">dpkg <span class="_">-l</span></div><div class="line"><span class="comment"># 或</span></div><div class="line">dpkg-query <span class="_">-l</span></div><div class="line"></div><div class="line"><span class="comment"># 查看某个文件的归属包</span></div><div class="line">dpkg -S nano</div><div class="line"><span class="comment"># 或</span></div><div class="line">dpkg-query -S nano</div></pre></td></tr></table></figure>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">apt-cache search # package 搜索包</div><div class="line">apt-cache show # package 获取包的相关信息，如说明、大小、版本等</div><div class="line">apt-get install # package 安装包，下载软件包及其所有的依赖包，同时进行包的安装或升级。如果某个包被设置了 hold，将不会被升级</div><div class="line">apt-get --reinstall install # package --reinstall 重新安装包</div><div class="line">apt-get -f install # package 强制安装，-f 即 --fix-missing</div><div class="line">apt-get remove # package 删除包以及任何依赖这个包的其他包</div><div class="line">apt-get remove --purge # package 删除包，同时删除配置文件等</div><div class="line">apt-get autoremove --purge # package 删除包及其依赖的软件包和配置文件等，只对6.10有效</div><div class="line">apt-get update # 更新源</div><div class="line">apt-get upgrade # 更新已安装的包为最新可用版本，不会安装新的或移除老的包，如果一个包改变了依赖关系而需要安装一个新的包，那么它将不会被升级，而是标识为 hold。建议同时使用 -u 选项，能看到哪些包将会被升级</div><div class="line">apt-get dist-upgrade # 升级系统，和 apt-get upgrade 类似，但是会安装和移除包来满足依赖关系，具有一定危险性</div><div class="line">apt-get dselect-upgrade # 使用 dselect 升级</div><div class="line">apt-cache depends # package 了解使用依赖</div><div class="line">apt-cache rdepends # package 了解某个具体的依赖，查看该包被哪些包依赖</div><div class="line">apt-cache showpkg # 显示 package 更多信息以及和其他包的关系</div><div class="line">apt-get build-dep # package 安装相关的编译环境</div><div class="line">apt-get source # package 下载该包的源码</div><div class="line">apt-get clean # 清理下载文件的存档</div><div class="line">apt-get autoclean # 只清理过时的包</div><div class="line">apt-get check # 检查是否有损坏的依赖</div><div class="line">dpkg -S filename # 查找 filename 属于哪个软件包</div><div class="line">apt-file search filename # 查找 filename 属于哪个软件包</div><div class="line">apt-file list packagename # 列出软件包的内容</div><div class="line">apt-file update # 更新 apt-file 的数据库</div><div class="line"></div><div class="line">dpkg --info packagename # 列出软件包解包后的包名称</div><div class="line">dpkg -l ## 列出当前系统中所有的包，可以和参数 less 一起使用在分屏查看（类似于 rpm -qa）</div><div class="line">dpkg -l | grep -i packagename # 查看系统中与 packagename 相关联得包</div><div class="line">dpkg -s # 查询已经安装的包的详细信息</div><div class="line">dpkg -L # 查询系统中已安装的软件包所安装的位置（类似于 rpm -ql）</div><div class="line">dpkg -S # 查询系统中某个文件属于哪个软件包（类似于 rpm -qf）</div><div class="line">dpkg -I # 查询 deb 包的详细信息，在一个软件包下载到本地之后看看是否需要安装</div><div class="line">dpkg -i # 手动安装软件包（这个命令不能解决软件包之前的依赖性问题），如果在安装某一个软件包的时候遇到了软件依赖的问题，可以用 apt-get -f install 在解决依赖性问题</div><div class="line">dpkg -r # 卸载软件包，不是完全的卸载，它的配置文件还在</div><div class="line">dpkg -P # 全部卸载（但是还是不能解决软件包的依赖性问题）</div><div class="line">dpkg -reconfigure # 重新配置</div><div class="line">dpkg-reconfigure --frontend=dialog debconf # 如果安装时选错了，可以改回来</div><div class="line">dpkg -c # 列出内容</div></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://www.cnblogs.com/forward/archive/2012/01/10/2318483.html" target="_blank" rel="external">ubuntu 安装和查看已安装</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.jpg" alt="Arcticfox WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward.jpg" alt="Arcticfox Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Arcticfox
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://blog.longgen.me/2014/06/27/64845/" title="Ubuntu 软件安装与卸载">http://blog.longgen.me/2014/06/27/64845/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/Software/" rel="tag"># Software</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/06/23/5677/" rel="next" title="Google Analytics 在页面中的使用">
+                <i class="fa fa-chevron-left"></i> Google Analytics 在页面中的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/06/27/61358/" rel="prev" title="Ubuntu SSH 服务开启">
+                Ubuntu SSH 服务开启 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/fox.jpg"
+               alt="Arcticfox" />
+          <p class="site-author-name" itemprop="name">Arcticfox</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fjarcticfox" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/onelark" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件包的安装、卸载"><span class="nav-number">1.</span> <span class="nav-text">软件包的安装、卸载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件包的安装"><span class="nav-number">1.1.</span> <span class="nav-text">软件包的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件包的卸载"><span class="nav-number">1.2.</span> <span class="nav-text">软件包的卸载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看是否安装某软件包"><span class="nav-number">2.</span> <span class="nav-text">查看是否安装某软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">3.</span> <span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Arcticfox</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ddb604bcb4fb4d259c017d8452b6d476",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz", "Gqso4MtlbSkab8QQEp2cFX22");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
