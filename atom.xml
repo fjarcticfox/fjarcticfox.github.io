@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2017-05-28T17:00:52.000Z</updated>
+  <updated>2017-05-29T07:06:40.000Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 Hexo 搭配 Next 主题搭建博客</title>
+    <link href="http://blog.longgen.me/2017/05/29/29846/"/>
+    <id>http://blog.longgen.me/2017/05/29/29846/</id>
+    <published>2017-05-29T05:31:01.000Z</published>
+    <updated>2017-05-29T07:06:40.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Hexo-下载及安装&quot;&gt;&lt;a href=&quot;#Hexo-下载及安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo 下载及安装&quot;&gt;&lt;/a&gt;Hexo 下载及安装&lt;/h2&gt;&lt;p&gt;官方网址: &lt;a href=&quot;http://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://hexo.io&lt;/a&gt;&lt;br&gt;Github: &lt;a href=&quot;https://github.com/hexojs/hexo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo init blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DEBUG 模式&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo s --debug&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建文章&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo new &lt;span class=&quot;string&quot;&gt;&quot;Hello Hexo&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态文件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo generate&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 部署(需要配置部署方式)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://blog.longgen.me/categories/Blog/"/>
+    
+    
+      <category term="Blog" scheme="http://blog.longgen.me/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="http://blog.longgen.me/tags/Hexo/"/>
+    
+      <category term="Next" scheme="http://blog.longgen.me/tags/Next/"/>
+    
+      <category term="SEO" scheme="http://blog.longgen.me/tags/SEO/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -420,26 +447,6 @@
     
     
       <category term="Icon Fonts" scheme="http://blog.longgen.me/tags/Icon-Fonts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NodeJS 安装、配置及使用</title>
-    <link href="http://blog.longgen.me/2014/07/14/47281/"/>
-    <id>http://blog.longgen.me/2014/07/14/47281/</id>
-    <published>2014-07-14T01:40:39.000Z</published>
-    <updated>2017-05-28T16:18:47.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Windows-下安装及配置-NodeJS&quot;&gt;&lt;a href=&quot;#Windows-下安装及配置-NodeJS&quot; class=&quot;headerlink&quot; title=&quot;Windows 下安装及配置 NodeJS&quot;&gt;&lt;/a&gt;Windows 下安装及配置 NodeJS&lt;/h2&gt;&lt;p&gt;直接通过 &lt;a href=&quot;http://www.nodejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NodeJS 主页&lt;/a&gt; 中的 INSTALL 按钮下载并安装。当前 NodeJS 最新版本为 v0.10.29。配置环境变量NODEJS_HOME，并加入path。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="NodeJS" scheme="http://blog.longgen.me/categories/NodeJS/"/>
-    
-    
-      <category term="NodeJS" scheme="http://blog.longgen.me/tags/NodeJS/"/>
     
   </entry>
   
