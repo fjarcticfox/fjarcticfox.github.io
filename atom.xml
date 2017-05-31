@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2017-05-29T07:06:40.000Z</updated>
+  <updated>2017-05-31T05:47:41.000Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -16,11 +16,106 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>饿了么 UI 框架 Element 学习</title>
+    <link href="http://blog.longgen.me/2017/05/30/33430/"/>
+    <id>http://blog.longgen.me/2017/05/30/33430/</id>
+    <published>2017-05-30T14:56:16.000Z</published>
+    <updated>2017-05-31T05:47:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;项目初始化&quot;&gt;&lt;a href=&quot;#项目初始化&quot; class=&quot;headerlink&quot; title=&quot;项目初始化&quot;&gt;&lt;/a&gt;项目初始化&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建项目目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化项目&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装 element-ui&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install element-ui -S&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="UI" scheme="http://blog.longgen.me/categories/UI/"/>
+    
+      <category term="Element" scheme="http://blog.longgen.me/categories/UI/Element/"/>
+    
+    
+      <category term="UI" scheme="http://blog.longgen.me/tags/UI/"/>
+    
+      <category term="Element" scheme="http://blog.longgen.me/tags/Element/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP 升级到 HTTPS</title>
+    <link href="http://blog.longgen.me/2017/05/30/20181/"/>
+    <id>http://blog.longgen.me/2017/05/30/20181/</id>
+    <published>2017-05-30T02:56:36.000Z</published>
+    <updated>2017-05-30T14:55:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;升级注意点&quot;&gt;&lt;a href=&quot;#升级注意点&quot; class=&quot;headerlink&quot; title=&quot;升级注意点&quot;&gt;&lt;/a&gt;升级注意点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;HTTP 直接通过 301 跳转到 HTTPS&lt;/li&gt;
+&lt;/ul&gt;
+
+    
+    </summary>
+    
+      <category term="HTTPS" scheme="http://blog.longgen.me/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="http://blog.longgen.me/tags/HTTPS/"/>
+    
+      <category term="Nginx" scheme="http://blog.longgen.me/tags/Nginx/"/>
+    
+      <category term="Tomcat" scheme="http://blog.longgen.me/tags/Tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高 PV 网站优化</title>
+    <link href="http://blog.longgen.me/2017/05/29/41423/"/>
+    <id>http://blog.longgen.me/2017/05/29/41423/</id>
+    <published>2017-05-29T15:46:57.000Z</published>
+    <updated>2017-05-29T16:04:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;CDN&quot;&gt;&lt;a href=&quot;#CDN&quot; class=&quot;headerlink&quot; title=&quot;CDN&quot;&gt;&lt;/a&gt;CDN&lt;/h2&gt;&lt;h2 id=&quot;缓存&quot;&gt;&lt;a href=&quot;#缓存&quot; class=&quot;headerlink&quot; title=&quot;缓存&quot;&gt;&lt;/a&gt;缓存&lt;/h2&gt;&lt;h
+    
+    </summary>
+    
+      <category term="Web" scheme="http://blog.longgen.me/categories/Web/"/>
+    
+    
+      <category term="Web" scheme="http://blog.longgen.me/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 多线程</title>
+    <link href="http://blog.longgen.me/2017/05/29/5593/"/>
+    <id>http://blog.longgen.me/2017/05/29/5593/</id>
+    <published>2017-05-29T15:19:59.000Z</published>
+    <updated>2017-05-29T15:43:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;变量可见性&quot;&gt;&lt;a href=&quot;#变量可见性&quot; class=&quot;headerlink&quot; title=&quot;变量可见性&quot;&gt;&lt;/a&gt;变量可见性&lt;/h2&gt;&lt;p&gt;在多线程程序中，当一个线程对共享变量所做的修改对于其它线程并不可见，导致其它的线程仍然使用错误的值，就会造成可见性问
+    
+    </summary>
+    
+      <category term="Java" scheme="http://blog.longgen.me/categories/Java/"/>
+    
+      <category term="Multithreading" scheme="http://blog.longgen.me/categories/Java/Multithreading/"/>
+    
+    
+      <category term="Java" scheme="http://blog.longgen.me/tags/Java/"/>
+    
+      <category term="Multithreading" scheme="http://blog.longgen.me/tags/Multithreading/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用 Hexo 搭配 Next 主题搭建博客</title>
     <link href="http://blog.longgen.me/2017/05/29/29846/"/>
     <id>http://blog.longgen.me/2017/05/29/29846/</id>
     <published>2017-05-29T05:31:01.000Z</published>
-    <updated>2017-05-29T07:06:40.000Z</updated>
+    <updated>2017-05-30T02:31:30.000Z</updated>
     
     <summary type="html">
     
@@ -363,90 +458,6 @@
       <category term="Tools" scheme="http://blog.longgen.me/tags/Tools/"/>
     
       <category term="Homebrew" scheme="http://blog.longgen.me/tags/Homebrew/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Npm 命令详解</title>
-    <link href="http://blog.longgen.me/2014/07/20/20536/"/>
-    <id>http://blog.longgen.me/2014/07/20/20536/</id>
-    <published>2014-07-20T07:57:15.000Z</published>
-    <updated>2017-05-28T16:26:32.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NPM（Node Packaged Modules），是一个用于管理基于 node.js 编写的 package 的命令行工具。类似于 gem 与 ruby 的关系。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Tools" scheme="http://blog.longgen.me/categories/Tools/"/>
-    
-      <category term="Npm" scheme="http://blog.longgen.me/categories/Tools/Npm/"/>
-    
-    
-      <category term="Tools" scheme="http://blog.longgen.me/tags/Tools/"/>
-    
-      <category term="Npm" scheme="http://blog.longgen.me/tags/Npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OSGI 详解</title>
-    <link href="http://blog.longgen.me/2014/07/17/13631/"/>
-    <id>http://blog.longgen.me/2014/07/17/13631/</id>
-    <published>2014-07-17T09:32:15.000Z</published>
-    <updated>2017-05-28T16:22:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;OSGI（Open Service Gateway Initiative，开放服务网关协议），根据上下文的不同，通常可能指的是 OSGI 联盟、&lt;a href=&quot;http://www.OSGI.org/Specifications/HomePage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OSGI 标准&lt;/a&gt;或 OSGI 框架。在 &lt;a href=&quot;http://OSGI.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OSGI 联盟官方网站&lt;/a&gt;的介绍中，OSGI 现在只是作为一种技术名称了。因为 OSGI 已经逐渐扩展到了企业应用领域，并且在 JAVA 企业级开发中扮演越来越重要的角色。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="OSGI" scheme="http://blog.longgen.me/categories/OSGI/"/>
-    
-    
-      <category term="OSGI" scheme="http://blog.longgen.me/tags/OSGI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gradle 安装配置及使用</title>
-    <link href="http://blog.longgen.me/2014/07/17/56514/"/>
-    <id>http://blog.longgen.me/2014/07/17/56514/</id>
-    <published>2014-07-17T06:37:42.000Z</published>
-    <updated>2017-05-28T16:21:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Gradle 版本：2.0，支持新特性如下：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Gradle" scheme="http://blog.longgen.me/categories/Gradle/"/>
-    
-    
-      <category term="Gradle" scheme="http://blog.longgen.me/tags/Gradle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Icon Fonts 详解</title>
-    <link href="http://blog.longgen.me/2014/07/14/57471/"/>
-    <id>http://blog.longgen.me/2014/07/14/57471/</id>
-    <published>2014-07-14T13:48:08.000Z</published>
-    <updated>2017-05-28T15:51:04.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;像素完美（Pixel Perfection）、分辨率无关（Resolution Independent）和多平台体验一致性是设计师们的追求。 可访问性（Accessability）、加载性能和重构灵活性是前端工程师们关心的主题。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Icon Fonts" scheme="http://blog.longgen.me/categories/Icon-Fonts/"/>
-    
-    
-      <category term="Icon Fonts" scheme="http://blog.longgen.me/tags/Icon-Fonts/"/>
     
   </entry>
   

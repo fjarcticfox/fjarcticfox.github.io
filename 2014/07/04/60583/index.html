@@ -501,7 +501,7 @@
 <p>N 参数，表示只连接远程主机，不打开远程 shell；T 参数，表示不为这个连接分配 TTY。这个两个参数可以放在一起用，代表这个 SSH 连接只用来传数据，不执行远程操作。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -NT -D 8080 host</div></pre></td></tr></table></figure>
 <p>f 参数，表示 SSH 连接成功后，转入后台运行。这样一来，你就可以在不中断 SSH 连接的情况下，在本地 shell 中执行其他操作。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh <span class="_">-f</span> -D 8080 host</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -f -D 8080 host</div></pre></td></tr></table></figure>
 <p>要关闭这个后台连接，就只有用 kill 命令去杀掉进程。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li><a href="http://blog.aliyun.com/1251?spm=0.0.0.0.owssBR" target="_blank" rel="external">SSH 原理与运用（一）：远程登录</a></li>
@@ -694,7 +694,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -705,7 +705,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -716,7 +716,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -809,6 +809,7 @@
 </div>
 
 
+<a href="https://www.upyun.com"><img src="/images/upyun.png" style="width:80px;height:28px"/></a>
 
         
 

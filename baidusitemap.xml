@@ -4,8 +4,57 @@
 
     
   <url>
+    <loc>http://blog.longgen.me/2017/05/30/33430/</loc>
+    <lastmod>2017-05-31T05:47:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>饿了么 UI 框架 Element 学习</title>
+        <pubTime>2017-05-30T14:56:16.000Z</pubTime>
+        
+        <tag>UI</tag>
+         
+        <tag>Element</tag>
+         
+         
+           
+             
+              <breadCrumb title="UI" url="http://blog.longgen.me/categories/UI/"/>
+          
+             
+              <breadCrumb title="Element" url="http://blog.longgen.me/categories/UI/Element/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/05/30/20181/</loc>
+    <lastmod>2017-05-30T14:55:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP 升级到 HTTPS</title>
+        <pubTime>2017-05-30T02:56:36.000Z</pubTime>
+        
+        <tag>HTTPS</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>Tomcat</tag>
+         
+         
+           
+             
+              <breadCrumb title="HTTPS" url="http://blog.longgen.me/categories/HTTPS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.longgen.me/2017/05/29/29846/</loc>
-    <lastmod>2017-05-29T07:06:40.000Z</lastmod>
+    <lastmod>2017-05-30T02:31:30.000Z</lastmod>
     <data>
         <display>
         <title>使用 Hexo 搭配 Next 主题搭建博客</title>
@@ -23,6 +72,51 @@
            
              
               <breadCrumb title="Blog" url="http://blog.longgen.me/categories/Blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/05/29/41423/</loc>
+    <lastmod>2017-05-29T16:04:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>高 PV 网站优化</title>
+        <pubTime>2017-05-29T15:46:57.000Z</pubTime>
+        
+        <tag>Web</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="http://blog.longgen.me/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/05/29/5593/</loc>
+    <lastmod>2017-05-29T15:43:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java 多线程</title>
+        <pubTime>2017-05-29T15:19:59.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Multithreading</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://blog.longgen.me/categories/Java/"/>
+          
+             
+              <breadCrumb title="Multithreading" url="http://blog.longgen.me/categories/Java/Multithreading/"/>
           
         </display>
     </data>

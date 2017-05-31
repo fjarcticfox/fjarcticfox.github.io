@@ -448,10 +448,10 @@
       
         <p>Homebrew 是 OS X 上的 package 管理工具，用于添加 OS X 中缺失的 package。</p>
 <a id="more"></a>
-<h2 id="获取-Homebrew"><a href="#获取-Homebrew" class="headerlink" title="获取 Homebrew"></a>获取 Homebrew</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打开终端窗口, 执行以下脚本。</span></div><div class="line">$ ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)</span>"</span></div><div class="line"></div><div class="line"><span class="comment"># 脚本会解释它的作用，然后在您的确认下执行安装。高级安装选项请看 [这里][2]（需要10.5）。</span></div></pre></td></tr></table></figure>
+<h2 id="获取-Homebrew"><a href="#获取-Homebrew" class="headerlink" title="获取 Homebrew"></a>获取 Homebrew</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打开终端窗口, 执行以下脚本。</span></div><div class="line">$ ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)</span>"</span></div><div class="line"></div><div class="line"><span class="comment"># 脚本会解释它的作用，然后在您的确认下执行安装。高级安装选项请看 [这里][2]（需要10.5）。</span></div></pre></td></tr></table></figure>
 <h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Homebrew installs [the stuff you need][1] that Apple didn’t.</span></div><div class="line">$ brew install wget</div></pre></td></tr></table></figure>
 <h2 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h2><p>Homebrew 会将 packages 安装到独立目录，然后 symlinks 其中文件到目录 <code>/usr/local</code>.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></div><div class="line">$ find Cellar</div><div class="line">Cellar/wget/1.15</div><div class="line">Cellar/wget/1.15/bin/wget</div><div class="line">Cellar/wget/1.15/share/man/man1/wget.1</div><div class="line"></div><div class="line">$ ls <span class="_">-l</span> bin</div><div class="line">bin/wget -&gt; ../Cellar/wget/1.15/bin/wget</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></div><div class="line">$ find Cellar</div><div class="line">Cellar/wget/1.15</div><div class="line">Cellar/wget/1.15/bin/wget</div><div class="line">Cellar/wget/1.15/share/man/man1/wget.1</div><div class="line"></div><div class="line">$ ls -l bin</div><div class="line">bin/wget -&gt; ../Cellar/wget/1.15/bin/wget</div></pre></td></tr></table></figure>
 <p>Homebrew 的所有文件均会被安装到预定义目录下，另外，你可以将 Homebrew 的安装目录设置在你喜欢的任何地方。</p>
 <h2 id="创建自己的-Homebrew-上的-packages"><a href="#创建自己的-Homebrew-上的-packages" class="headerlink" title="创建自己的 Homebrew 上的 packages"></a>创建自己的 Homebrew 上的 packages</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew create http://foo.com/bar-1.0.tgz</div><div class="line">Created /usr/<span class="built_in">local</span>/Library/Formula/bar.rb</div></pre></td></tr></table></figure>
 <h2 id="维护自己的-packages"><a href="#维护自己的-packages" class="headerlink" title="维护自己的 packages"></a>维护自己的 packages</h2><p>Homebrew 基于 git、ruby，所以依据掌握的知识，你可以便捷的撤回你的修改或者合并上游的更新。</p>
@@ -651,7 +651,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -662,7 +662,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -673,7 +673,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -766,6 +766,7 @@
 </div>
 
 
+<a href="https://www.upyun.com"><img src="/images/upyun.png" style="width:80px;height:28px"/></a>
 
         
 
