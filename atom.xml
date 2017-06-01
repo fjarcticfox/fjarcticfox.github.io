@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2017-05-31T05:47:41.000Z</updated>
+  <updated>2017-06-01T07:23:49.000Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用前端优秀框架(持续更新)</title>
+    <link href="http://blog.longgen.me/2017/06/01/5880/"/>
+    <id>http://blog.longgen.me/2017/06/01/5880/</id>
+    <published>2017-06-01T06:38:04.000Z</published>
+    <updated>2017-06-01T07:23:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;Bulma&quot;&gt;&lt;a href=&quot;#Bulma&quot; class=&quot;headerlink&quot; title=&quot;Bulma&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://blog.longgen.me/categories/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://blog.longgen.me/categories/JavaScript/CSS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>饿了么 UI 框架 Element 学习</title>
@@ -434,30 +454,6 @@
       <category term="Tools" scheme="http://blog.longgen.me/tags/Tools/"/>
     
       <category term="Sonar" scheme="http://blog.longgen.me/tags/Sonar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Homebrew 命令详解</title>
-    <link href="http://blog.longgen.me/2014/07/20/18122/"/>
-    <id>http://blog.longgen.me/2014/07/20/18122/</id>
-    <published>2014-07-20T08:31:49.000Z</published>
-    <updated>2017-05-28T16:24:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Homebrew 是 OS X 上的 package 管理工具，用于添加 OS X 中缺失的 package。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Tools" scheme="http://blog.longgen.me/categories/Tools/"/>
-    
-      <category term="Homebrew" scheme="http://blog.longgen.me/categories/Tools/Homebrew/"/>
-    
-    
-      <category term="Tools" scheme="http://blog.longgen.me/tags/Tools/"/>
-    
-      <category term="Homebrew" scheme="http://blog.longgen.me/tags/Homebrew/"/>
     
   </entry>
   

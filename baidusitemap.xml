@@ -4,6 +4,49 @@
 
     
   <url>
+    <loc>http://blog.longgen.me/2017/06/01/5880/</loc>
+    <lastmod>2017-06-01T07:23:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用前端优秀框架(持续更新)</title>
+        <pubTime>2017-06-01T06:38:04.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://blog.longgen.me/categories/JavaScript/"/>
+          
+             
+              <breadCrumb title="CSS" url="http://blog.longgen.me/categories/JavaScript/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2014/04/10/3854/</loc>
+    <lastmod>2017-06-01T02:52:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议简介</title>
+        <pubTime>2014-04-10T04:42:15.000Z</pubTime>
+        
+        <tag>License</tag>
+         
+        <tag>Open Source</tag>
+         
+         
+           
+             
+              <breadCrumb title="License" url="http://blog.longgen.me/categories/License/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.longgen.me/2017/05/29/29846/</loc>
     <lastmod>2017-06-01T01:37:23.000Z</lastmod>
     <data>
@@ -973,28 +1016,6 @@
            
              
               <breadCrumb title="Linux" url="http://blog.longgen.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.longgen.me/2014/04/10/3854/</loc>
-    <lastmod>2017-05-28T14:48:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>开源协议简介</title>
-        <pubTime>2014-04-10T04:42:15.000Z</pubTime>
-        
-        <tag>Protocol</tag>
-         
-        <tag>Open Source</tag>
-         
-         
-           
-             
-              <breadCrumb title="Protocol" url="http://blog.longgen.me/categories/Protocol/"/>
           
         </display>
     </data>
