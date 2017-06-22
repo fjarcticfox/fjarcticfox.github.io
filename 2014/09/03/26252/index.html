@@ -103,7 +103,7 @@
 <meta property="og:url" content="http://blog.longgen.me/2014/09/03/26252/index.html">
 <meta property="og:site_name" content="逆水行舟">
 <meta property="og:description" content="Docker 是 PaaS 供应商 docCloud 使用 Apache 2.0 协议开源的一个基于 LXC 的高级容器引擎。">
-<meta property="og:updated_time" content="2017-05-28T16:53:56.000Z">
+<meta property="og:updated_time" content="2017-06-16T04:03:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 详解">
 <meta name="twitter:description" content="Docker 是 PaaS 供应商 docCloud 使用 Apache 2.0 协议开源的一个基于 LXC 的高级容器引擎。">
@@ -443,6 +443,7 @@
 <li>Docker 使用 Go 语言开发</li>
 <li>提供了安全、可重复的环境中自动部署软件的方式</li>
 </ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动 redis 容器, 在 redis 容器非 0 异常退出时自动重启</span></div><div class="line">sudo docker run --restart=on-failure redis</div><div class="line"><span class="comment"># 启动 redis 容器, 在 redis 容器非 0 异常退出时自动重启, 限制自动重启次数为 10 次</span></div><div class="line">sudo docker run --restart=on-failure:10 redis</div><div class="line"><span class="comment"># 启动 redis 容器, 在 redis 容器退出时, 自动重启</span></div><div class="line">sudo docker run --restart=always redis</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -630,7 +631,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -641,7 +642,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -652,7 +653,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -714,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-特点"><span class="nav-number">1.</span> <span class="nav-text">Docker 特点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-特点"><span class="nav-number">1.</span> <span class="nav-text">Docker 特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
             
 
           </div>

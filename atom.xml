@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2017-06-10T08:42:56.000Z</updated>
+  <updated>2017-06-16T04:20:34.000Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -16,11 +16,95 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SSH 配置管理</title>
+    <link href="http://blog.longgen.me/2017/06/16/37634/"/>
+    <id>http://blog.longgen.me/2017/06/16/37634/</id>
+    <published>2017-06-16T03:51:08.000Z</published>
+    <updated>2017-06-16T04:20:34.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SSH-配置&quot;&gt;&lt;a href=&quot;#SSH-配置&quot; class=&quot;headerlink&quot; title=&quot;SSH 配置&quot;&gt;&lt;/a&gt;SSH 配置&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;生成 ssh key, 开启 ssh-agent&lt;/p&gt;
+&lt;figure class=&quot;h
+    
+    </summary>
+    
+      <category term="SSH" scheme="http://blog.longgen.me/categories/SSH/"/>
+    
+    
+      <category term="SSH" scheme="http://blog.longgen.me/tags/SSH/"/>
+    
+      <category term="SSH KEY" scheme="http://blog.longgen.me/tags/SSH-KEY/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dokku 详解</title>
+    <link href="http://blog.longgen.me/2017/06/15/36906/"/>
+    <id>http://blog.longgen.me/2017/06/15/36906/</id>
+    <published>2017-06-15T09:26:08.000Z</published>
+    <updated>2017-06-15T09:27:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Dokku-安装&quot;&gt;&lt;a href=&quot;#Dokku-安装&quot; class=&quot;headerlink&quot; title=&quot;Dokku 安装&quot;&gt;&lt;/a&gt;Dokku 安装&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/dokku/dokk
+    
+    </summary>
+    
+      <category term="Dokku" scheme="http://blog.longgen.me/categories/Dokku/"/>
+    
+    
+      <category term="Dokku" scheme="http://blog.longgen.me/tags/Dokku/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SVN 详解</title>
+    <link href="http://blog.longgen.me/2017/06/15/22235/"/>
+    <id>http://blog.longgen.me/2017/06/15/22235/</id>
+    <published>2017-06-15T08:56:13.000Z</published>
+    <updated>2017-06-15T08:57:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ubuntu&quot;&gt;&lt;a href=&quot;#Ubuntu&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu&quot;&gt;&lt;/a&gt;Ubuntu&lt;/h2&gt;&lt;h3 id=&quot;SVN-管理软件&quot;&gt;&lt;a href=&quot;#SVN-管理软件&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="SVN" scheme="http://blog.longgen.me/categories/SVN/"/>
+    
+    
+      <category term="SVN" scheme="http://blog.longgen.me/tags/SVN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 日常使用</title>
+    <link href="http://blog.longgen.me/2017/06/15/28537/"/>
+    <id>http://blog.longgen.me/2017/06/15/28537/</id>
+    <published>2017-06-15T01:49:13.000Z</published>
+    <updated>2017-06-16T04:39:40.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;制作-U-盘安装盘&quot;&gt;&lt;a href=&quot;#制作-U-盘安装盘&quot; class=&quot;headerlink&quot; title=&quot;制作 U 盘安装盘&quot;&gt;&lt;/a&gt;制作 U 盘安装盘&lt;/h2&gt;&lt;p&gt;制作工具: &lt;a href=&quot;https://rufus.akeo.ie/&quot; tar
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="http://blog.longgen.me/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://blog.longgen.me/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常用前端优秀框架(持续更新)</title>
     <link href="http://blog.longgen.me/2017/06/01/5880/"/>
     <id>http://blog.longgen.me/2017/06/01/5880/</id>
     <published>2017-06-01T06:38:04.000Z</published>
-    <updated>2017-06-10T08:42:56.000Z</updated>
+    <updated>2017-06-22T01:45:30.000Z</updated>
     
     <summary type="html">
     
@@ -40,11 +124,12 @@
     <link href="http://blog.longgen.me/2017/05/30/33430/"/>
     <id>http://blog.longgen.me/2017/05/30/33430/</id>
     <published>2017-05-30T14:56:16.000Z</published>
-    <updated>2017-05-31T05:47:41.000Z</updated>
+    <updated>2017-06-22T01:44:04.000Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;项目初始化&quot;&gt;&lt;a href=&quot;#项目初始化&quot; class=&quot;headerlink&quot; title=&quot;项目初始化&quot;&gt;&lt;/a&gt;项目初始化&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建项目目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化项目&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装 element-ui&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install element-ui -S&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;项目初始化&quot;&gt;&lt;a href=&quot;#项目初始化&quot; class=&quot;headerlink&quot; title=&quot;项目初始化&quot;&gt;&lt;/a&gt;项目初始化&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/ElemeFE/element&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/ElemeFE/element&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建项目目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化项目&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装 element-ui&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install element-ui -S&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -362,98 +447,6 @@
       <category term="Javascript" scheme="http://blog.longgen.me/tags/Javascript/"/>
     
       <category term="AngularJS" scheme="http://blog.longgen.me/tags/AngularJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 详解</title>
-    <link href="http://blog.longgen.me/2014/09/03/26252/"/>
-    <id>http://blog.longgen.me/2014/09/03/26252/</id>
-    <published>2014-09-03T08:21:21.000Z</published>
-    <updated>2017-05-28T16:53:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Docker 是 PaaS 供应商 docCloud 使用 Apache 2.0 协议开源的一个基于 LXC 的高级容器引擎。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="http://blog.longgen.me/categories/Docker/"/>
-    
-    
-      <category term="Docker" scheme="http://blog.longgen.me/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中小企业建站方案及相关资源</title>
-    <link href="http://blog.longgen.me/2014/08/31/11218/"/>
-    <id>http://blog.longgen.me/2014/08/31/11218/</id>
-    <published>2014-08-31T06:37:43.000Z</published>
-    <updated>2017-05-28T16:35:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;域名注册&quot;&gt;&lt;a href=&quot;#域名注册&quot; class=&quot;headerlink&quot; title=&quot;域名注册&quot;&gt;&lt;/a&gt;域名注册&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;新网&lt;/li&gt;
-&lt;li&gt;万网&lt;/li&gt;
-&lt;li&gt;Godaddy&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Architecture" scheme="http://blog.longgen.me/categories/Architecture/"/>
-    
-    
-      <category term="Architecture" scheme="http://blog.longgen.me/tags/Architecture/"/>
-    
-      <category term="Domain" scheme="http://blog.longgen.me/tags/Domain/"/>
-    
-      <category term="Email" scheme="http://blog.longgen.me/tags/Email/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>企业 Spring 最佳实践</title>
-    <link href="http://blog.longgen.me/2014/08/28/38090/"/>
-    <id>http://blog.longgen.me/2014/08/28/38090/</id>
-    <published>2014-08-28T14:49:22.000Z</published>
-    <updated>2017-05-28T16:31:11.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;项目配置&quot;&gt;&lt;a href=&quot;#项目配置&quot; class=&quot;headerlink&quot; title=&quot;项目配置&quot;&gt;&lt;/a&gt;项目配置&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Spring" scheme="http://blog.longgen.me/categories/Spring/"/>
-    
-    
-      <category term="Spring" scheme="http://blog.longgen.me/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sonar 代码质量管理平台</title>
-    <link href="http://blog.longgen.me/2014/08/05/45706/"/>
-    <id>http://blog.longgen.me/2014/08/05/45706/</id>
-    <published>2014-08-04T19:28:52.000Z</published>
-    <updated>2017-05-28T16:29:50.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sonar (SonarQube)是一个开源平台，用于管理源代码的质量。Sonar 不只是一个质量数据报告工具，更是代码质量管理平台。支持的语言包括：Java、PHP、C#、C、Cobol、PL/SQL、Flex 等。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Tools" scheme="http://blog.longgen.me/categories/Tools/"/>
-    
-      <category term="Sonar" scheme="http://blog.longgen.me/categories/Tools/Sonar/"/>
-    
-    
-      <category term="Tools" scheme="http://blog.longgen.me/tags/Tools/"/>
-    
-      <category term="Sonar" scheme="http://blog.longgen.me/tags/Sonar/"/>
     
   </entry>
   

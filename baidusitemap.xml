@@ -4,8 +4,178 @@
 
     
   <url>
+    <loc>http://blog.longgen.me/2017/06/01/5880/</loc>
+    <lastmod>2017-06-22T01:45:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用前端优秀框架(持续更新)</title>
+        <pubTime>2017-06-01T06:38:04.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://blog.longgen.me/categories/JavaScript/"/>
+          
+             
+              <breadCrumb title="CSS" url="http://blog.longgen.me/categories/JavaScript/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/05/30/33430/</loc>
+    <lastmod>2017-06-22T01:44:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>饿了么 UI 框架 Element 学习</title>
+        <pubTime>2017-05-30T14:56:16.000Z</pubTime>
+        
+        <tag>UI</tag>
+         
+        <tag>Element</tag>
+         
+         
+           
+             
+              <breadCrumb title="UI" url="http://blog.longgen.me/categories/UI/"/>
+          
+             
+              <breadCrumb title="Element" url="http://blog.longgen.me/categories/UI/Element/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/06/15/28537/</loc>
+    <lastmod>2017-06-16T04:39:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu 日常使用</title>
+        <pubTime>2017-06-15T01:49:13.000Z</pubTime>
+        
+        <tag>Ubuntu</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ubuntu" url="http://blog.longgen.me/categories/Ubuntu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2014/06/27/64845/</loc>
+    <lastmod>2017-06-16T04:37:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu 软件安装与卸载</title>
+        <pubTime>2014-06-27T03:56:37.000Z</pubTime>
+        
+        <tag>Ubuntu</tag>
+         
+        <tag>Software</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ubuntu" url="http://blog.longgen.me/categories/Ubuntu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/06/16/37634/</loc>
+    <lastmod>2017-06-16T04:20:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>SSH 配置管理</title>
+        <pubTime>2017-06-16T03:51:08.000Z</pubTime>
+        
+        <tag>SSH</tag>
+         
+        <tag>SSH KEY</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSH" url="http://blog.longgen.me/categories/SSH/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2014/09/03/26252/</loc>
+    <lastmod>2017-06-16T04:03:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Docker 详解</title>
+        <pubTime>2014-09-03T08:21:21.000Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="http://blog.longgen.me/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/06/15/36906/</loc>
+    <lastmod>2017-06-15T09:27:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>Dokku 详解</title>
+        <pubTime>2017-06-15T09:26:08.000Z</pubTime>
+        
+        <tag>Dokku</tag>
+         
+         
+           
+             
+              <breadCrumb title="Dokku" url="http://blog.longgen.me/categories/Dokku/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.longgen.me/2017/06/15/22235/</loc>
+    <lastmod>2017-06-15T08:57:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>SVN 详解</title>
+        <pubTime>2017-06-15T08:56:13.000Z</pubTime>
+        
+        <tag>SVN</tag>
+         
+         
+           
+             
+              <breadCrumb title="SVN" url="http://blog.longgen.me/categories/SVN/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.longgen.me/2014/07/04/60583/</loc>
-    <lastmod>2017-06-15T01:23:59.000Z</lastmod>
+    <lastmod>2017-06-15T06:53:16.000Z</lastmod>
     <data>
         <display>
         <title>SSH 原理与运用</title>
@@ -24,20 +194,24 @@
 
     
   <url>
-    <loc>http://blog.longgen.me/2017/06/01/5880/</loc>
-    <lastmod>2017-06-10T08:42:56.000Z</lastmod>
+    <loc>http://blog.longgen.me/2014/06/27/35860/</loc>
+    <lastmod>2017-06-15T01:47:38.000Z</lastmod>
     <data>
         <display>
-        <title>常用前端优秀框架(持续更新)</title>
-        <pubTime>2017-06-01T06:38:04.000Z</pubTime>
+        <title>Ubuntu 用户、组、权限的管理</title>
+        <pubTime>2014-06-27T04:43:51.000Z</pubTime>
         
+        <tag>Ubuntu</tag>
+         
+        <tag>Permission</tag>
+         
          
            
              
-              <breadCrumb title="JavaScript" url="http://blog.longgen.me/categories/JavaScript/"/>
+              <breadCrumb title="Ubuntu" url="http://blog.longgen.me/categories/Ubuntu/"/>
           
              
-              <breadCrumb title="CSS" url="http://blog.longgen.me/categories/JavaScript/CSS/"/>
+              <breadCrumb title="Permission" url="http://blog.longgen.me/categories/Ubuntu/Permission/"/>
           
         </display>
     </data>
@@ -86,31 +260,6 @@
            
              
               <breadCrumb title="Blog" url="http://blog.longgen.me/categories/Blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.longgen.me/2017/05/30/33430/</loc>
-    <lastmod>2017-05-31T05:47:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>饿了么 UI 框架 Element 学习</title>
-        <pubTime>2017-05-30T14:56:16.000Z</pubTime>
-        
-        <tag>UI</tag>
-         
-        <tag>Element</tag>
-         
-         
-           
-             
-              <breadCrumb title="UI" url="http://blog.longgen.me/categories/UI/"/>
-          
-             
-              <breadCrumb title="Element" url="http://blog.longgen.me/categories/UI/Element/"/>
           
         </display>
     </data>
@@ -215,26 +364,6 @@
            
              
               <breadCrumb title="JavaScript" url="http://blog.longgen.me/categories/JavaScript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.longgen.me/2014/09/03/26252/</loc>
-    <lastmod>2017-05-28T16:53:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>Docker 详解</title>
-        <pubTime>2014-09-03T08:21:21.000Z</pubTime>
-        
-        <tag>Docker</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="http://blog.longgen.me/categories/Docker/"/>
           
         </display>
     </data>
@@ -799,31 +928,6 @@
 
     
   <url>
-    <loc>http://blog.longgen.me/2014/06/27/35860/</loc>
-    <lastmod>2017-05-28T15:18:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu 用户、组、权限的管理</title>
-        <pubTime>2014-06-27T04:43:51.000Z</pubTime>
-        
-        <tag>Ubuntu</tag>
-         
-        <tag>Permission</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu" url="http://blog.longgen.me/categories/Ubuntu/"/>
-          
-             
-              <breadCrumb title="Permission" url="http://blog.longgen.me/categories/Ubuntu/Permission/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.longgen.me/2014/06/27/61358/</loc>
     <lastmod>2017-05-28T15:17:07.000Z</lastmod>
     <data>
@@ -842,28 +946,6 @@
           
              
               <breadCrumb title="SSH" url="http://blog.longgen.me/categories/Ubuntu/SSH/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.longgen.me/2014/06/27/64845/</loc>
-    <lastmod>2017-05-28T15:14:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu 软件安装与卸载</title>
-        <pubTime>2014-06-27T03:56:37.000Z</pubTime>
-        
-        <tag>Ubuntu</tag>
-         
-        <tag>Software</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ubuntu" url="http://blog.longgen.me/categories/Ubuntu/"/>
           
         </display>
     </data>
