@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>逆水行舟</title>
+  
   <subtitle>Whatever is worth doing is worth doing well.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -24,9 +25,12 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SSH-配置&quot;&gt;&lt;a href=&quot;#SSH-配置&quot; class=&quot;headerlink&quot; title=&quot;SSH 配置&quot;&gt;&lt;/a&gt;SSH 配置&lt;/h2&gt;&lt;ul&gt;
+      
+      
+        &lt;h2 id=&quot;SSH-配置&quot;&gt;&lt;a href=&quot;#SSH-配置&quot; class=&quot;headerlink&quot; title=&quot;SSH 配置&quot;&gt;&lt;/a&gt;SSH 配置&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;生成 ssh key, 开启 ssh-agent&lt;/p&gt;
 &lt;figure class=&quot;h
+      
     
     </summary>
     
@@ -48,7 +52,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Dokku-安装&quot;&gt;&lt;a href=&quot;#Dokku-安装&quot; class=&quot;headerlink&quot; title=&quot;Dokku 安装&quot;&gt;&lt;/a&gt;Dokku 安装&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/dokku/dokk
+      
+      
+        &lt;h2 id=&quot;Dokku-安装&quot;&gt;&lt;a href=&quot;#Dokku-安装&quot; class=&quot;headerlink&quot; title=&quot;Dokku 安装&quot;&gt;&lt;/a&gt;Dokku 安装&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/dokku/dokk
+      
     
     </summary>
     
@@ -68,7 +75,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Ubuntu&quot;&gt;&lt;a href=&quot;#Ubuntu&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu&quot;&gt;&lt;/a&gt;Ubuntu&lt;/h2&gt;&lt;h3 id=&quot;SVN-管理软件&quot;&gt;&lt;a href=&quot;#SVN-管理软件&quot; class=&quot;headerlink&quot; 
+      
+      
+        &lt;h2 id=&quot;Ubuntu&quot;&gt;&lt;a href=&quot;#Ubuntu&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu&quot;&gt;&lt;/a&gt;Ubuntu&lt;/h2&gt;&lt;h3 id=&quot;SVN-管理软件&quot;&gt;&lt;a href=&quot;#SVN-管理软件&quot; class=&quot;headerlink&quot; 
+      
     
     </summary>
     
@@ -88,7 +98,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;制作-U-盘安装盘&quot;&gt;&lt;a href=&quot;#制作-U-盘安装盘&quot; class=&quot;headerlink&quot; title=&quot;制作 U 盘安装盘&quot;&gt;&lt;/a&gt;制作 U 盘安装盘&lt;/h2&gt;&lt;p&gt;制作工具: &lt;a href=&quot;https://rufus.akeo.ie/&quot; tar
+      
+      
+        &lt;h2 id=&quot;制作-U-盘安装盘&quot;&gt;&lt;a href=&quot;#制作-U-盘安装盘&quot; class=&quot;headerlink&quot; title=&quot;制作 U 盘安装盘&quot;&gt;&lt;/a&gt;制作 U 盘安装盘&lt;/h2&gt;&lt;p&gt;制作工具: &lt;a href=&quot;https://rufus.akeo.ie/&quot; tar
+      
     
     </summary>
     
@@ -108,7 +121,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;Bulma&quot;&gt;&lt;a href=&quot;#Bulma&quot; class=&quot;headerlink&quot; title=&quot;Bulma&quot;&gt;&lt;/a&gt;
+      
+      
+        &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;Bulma&quot;&gt;&lt;a href=&quot;#Bulma&quot; class=&quot;headerlink&quot; title=&quot;Bulma&quot;&gt;&lt;/a&gt;
+      
     
     </summary>
     
@@ -128,8 +144,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;项目初始化&quot;&gt;&lt;a href=&quot;#项目初始化&quot; class=&quot;headerlink&quot; title=&quot;项目初始化&quot;&gt;&lt;/a&gt;项目初始化&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/ElemeFE/element&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/ElemeFE/element&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建项目目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化项目&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elem&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装 element-ui&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install element-ui -S&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;项目初始化&quot;&gt;&lt;a href=&quot;#项目初始化&quot; class=&quot;headerlink&quot; title=&quot;项目初始化&quot;&gt;&lt;/a&gt;项目初始化&lt;/h2&gt;&lt;p&gt;Github: &lt;a href=&quot;https://github.com/ElemeFE/element&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ElemeFE/element&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建项目目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir elem&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化项目&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elem&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装 element-ui&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install element-ui -S&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -153,10 +169,13 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;升级注意点&quot;&gt;&lt;a href=&quot;#升级注意点&quot; class=&quot;headerlink&quot; title=&quot;升级注意点&quot;&gt;&lt;/a&gt;升级注意点&lt;/h2&gt;&lt;ul&gt;
+      
+      
+        &lt;h2 id=&quot;升级注意点&quot;&gt;&lt;a href=&quot;#升级注意点&quot; class=&quot;headerlink&quot; title=&quot;升级注意点&quot;&gt;&lt;/a&gt;升级注意点&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;HTTP 直接通过 301 跳转到 HTTPS&lt;/li&gt;
 &lt;/ul&gt;
 
+      
     
     </summary>
     
@@ -180,7 +199,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;CDN&quot;&gt;&lt;a href=&quot;#CDN&quot; class=&quot;headerlink&quot; title=&quot;CDN&quot;&gt;&lt;/a&gt;CDN&lt;/h2&gt;&lt;h2 id=&quot;缓存&quot;&gt;&lt;a href=&quot;#缓存&quot; class=&quot;headerlink&quot; title=&quot;缓存&quot;&gt;&lt;/a&gt;缓存&lt;/h2&gt;&lt;h
+      
+      
+        &lt;h2 id=&quot;CDN&quot;&gt;&lt;a href=&quot;#CDN&quot; class=&quot;headerlink&quot; title=&quot;CDN&quot;&gt;&lt;/a&gt;CDN&lt;/h2&gt;&lt;h2 id=&quot;缓存&quot;&gt;&lt;a href=&quot;#缓存&quot; class=&quot;headerlink&quot; title=&quot;缓存&quot;&gt;&lt;/a&gt;缓存&lt;/h2&gt;&lt;h
+      
     
     </summary>
     
@@ -200,7 +222,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;变量可见性&quot;&gt;&lt;a href=&quot;#变量可见性&quot; class=&quot;headerlink&quot; title=&quot;变量可见性&quot;&gt;&lt;/a&gt;变量可见性&lt;/h2&gt;&lt;p&gt;在多线程程序中，当一个线程对共享变量所做的修改对于其它线程并不可见，导致其它的线程仍然使用错误的值，就会造成可见性问
+      
+      
+        &lt;h2 id=&quot;变量可见性&quot;&gt;&lt;a href=&quot;#变量可见性&quot; class=&quot;headerlink&quot; title=&quot;变量可见性&quot;&gt;&lt;/a&gt;变量可见性&lt;/h2&gt;&lt;p&gt;在多线程程序中，当一个线程对共享变量所做的修改对于其它线程并不可见，导致其它的线程仍然使用错误的值，就会造成可见性问
+      
     
     </summary>
     
@@ -220,12 +245,12 @@
     <link href="http://blog.longgen.me/2017/05/29/29846/"/>
     <id>http://blog.longgen.me/2017/05/29/29846/</id>
     <published>2017-05-29T05:31:01.000Z</published>
-    <updated>2017-06-22T02:37:18.000Z</updated>
+    <updated>2019-07-30T09:20:31.693Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Hexo-下载及安装&quot;&gt;&lt;a href=&quot;#Hexo-下载及安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo 下载及安装&quot;&gt;&lt;/a&gt;Hexo 下载及安装&lt;/h2&gt;&lt;p&gt;官方网址: &lt;a href=&quot;http://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://hexo.io&lt;/a&gt;&lt;br&gt;Github: &lt;a href=&quot;https://github.com/hexojs/hexo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo init blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DEBUG 模式&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo s --debug&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建文章&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo new &lt;span class=&quot;string&quot;&gt;&quot;Hello Hexo&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态文件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo generate&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 部署(需要配置部署方式)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;Hexo-下载及安装&quot;&gt;&lt;a href=&quot;#Hexo-下载及安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo 下载及安装&quot;&gt;&lt;/a&gt;Hexo 下载及安装&lt;/h2&gt;&lt;p&gt;官方网址: &lt;a href=&quot;http://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://hexo.io&lt;/a&gt;&lt;br&gt;Github: &lt;a href=&quot;https://github.com/hexojs/hexo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo init blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DEBUG 模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo s --debug&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo new &lt;span class=&quot;string&quot;&gt;&quot;Hello Hexo&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 部署(需要配置部署方式)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 升级 hexo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -251,7 +276,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
@@ -314,7 +339,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;相关工具&quot;&gt;&lt;a href=&quot;#相关工具&quot; class=&quot;headerlink&quot; title=&quot;相关工具&quot;&gt;&lt;/a&gt;相关工具&lt;/h2&gt;&lt;h3 id=&quot;Pandoc&quot;&gt;&lt;a href=&quot;#Pandoc&quot; class=&quot;headerlink&quot; title=&quot;Pandoc&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jgm/pandoc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pandoc&lt;/a&gt;&lt;/h3&gt;
+      &lt;h2 id=&quot;相关工具&quot;&gt;&lt;a href=&quot;#相关工具&quot; class=&quot;headerlink&quot; title=&quot;相关工具&quot;&gt;&lt;/a&gt;相关工具&lt;/h2&gt;&lt;h3 id=&quot;Pandoc&quot;&gt;&lt;a href=&quot;#Pandoc&quot; class=&quot;headerlink&quot; title=&quot;Pandoc&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jgm/pandoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pandoc&lt;/a&gt;&lt;/h3&gt;
     
     </summary>
     
@@ -342,24 +367,6 @@
     
     
       <category term="HTTP" scheme="http://blog.longgen.me/tags/HTTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用加密算法详解</title>
-    <link href="http://blog.longgen.me/2014/09/09/11712/"/>
-    <id>http://blog.longgen.me/2014/09/09/11712/</id>
-    <published>2014-09-09T09:34:47.000Z</published>
-    <updated>2017-05-28T16:47:37.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://blog.longgen.me/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://blog.longgen.me/tags/Algorithm/"/>
     
   </entry>
   
@@ -413,7 +420,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;Java-模板引擎&quot;&gt;&lt;a href=&quot;#Java-模板引擎&quot; class=&quot;headerlink&quot; title=&quot;Java 模板引擎&quot;&gt;&lt;/a&gt;Java 模板引擎&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://zh.wikipedia.org/wiki/AngularJS&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Rythm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://zh.wikipedia.org/wiki/AngularJS&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rythm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;专为 Java 程序员设计的模板引擎&lt;/p&gt;
     
@@ -447,6 +454,34 @@
       <category term="Javascript" scheme="http://blog.longgen.me/tags/Javascript/"/>
     
       <category term="AngularJS" scheme="http://blog.longgen.me/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中小企业建站方案及相关资源</title>
+    <link href="http://blog.longgen.me/2014/08/31/11218/"/>
+    <id>http://blog.longgen.me/2014/08/31/11218/</id>
+    <published>2014-08-31T06:37:43.000Z</published>
+    <updated>2017-05-28T16:35:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;域名注册&quot;&gt;&lt;a href=&quot;#域名注册&quot; class=&quot;headerlink&quot; title=&quot;域名注册&quot;&gt;&lt;/a&gt;域名注册&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;新网&lt;/li&gt;
+&lt;li&gt;万网&lt;/li&gt;
+&lt;li&gt;Godaddy&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Architecture" scheme="http://blog.longgen.me/categories/Architecture/"/>
+    
+    
+      <category term="Architecture" scheme="http://blog.longgen.me/tags/Architecture/"/>
+    
+      <category term="Domain" scheme="http://blog.longgen.me/tags/Domain/"/>
+    
+      <category term="Email" scheme="http://blog.longgen.me/tags/Email/"/>
     
   </entry>
   
