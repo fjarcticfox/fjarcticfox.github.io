@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2017-10-11T12:57:08.000Z</updated>
+  <updated>2019-07-31T08:23:14.942Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="http://blog.longgen.me/2017/06/16/37634/"/>
     <id>http://blog.longgen.me/2017/06/16/37634/</id>
     <published>2017-06-16T03:51:08.000Z</published>
-    <updated>2017-10-11T12:57:08.000Z</updated>
+    <updated>2019-07-31T08:23:14.942Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;SSH-配置&quot;&gt;&lt;a href=&quot;#SSH-配置&quot; class=&quot;headerlink&quot; title=&quot;SSH 配置&quot;&gt;&lt;/a&gt;SSH 配置&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;生成 ssh key, 开启 ssh-agent&lt;/p&gt;
-&lt;figure class=&quot;h
-      
+      &lt;h2 id=&quot;SSH-配置&quot;&gt;&lt;a href=&quot;#SSH-配置&quot; class=&quot;headerlink&quot; title=&quot;SSH 配置&quot;&gt;&lt;/a&gt;SSH 配置&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;生成 ssh key, 开启 ssh-agent&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成 ssh key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen -t rsa -b 4096 -C &lt;span class=&quot;string&quot;&gt;&quot;your_email@example.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 开启 ssh-agent&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$(ssh-agent -s)&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -94,14 +92,13 @@
     <link href="http://blog.longgen.me/2017/06/15/28537/"/>
     <id>http://blog.longgen.me/2017/06/15/28537/</id>
     <published>2017-06-15T01:49:13.000Z</published>
-    <updated>2017-06-22T02:26:53.000Z</updated>
+    <updated>2019-07-31T08:23:35.002Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;制作-U-盘安装盘&quot;&gt;&lt;a href=&quot;#制作-U-盘安装盘&quot; class=&quot;headerlink&quot; title=&quot;制作 U 盘安装盘&quot;&gt;&lt;/a&gt;制作 U 盘安装盘&lt;/h2&gt;&lt;p&gt;制作工具: &lt;a href=&quot;https://rufus.akeo.ie/&quot; tar
-      
+      &lt;h2 id=&quot;制作-U-盘安装盘&quot;&gt;&lt;a href=&quot;#制作-U-盘安装盘&quot; class=&quot;headerlink&quot; title=&quot;制作 U 盘安装盘&quot;&gt;&lt;/a&gt;制作 U 盘安装盘&lt;/h2&gt;&lt;p&gt;制作工具: &lt;a href=&quot;https://rufus.akeo.ie/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rufus&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#6&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#6&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Ubuntu-设置-基于16-04&quot;&gt;&lt;a href=&quot;#Ubuntu-设置-基于16-04&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu 设置(基于16.04)&quot;&gt;&lt;/a&gt;Ubuntu 设置(基于16.04)&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 设置 root 密码, 启用 root 用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo passwd root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 切换到 root 用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;su root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 修改 /etc/ssh/sshd_config, 允许 root SHH 远程登陆(PermitRootLogin yes)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 重启 SSH 服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo service ssh restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -117,14 +114,12 @@
     <link href="http://blog.longgen.me/2017/06/01/5880/"/>
     <id>http://blog.longgen.me/2017/06/01/5880/</id>
     <published>2017-06-01T06:38:04.000Z</published>
-    <updated>2017-06-22T01:45:30.000Z</updated>
+    <updated>2019-07-31T08:23:28.241Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;Bulma&quot;&gt;&lt;a href=&quot;#Bulma&quot; class=&quot;headerlink&quot; title=&quot;Bulma&quot;&gt;&lt;/a&gt;
-      
+      &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;Bulma&quot;&gt;&lt;a href=&quot;#Bulma&quot; class=&quot;headerlink&quot; title=&quot;Bulma&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jgthms/bulma&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bulma&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;基于 Flexbox 的现代 CSS 框架&lt;/p&gt;
+&lt;h3 id=&quot;Autoprefixer&quot;&gt;&lt;a href=&quot;#Autoprefixer&quot; class=&quot;headerlink&quot; title=&quot;Autoprefixer&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/postcss/autoprefixer&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Autoprefixer&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;解析 CSS 并根据 Can I Use 规则增加各浏览器 CSS 实验性前缀&lt;/p&gt;
     
     </summary>
     
@@ -195,14 +190,18 @@
     <link href="http://blog.longgen.me/2017/05/29/41423/"/>
     <id>http://blog.longgen.me/2017/05/29/41423/</id>
     <published>2017-05-29T15:46:57.000Z</published>
-    <updated>2017-05-29T16:04:00.000Z</updated>
+    <updated>2019-07-31T08:23:54.642Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;CDN&quot;&gt;&lt;a href=&quot;#CDN&quot; class=&quot;headerlink&quot; title=&quot;CDN&quot;&gt;&lt;/a&gt;CDN&lt;/h2&gt;&lt;h2 id=&quot;缓存&quot;&gt;&lt;a href=&quot;#缓存&quot; class=&quot;headerlink&quot; title=&quot;缓存&quot;&gt;&lt;/a&gt;缓存&lt;/h2&gt;&lt;h
-      
+      &lt;h2 id=&quot;CDN&quot;&gt;&lt;a href=&quot;#CDN&quot; class=&quot;headerlink&quot; title=&quot;CDN&quot;&gt;&lt;/a&gt;CDN&lt;/h2&gt;&lt;h2 id=&quot;缓存&quot;&gt;&lt;a href=&quot;#缓存&quot; class=&quot;headerlink&quot; title=&quot;缓存&quot;&gt;&lt;/a&gt;缓存&lt;/h2&gt;&lt;h2 id=&quot;负载均衡&quot;&gt;&lt;a href=&quot;#负载均衡&quot; class=&quot;headerlink&quot; title=&quot;负载均衡&quot;&gt;&lt;/a&gt;负载均衡&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DNS解析的负载均衡&lt;br&gt;1) 防止运营商劫持&lt;br&gt;2) 保证请求链路最优化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反向代理的负载均衡&lt;br&gt;1) 基于各服务提供服务器的权重进行请求分发和负载均衡(例如, 通过 nginx)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;后台服务的负载均衡&lt;br&gt;1)一个虚拟ip和端口对应后面多台机器，这样对业务来说就是透明的(例如, 腾讯 L5 方案或 LB 方案)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
