@@ -113,10 +113,12 @@
 <meta property="og:site_name" content="逆水行舟">
 <meta property="og:description" content="Open Source Initiative 组织批准的开源协议中，我们常见的有：BSD、GPL、LGPL、MIT 等。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-06-01T02:52:30.000Z">
+<meta property="og:image" content="http://blog.longgen.me/images/blog/licence_select.png">
+<meta property="og:updated_time" content="2019-10-17T04:03:13.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源协议简介">
 <meta name="twitter:description" content="Open Source Initiative 组织批准的开源协议中，我们常见的有：BSD、GPL、LGPL、MIT 等。">
+<meta name="twitter:image" content="http://blog.longgen.me/images/blog/licence_select.png">
 
 
 
@@ -457,7 +459,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-06-01 10:52:30" itemprop="dateModified" datetime="2017-06-01T10:52:30+08:00">2017-06-01</time>
+                <time title="修改时间：2019-10-17 12:03:13" itemprop="dateModified" datetime="2019-10-17T12:03:13+08:00">2019-10-17</time>
               </span>
             
           
@@ -537,12 +539,26 @@
 <h2 id="GPL（GNU-General-Public-License）"><a href="#GPL（GNU-General-Public-License）" class="headerlink" title="GPL（GNU General Public License）"></a>GPL（GNU General Public License）</h2><p>我们很熟悉的 Linux 就是采用了 GPL。GPL 协议和 BSD, Apache Licence 等鼓励代码重用的许可很不一样。GPL 的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的 linux 和 linux 上各种各样的由个人，组织，以及商业软件公司开发的免费软件了。</p>
 <p>GPL 协议的主要内容是只要在一个软件中使用(“使用”指类库引用，修改后的代码或者衍生代码)GPL 协议的产品，则该软件产品必须也采用 GPL 协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL 协议的产品作为一个单独的产品使用没有任何问题，还可以享受免费的优势。</p>
 <p>由于 GPL 严格要求使用了 GPL 类库的软件产品必须使用 GPL 协议，对于使用 GPL 协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p>
+<p>GPL协议最主要的几个原则：</p>
+<ul>
+<li>确保软件自始至终都以开放源代码形式发布，保护开发成果不被窃取用作商业发售。任何一套软 件，只要其中使用了受 GPL 协议保护的第三方软件的源程序，并向非开发人员发布时，软件本身也就自动成为受 GPL 保护并且约束的实体。也就是说，此时它必须开放源代码。</li>
+<li>GPL大致就是一个左侧版权（Copyleft，或译为“反版权”、“版权属左”、“版权所无”、“版责”等）的体现。你可以去掉所有原作的版权 信息，只要你保持开源，并且随源代码、二进制版附上 GPL 的许可证就行，让后人可以很明确地得知此软件的授权信息。GPL 精髓就是，只要使软件在完整开源 的情况下，尽可能使使用者得到自由发挥的空间，使软件得到更快更好的发展。</li>
+<li>无论软件以何种形式发布，都必须同时附上源代码。例如在 Web 上提供下载，就必须在二进制版本（如果有的话）下载的同一个页面，清楚地提供源代码下载的链接。如果以光盘形式发布，就必须同时附上源文件的光盘。</li>
+<li>开发或维护遵循 GPL 协议开发的软件的公司或个人，可以对使用者收取一定的服务费用。但还是一句老话——必须无偿提供软件的完整源代码，不得将源代码与服务做捆绑或任何变相捆绑销售。</li>
+</ul>
+<p>GPL 只是规定用户在获取你的程序的时候必须可以获得源代码，但并没有规定必须免费，因此理论上说，你仍然可以收取费用。如果你的确需要发布你的程序，但又不想开源，规避 GPL 的方法是通过 LPC 或者 RPC 间接调用库里的接口。只要库和你的程序不运行在同一进程下，就不需要开源。</p>
+<p>另外，你需要区分 GPL 和 LGPL。LGPL 的要求比 GPL 低，你可以动态链接一个 LGPL 的库而不需要开源你自己的程序，而 GPL 是不行的。</p>
 <p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p>
 <h2 id="LGPL（GNU-Lesser-General-Public-License）"><a href="#LGPL（GNU-Lesser-General-Public-License）" class="headerlink" title="LGPL（GNU Lesser General Public License）"></a>LGPL（GNU Lesser General Public License）</h2><p>LGPL 是 GPL 的一个为主要为类库使用设计的开源协议。和 GPL 要求任何使用/修改/衍生之GPL类库的的软件必须采用 GPL 协议不同。LGPL 允许商业软件通过类库引用(link)方式使用 LGPL 类库而不需要开源商业软件的代码。这使得采用 LGPL 协议的开源代码可以被商业软件作为类库引用并发布和销售。</p>
 <p>但是如果修改 LGPL 协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用 LGPL 协议。因此 LGPL 协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以 LGPL 协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。</p>
 <p>GPL/LGPL 都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品。</p>
 <h2 id="AGPL（The-GNU-Affero-General-Public-License）"><a href="#AGPL（The-GNU-Affero-General-Public-License）" class="headerlink" title="AGPL（The GNU Affero General Public License）"></a>AGPL（The GNU Affero General Public License）</h2><p>原有的GPL协议，由于现在网络服务公司兴起（如：google）产生了一定的漏洞，比如使用GPL的自由软件，但是并不发布与网络之中，则可以自由的使用GPL协议却不开源自己私有的解决方案。AGPL则增加了对此做法的约束。</p>
 <h2 id="MIT（MIT）"><a href="#MIT（MIT）" class="headerlink" title="MIT（MIT）"></a>MIT（MIT）</h2><p>MIT 是和 BSD 一样宽范的许可协议，作者只想保留版权，而无任何其他了限制。也就是说，你必须在你的发行版里包含原许可协议的声明，无论你是以二进制发布的还是以源代码发布的。</p>
+<ul>
+<li>被授权人有权利使用、复制、修改、合并、出版发行、散布、再授权及贩售软体及软体的副本。</li>
+<li>被授权人可根据程式的需要修改授权条款为适当的内容。</li>
+<li>在软件和软件的所有副本中都必须包含版权声明和许可声明</li>
+</ul>
 <h2 id="CPAL（Common-Public-Attribution-License）"><a href="#CPAL（Common-Public-Attribution-License）" class="headerlink" title="CPAL（Common Public Attribution License）"></a>CPAL（Common Public Attribution License）</h2><p>CPAL 本质上其是由 Mozilla 公共许可证（MPL）加入新的条款构成的。该许可证要求开发者对软件进行标记。</p>
 <h2 id="MPL（The-Mozilla-Public-License）"><a href="#MPL（The-Mozilla-Public-License）" class="headerlink" title="MPL（The Mozilla Public License）"></a>MPL（The Mozilla Public License）</h2><p>MPL 是 1998 年初 Netscape 的 Mozilla 小组为其开源软件项目设计的软件许可证。MPL 更好的平衡了开发者对源代码的需求和他们可以利用源代码获得的利益。MPL 在许多权利与义务的约定方面同著名的 GPL 许可证和 BSD 许可证相同，都是符合 OSIA 认定的开源软件许可证。MPL 主要有以下几个显著不同：</p>
 <ol>
@@ -550,6 +566,7 @@
 <li>MPL 许可证第三条第 7 条款中 允许被许可人将经过 MPL 许可证获得的源代码同自己其他类型的代码混合得到自己的软件程序。</li>
 <li>对软件专利的态度，MPL 许可证不像 GPL 许可证那样明确表示反对软件专利，但是却明确要求源代码的提供者不能提供已经受专利保护的源代码（除非他本人是专利权人，并书面向公众免费许可这些源代码），也不能在将这些源代码以开放源代码许可证形式许可后，再去申请与这些源代码有关的专利。</li>
 </ol>
+<h2 id="协议选择"><a href="#协议选择" class="headerlink" title="协议选择"></a>协议选择</h2><p>GPL、BSD、MIT、Mozilla、Apache和LGPL之中做选择<br><img src="/images/blog/licence_select.png" alt="Licence Select"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li><a href="http://www.opensource.org/licenses/alphabetical" target="_blank" rel="noopener">开源协议</a></li>
 <li><a href="http://www.awflasher.com/blog/archives/939" target="_blank" rel="noopener">五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT)</a></li>
@@ -726,7 +743,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -863,7 +880,45 @@
         
           
         
-        <span class="site-state-item-count">60</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1020,7 +1075,45 @@
         
           
         
-        <span class="site-state-item-count">70</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1087,7 +1180,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BSD-开源协议（original-BSD-license、FreeBSD-license、Original-BSD-license）"><span class="nav-number">1.</span> <span class="nav-text">BSD 开源协议（original BSD license、FreeBSD license、Original BSD license）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Licence-2-0（Apache-License-Version-2-0、Apache-License-Version-1-1、Apache-License-Version-1-0）"><span class="nav-number">2.</span> <span class="nav-text">Apache Licence 2.0（Apache License, Version 2.0、Apache License, Version 1.1、Apache License, Version 1.0）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPL（GNU-General-Public-License）"><span class="nav-number">3.</span> <span class="nav-text">GPL（GNU General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LGPL（GNU-Lesser-General-Public-License）"><span class="nav-number">4.</span> <span class="nav-text">LGPL（GNU Lesser General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AGPL（The-GNU-Affero-General-Public-License）"><span class="nav-number">5.</span> <span class="nav-text">AGPL（The GNU Affero General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIT（MIT）"><span class="nav-number">6.</span> <span class="nav-text">MIT（MIT）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPAL（Common-Public-Attribution-License）"><span class="nav-number">7.</span> <span class="nav-text">CPAL（Common Public Attribution License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MPL（The-Mozilla-Public-License）"><span class="nav-number">8.</span> <span class="nav-text">MPL（The Mozilla Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BSD-开源协议（original-BSD-license、FreeBSD-license、Original-BSD-license）"><span class="nav-number">1.</span> <span class="nav-text">BSD 开源协议（original BSD license、FreeBSD license、Original BSD license）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Licence-2-0（Apache-License-Version-2-0、Apache-License-Version-1-1、Apache-License-Version-1-0）"><span class="nav-number">2.</span> <span class="nav-text">Apache Licence 2.0（Apache License, Version 2.0、Apache License, Version 1.1、Apache License, Version 1.0）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPL（GNU-General-Public-License）"><span class="nav-number">3.</span> <span class="nav-text">GPL（GNU General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LGPL（GNU-Lesser-General-Public-License）"><span class="nav-number">4.</span> <span class="nav-text">LGPL（GNU Lesser General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AGPL（The-GNU-Affero-General-Public-License）"><span class="nav-number">5.</span> <span class="nav-text">AGPL（The GNU Affero General Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIT（MIT）"><span class="nav-number">6.</span> <span class="nav-text">MIT（MIT）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPAL（Common-Public-Attribution-License）"><span class="nav-number">7.</span> <span class="nav-text">CPAL（Common Public Attribution License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MPL（The-Mozilla-Public-License）"><span class="nav-number">8.</span> <span class="nav-text">MPL（The Mozilla Public License）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议选择"><span class="nav-number">9.</span> <span class="nav-text">协议选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  <meta name="google-site-verification" content="4C4Ne_Z_86Xsa1amN_HIMvX8VWCkwaq9epRvvZDy-GA">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="mt8gaku08j.blog">
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: 'QXOBJAYTJJ',
+      apiKey: '5ca348ed69473755235cc0949cef295f',
+      indexName: 'blog_hexo_search_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="Spring 外部化配置Spring Boot 允许将配置外部化（externalize），这样你就能够在不同的环境下使用相同的代码。你可以使用properties文件，YAML文件，环境变量和命令行参数来外部化配置。使用@Value注解，可以直接将属性值注入到beans中，然后通过Spring的Environment抽象或通过@ConfigurationProperties绑定到结构化对象来访问">
+<meta name="keywords" content="Spring Boot,Config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot 配置信息">
+<meta property="og:url" content="http://blog.longgen.me/2019/10/17/2687/index.html">
+<meta property="og:site_name" content="逆水行舟">
+<meta property="og:description" content="Spring 外部化配置Spring Boot 允许将配置外部化（externalize），这样你就能够在不同的环境下使用相同的代码。你可以使用properties文件，YAML文件，环境变量和命令行参数来外部化配置。使用@Value注解，可以直接将属性值注入到beans中，然后通过Spring的Environment抽象或通过@ConfigurationProperties绑定到结构化对象来访问">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-18T07:42:56.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Boot 配置信息">
+<meta name="twitter:description" content="Spring 外部化配置Spring Boot 允许将配置外部化（externalize），这样你就能够在不同的环境下使用相同的代码。你可以使用properties文件，YAML文件，环境变量和命令行参数来外部化配置。使用@Value注解，可以直接将属性值注入到beans中，然后通过Spring的Environment抽象或通过@ConfigurationProperties绑定到结构化对象来访问">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逆水行舟" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://blog.longgen.me/2019/10/17/2687/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>Spring Boot 配置信息 | 逆水行舟</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e27df63661dd7d99e7c473280f19e32e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逆水行舟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Whatever is worth doing is worth doing well.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.longgen.me/2019/10/17/2687/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Arcticfox">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/fox.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆水行舟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Spring Boot 配置信息
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-17 12:38:58" itemprop="dateCreated datePublished" datetime="2019-10-17T12:38:58+08:00">2019-10-17</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-18 15:42:56" itemprop="dateModified" datetime="2019-10-18T15:42:56+08:00">2019-10-18</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/Config/" itemprop="url" rel="index"><span itemprop="name">Config</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          
+            <span id="/2019/10/17/2687/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot 配置信息">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring-外部化配置"><a href="#Spring-外部化配置" class="headerlink" title="Spring 外部化配置"></a>Spring 外部化配置</h1><p>Spring Boot 允许将配置外部化（externalize），这样你就能够在不同的环境下使用相同的代码。你可以使用properties文件，YAML文件，环境变量和命令行参数来外部化配置。使用@Value注解，可以直接将属性值注入到beans中，然后通过Spring的Environment抽象或通过@ConfigurationProperties绑定到结构化对象来访问。<br>Spring Boot设计了一个非常特别的PropertySource顺序，以允许对属性值进行合理的覆盖，属性会以如下的顺序进行设值：</p>
+<ul>
+<li>home目录下的devtools全局设置属性（~/.spring-boot-devtools.properties，如果devtools激活）。</li>
+<li>测试用例上的@TestPropertySource注解。</li>
+<li>测试用例上的@SpringBootTest#properties注解。</li>
+<li>命令行参数</li>
+<li>来自SPRING_APPLICATION_JSON的属性（环境变量或系统属性中内嵌的内联JSON）。</li>
+<li>ServletConfig初始化参数。</li>
+<li>ServletContext初始化参数。</li>
+<li>来自于java:comp/env的JNDI属性。</li>
+<li>Java系统属性（System.getProperties()）。</li>
+<li>操作系统环境变量。</li>
+<li>RandomValuePropertySource，只包含random.*中的属性。</li>
+<li>没有打进jar包的Profile-specific应用属性（application-{profile}.properties和YAML变量）。</li>
+<li>打进jar包中的Profile-specific应用属性（application-{profile}.properties和YAML变量）。</li>
+<li>没有打进jar包的应用配置（application.properties和YAML变量）。</li>
+<li>打进jar包中的应用配置（application.properties和YAML变量）。</li>
+<li>@Configuration类上的@PropertySource注解。</li>
+<li>默认的属性（使用 SpringApplication.setDefaultProperties指定）</li>
+</ul>
+<a id="more"></a>
+<p>以下是一个简单的例子：假定使用name属性开发一个@Component，具体代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.*</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.*</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以将一个application.properties放到应用的classpath下，为name提供一个合适的默认属性值。当在新的环境中运行时，可以在jar包外提供一个application.properties覆盖name属性。对于一次性的测试，你可以使用特定的命令行开关启动应用（比如，java -jar app.jar –name=”Spring”）。<br>注 SPRING_APPLICATION_JSON属性可以通过命令行的环境变量设置，例如，在一个UNIX shell中可以这样：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ SPRING_APPLICATION_JSON=<span class="string">'&#123;"foo":&#123;"bar":"spam"&#125;&#125;'</span> java -jar myapp.jar</span><br></pre></td></tr></table></figure></p>
+<p>本示例中，如果是Spring Environment，你可以以foo.bar=spam结尾；如果在一个系统变量中，可以提供作为spring.application.json的JSON字符串：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -Dspring.application.json=<span class="string">'&#123;"foo":"bar"&#125;'</span> -jar myapp.jar</span><br></pre></td></tr></table></figure></p>
+<p>或命令行参数：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar myapp.jar --spring.application.json=<span class="string">'&#123;"foo":"bar"&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<p>或作为一个JNDI变量 <code>java:comp/env/spring.application.json</code>。</p>
+<h2 id="配置随机变量"><a href="#配置随机变量" class="headerlink" title="配置随机变量"></a>配置随机变量</h2><p>在注入随机值（比如，密钥或测试用例）时RandomValuePropertySource很有用，它能产生整数，long 或字符串，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">my.secret=$&#123;random.value&#125;</span><br><span class="line">my.number=$&#123;random.int&#125;</span><br><span class="line">my.bignumber=$&#123;random.long&#125;</span><br><span class="line">my.uuid=$&#123;random.uuid&#125;</span><br><span class="line">my.number.less.than.ten=$&#123;random.int(10)&#125;</span><br><span class="line">my.number.in.range=$&#123;random.int[1024,65536]&#125;</span><br></pre></td></tr></table></figure></p>
+<p>random.int*语法是OPEN value (,max) CLOSE，此处OPEN，CLOSE可以是任何字符，并且value，max是整数。如果提供max，那么value是最小值，max是最大值（不包含在内）。</p>
+<h2 id="访问命令行属性"><a href="#访问命令行属性" class="headerlink" title="访问命令行属性"></a>访问命令行属性</h2><p>默认情况下，SpringApplication会将所有命令行配置参数（以’–’开头，比如–server.port=9000）转化成一个property，并将其添加到Spring Environment中。正如以上章节提过的，命令行属性总是优先于其他属性源。<br>如果不想让其加入到 spring 的环境变量中，可以通过如下代码方式禁止：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication.setAddCommandLineProperties(<span class="keyword">false</span>).</span><br></pre></td></tr></table></figure></p>
+<h2 id="应用属性文件"><a href="#应用属性文件" class="headerlink" title="应用属性文件"></a>应用属性文件</h2><p>SpringApplication 将会从如下位置加载 application.properties 到 spring 的环境变量中：</p>
+<ul>
+<li>当前目录的子目录 /config 下</li>
+<li>当前目录</li>
+<li>类路径的 /config 下</li>
+<li>应用根目录下<br>上述也是其优先使用顺序。 如果不想使用 application.properties 作为其配置文件名字，可以通过配置环境变量 spring.config.name 进行设置。也可以通过具体化位置的环境变量 spring.config.location 其指定：如下代码<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#通过第一种方式 </span></span><br><span class="line">java -jar myproject.jar --spring.config.name=myproject</span><br><span class="line"><span class="comment">##方式二</span></span><br><span class="line">java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果spring.config.location 也包含具体目录，需要使用“/”. spring.config.location 不支持具体额配置环境变量，将会被默认的配置环境变量替换。其配置搜索的顺序与配置的顺序刚好相反。例如：配置顺序为：classpath:/,classpath:/config/,file:./,file:./config/，其搜索顺序如下：</p>
+<ul>
+<li>file:./config/</li>
+<li>file:./</li>
+<li>classpath:/config/</li>
+<li>classpath:/</li>
+</ul>
+<p>如果配置spring.config.additional-location属性，将其追加默认的位置。追加的位置是在默认的位置之前进行搜索。例如追加的目录为 classpath:/custom-config/,file:./custom-config/，其搜索的顺序如下：</p>
+<ul>
+<li>file:./custom-config/</li>
+<li>classpath:custom-config/</li>
+<li>file:./config/</li>
+<li>file:./</li>
+<li>classpath:/config/</li>
+<li>classpath:/</li>
+</ul>
+<h2 id="特定环境配置属性（profile-specific）"><a href="#特定环境配置属性（profile-specific）" class="headerlink" title="特定环境配置属性（profile-specific）"></a>特定环境配置属性（profile-specific）</h2><p>作为附件的application.properties文件，profile-specific 属性可以通过使用方便的命名application-{profile}.properties进行定义。如果没有特定的环境配置被激活，其环境变量将采用默认的一系列的配置进行。换句话说，就是没有配置被激活，将采用默认的application.properties文件。 Profile-specific属性默认从标准的application.properties中加载。不管其profile-specific指定的文件是在外部还是内部，其总是被加载。</p>
+<h2 id="属性中的占位符"><a href="#属性中的占位符" class="headerlink" title="属性中的占位符"></a>属性中的占位符</h2><p>我们可以在在统一属性文件中调用之前定义的变量，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.name=MyApp</span><br><span class="line">app.description=$&#123;app.name&#125; is a Spring Boot application</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用YAML代替属性"><a href="#使用YAML代替属性" class="headerlink" title="使用YAML代替属性"></a>使用YAML代替属性</h2><p>YAML是json的一个超级子集，非常方便形成一个层次结构的配置文件。SpringApplication 默认支持YAML的配置。yaml默认被spring-boot-starter支持。</p>
+<ul>
+<li>加载YAML<br>spring框架默认提供了2中方式加载YAML配置，使用YamlPropertiesFactoryBean作为一个属性加载YAML与使用YamlMapFactoryBean 作为一个MAP加载YAML。<br>例如如下的YAML文件<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environments:</span></span><br><span class="line"><span class="attr">    dev:</span></span><br><span class="line"><span class="attr">        url:</span> <span class="attr">http://dev.example.com</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">Developer</span> <span class="string">Setup</span></span><br><span class="line"><span class="attr">    prod:</span></span><br><span class="line"><span class="attr">        url:</span> <span class="attr">http://another.example.com</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">My</span> <span class="string">Cool</span> <span class="string">App</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其将会被转换为如下的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environments.dev.url=http://dev.example.com</span><br><span class="line">environments.dev.name=Developer Setup</span><br><span class="line">environments.prod.url=http://another.example.com</span><br><span class="line">environments.prod.name=My Cool App</span><br></pre></td></tr></table></figure></p>
+<p>yaml的列表可以通过{index}的方式应用，如下列子：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">my:</span></span><br><span class="line"><span class="attr">servers:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">dev.example.com</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">another.example.com</span></span><br></pre></td></tr></table></figure></p>
+<p>被转换为属性之后的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my.servers[0]=dev.example.com</span><br><span class="line">my.servers[1]=another.example.com</span><br></pre></td></tr></table></figure></p>
+<p>通过使用 DataBinder 工具绑定变量的时候，在被绑定的类上必须要有一个List的类或者是set，提供一个setter方法，如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"my"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Config</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; servers = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getServers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.servers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>在spring的环境中暴露yaml属性<br>其主要通过YamlPropertySourceLoader 去暴露。</p>
+</li>
+<li><p>多配置环境的yaml文档<br>可以通过spring.profiles去指定该用哪一个环境变量，如下代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">    address:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">development</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">    address:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">production</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">    address:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.120</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上述环境中，如果开发环境被触发：则sever地址为：127.0.0.1，如果为生产地址：则地址为 192.168.1.120，当其两个都不可用的时候，默认为192.168.1.100环境</p>
+<ul>
+<li><p>YAML的不足<br>其不能通过@PropertySource 进行加载</p>
+</li>
+<li><p>合并YAML列表<br>按照前面所讲，任何yaml都会被转换为属性，当其列表有重复的时候只有其中一个生效，并不会合并。如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"acme"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcmeProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;MyPojo&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MyPojo&gt; <span class="title">getList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">acme:</span></span><br><span class="line"><span class="attr">  list:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">my</span> <span class="string">name</span></span><br><span class="line"><span class="attr">      description:</span> <span class="string">my</span> <span class="string">description</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">acme:</span></span><br><span class="line"><span class="attr">  list:</span></span><br><span class="line"><span class="attr">       - name:</span> <span class="string">my</span> <span class="string">another</span> <span class="string">name</span></span><br></pre></td></tr></table></figure>
+<p>如果 dev 没有被激活，则只包含一个元素MyPojo ，如果 dev 被激活，其仍然只包含一个元素（name值为my another name，description值为null），其不会添加第二个元素进去，其没有合并</p>
+<h2 id="类型安全的配置属性"><a href="#类型安全的配置属性" class="headerlink" title="类型安全的配置属性"></a>类型安全的配置属性</h2><ul>
+<li>第三方配置<br>@ConfigurationProperties不仅可以注解在类上，也可以注解在public @Bean方法上，当你需要为不受控的第三方组件绑定属性时，该方法将非常有用。<br>为了从Environment属性中配置一个bean，你需要使用@ConfigurationProperties注解该bean：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"foo"</span>)</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> FooComponent <span class="title">fooComponent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所有以foo为前缀的属性定义都会被映射到FooComponent上。</p>
+<ul>
+<li>Relaxed绑定<br>Spring Boot将Environment属性绑定到@ConfigurationProperties beans时会使用一些宽松的规则，所以Environment属性名和bean属性名不需要精确匹配。常见的示例中有用的包括虚线分割（比如，context-path绑定到contextPath），将environment属性转为大写字母（比如，PORT绑定port）。<br>例如，给定以下@ConfigurationProperties类：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OwnerProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String firstName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstName</span><span class="params">(String firstName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>下面的属性名都能使用：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>person.firstName</td>
+<td>标准驼峰规则</td>
+</tr>
+<tr>
+<td>person.first-name</td>
+<td>虚线表示，推荐用于.properties和.yml文件中</td>
+</tr>
+<tr>
+<td>person.first_name</td>
+<td>下划线表示，用于.properties和.yml文件的可选格式</td>
+</tr>
+<tr>
+<td>PERSON_FIRST_NAME</td>
+<td>大写形式，使用系统环境变量时推荐</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>属性转换<br>将外部应用配置绑定到@ConfigurationProperties beans时，Spring会尝试将属性强制转换为正确的类型。如果需要自定义类型转换器，你可以提供一个ConversionService bean（bean id为conversionService），或自定义属性编辑器（通过CustomEditorConfigurer bean），或自定义Converters（bean定义时需要注解@ConfigurationPropertiesBinding）。</li>
+</ul>
+<blockquote>
+<p>注 由于该bean在应用程序生命周期的早期就需要使用，所以确保限制你的ConversionService使用的依赖。通常，在创建时期任何你需要的依赖可能都没完全初始化。</p>
+</blockquote>
+<ul>
+<li>@ConfigurationProperties校验<br>Spring Boot将尝试校验外部配置，默认使用JSR-303（如果在classpath路径中），你只需要将JSR-303 javax.validation约束注解添加到@ConfigurationProperties类上：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"connection"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="keyword">private</span> InetAddress remoteAddress;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ... getters and setters</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>为了校验内嵌属性的值，你需要使用@Valid注解关联的字段以触发它的校验，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"connection"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    <span class="keyword">private</span> RemoteAddress remoteAddress;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ... getters and setters</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteAddress</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@NotEmpty</span></span><br><span class="line">        <span class="keyword">public</span> String hostname;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ... getters and setters</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你也可以通过创建一个叫做configurationPropertiesValidator的bean来添加自定义的Spring Validator。@Bean方法需要声明为static，因为配置属性校验器在应用程序生命周期中创建的比较早，将@Bean方法声明为static允许该bean在创建时不需要实例化@Configuration类，从而避免了早期实例化（early instantiation）的所有问题。相关的示例可以看<a href="https://github.com/spring-projects/spring-boot/tree/v2.1.0.RELEASE/spring-boot-samples/spring-boot-sample-property-validation" target="_blank" rel="noopener">这里</a>。</p>
+<blockquote>
+<p>注 spring-boot-actuator模块包含一个暴露所有@ConfigurationProperties beans的端点（endpoint），通过浏览器打开/configprops进行浏览，或使用等效的JMX端点，具体参考<a href="http://blog.didispace.com/books/spring-boot-reference/V.%20Spring%20Boot%20Actuator/45.%20Enabling%20production-ready%20features.html" target="_blank" rel="noopener">Production ready features</a>。</p>
+</blockquote>
+<h2 id="ConfigurationProperties-vs-Value"><a href="#ConfigurationProperties-vs-Value" class="headerlink" title="@ConfigurationProperties vs. @Value"></a>@ConfigurationProperties vs. @Value</h2><p><code>@Value</code> 是 Spring 容器的一个核心特性，它没有提供跟 type-safe Configuration Properties 相同的特性。下面的表格总结了 <code>@ConfigurationProperties</code> 和 <code>@Value</code> 支持的特性：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>@ConfigurationProperties</th>
+<th>@Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://docs.spring.io/spring-boot/docs/1.4.1.RELEASE/reference/htmlsingle/#boot-features-external-config-relaxed-binding" target="_blank" rel="noopener">Relaxed绑定</a></td>
+<td>Yes</td>
+<td>NO</td>
+</tr>
+<tr>
+<td><a href="http://docs.spring.io/spring-boot/docs/1.4.1.RELEASE/reference/htmlsingle/#configuration-metadata" target="_blank" rel="noopener">Meta-data支持</a></td>
+<td>Yes</td>
+<td>NO </td>
+</tr>
+<tr>
+<td>SpEL表达式</td>
+<td>NO</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>如果你为自己的组件定义了一系列的配置keys，我们建议你将它们以@ConfigurationProperties注解的POJO进行分组。由于@Value不支持relaxed绑定，所以如果你使用环境变量提供属性值的话，它就不是很好的选择。最后，尽管@Value可以写SpEL表达式，但这些表达式不会处理来自Application属性文件的属性。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://yq.aliyun.com/articles/327585?utm_content=m_38547" target="_blank" rel="noopener">spring boot 2.0特性之外部化配置</a></li>
+<li><a href="https://segmentfault.com/a/1190000015069140" target="_blank" rel="noopener">Spring Boot 参考指南（外部化配置）</a></li>
+</ol>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Arcticfox 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Arcticfox 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
+          
+            <a href="/tags/Config/" rel="tag"># Config</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/16/22995/" rel="next" title="Nacos 学习笔记">
+                <i class="fa fa-chevron-left"></i> Nacos 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/17/31222/" rel="prev" title="Sentinel 学习笔记">
+                Sentinel 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+  
+    
+    
+  <div class="comments" id="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY2NC8yMjE3NQ=="></div>
+  </div>
+  
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/fox.jpg" alt="Arcticfox">
+  
+  <p class="site-author-name" itemprop="name">Arcticfox</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/fjarcticfox" title="GitHub &rarr; https://github.com/fjarcticfox" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="http://weibo.com/onelark" title="Weibo &rarr; http://weibo.com/onelark" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-外部化配置"><span class="nav-number">1.</span> <span class="nav-text">Spring 外部化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置随机变量"><span class="nav-number">1.1.</span> <span class="nav-text">配置随机变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问命令行属性"><span class="nav-number">1.2.</span> <span class="nav-text">访问命令行属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用属性文件"><span class="nav-number">1.3.</span> <span class="nav-text">应用属性文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特定环境配置属性（profile-specific）"><span class="nav-number">1.4.</span> <span class="nav-text">特定环境配置属性（profile-specific）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性中的占位符"><span class="nav-number">1.5.</span> <span class="nav-text">属性中的占位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用YAML代替属性"><span class="nav-number">1.6.</span> <span class="nav-text">使用YAML代替属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型安全的配置属性"><span class="nav-number">1.7.</span> <span class="nav-text">类型安全的配置属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConfigurationProperties-vs-Value"><span class="nav-number">1.8.</span> <span class="nav-text">@ConfigurationProperties vs. @Value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.9.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Arcticfox</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3f99bda57ec852" async="async"></script>
+  </div>
+
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@1/bookmark.min.js"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+
+
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'KkQwoIpV0sErnKDuj1de7svQ-gzGzoHsz',
+                'X-LC-Key': 'Gqso4MtlbSkab8QQEp2cFX22',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.2.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+    
+
+
+
+<script>
+  window.livereOptions = {
+    refer: '2019/10/17/2687/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+  
+
+</body>
+</html>

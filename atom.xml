@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.longgen.me/"/>
-  <updated>2019-07-31T08:23:14.942Z</updated>
+  <updated>2019-10-18T10:09:24.976Z</updated>
   <id>http://blog.longgen.me/</id>
   
   <author>
@@ -15,6 +15,233 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot 远程调试</title>
+    <link href="http://blog.longgen.me/2019/10/18/29979/"/>
+    <id>http://blog.longgen.me/2019/10/18/29979/</id>
+    <published>2019-10-18T09:05:54.000Z</published>
+    <updated>2019-10-18T10:09:24.976Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;远程应用（Remote-Applications）&quot;&gt;&lt;a href=&quot;#远程应用（Remote-Applications）&quot; class=&quot;headerlink&quot; title=&quot;远程应用（Remote Applications）&quot;&gt;&lt;/a&gt;远程应用（Remote Applications）&lt;/h2&gt;&lt;p&gt;Spring Boot devtools 工具，不仅能在本地环境使用，某些特性也可以应用于远程运行中的程序。远程支持是可选择的特性。开启远程支持，你需要确认 devtools 依赖已经包含在应用的打包过程中，如下：&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;build&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;plugins&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;plugin&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;configuration&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;excludeDevtools&lt;/span&gt;&amp;gt;&lt;/span&gt;false&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;excludeDevtools&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;configuration&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;plugin&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;plugins&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;build&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后，你需要设置 &lt;code&gt;spring.devtools.remote.secret&lt;/code&gt; 属性，如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;spring.devtools.remote.secret=mysecret&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在远程应用中开启 &lt;code&gt;spring-boot-devtools&lt;/code&gt; 是一个具有安全风险的事情，不应该在生产环境中启用。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="http://blog.longgen.me/categories/Spring-Boot/"/>
+    
+      <category term="Remote" scheme="http://blog.longgen.me/categories/Spring-Boot/Remote/"/>
+    
+    
+      <category term="Spring Boot" scheme="http://blog.longgen.me/tags/Spring-Boot/"/>
+    
+      <category term="Remote" scheme="http://blog.longgen.me/tags/Remote/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sentinel 学习笔记</title>
+    <link href="http://blog.longgen.me/2019/10/17/31222/"/>
+    <id>http://blog.longgen.me/2019/10/17/31222/</id>
+    <published>2019-10-17T10:16:22.000Z</published>
+    <updated>2019-10-17T10:24:47.346Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Sentinel: 分布式系统的流量防卫兵&lt;/p&gt;
+&lt;p&gt;随着微服务的流行，服务和服务之间的稳定性变得越来越重要。Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。&lt;/p&gt;
+&lt;h2 id=&quot;Sentinel-具有以下特征&quot;&gt;&lt;a href=&quot;#Sentinel-具有以下特征&quot; class=&quot;headerlink&quot; title=&quot;Sentinel 具有以下特征&quot;&gt;&lt;/a&gt;Sentinel 具有以下特征&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;丰富的应用场景：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。&lt;/li&gt;
+&lt;li&gt;完备的实时监控：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。&lt;/li&gt;
+&lt;li&gt;广泛的开源生态：Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。&lt;/li&gt;
+&lt;li&gt;完善的 SPI 扩展点：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Cloud" scheme="http://blog.longgen.me/categories/Cloud/"/>
+    
+      <category term="Sentinel" scheme="http://blog.longgen.me/categories/Cloud/Sentinel/"/>
+    
+    
+      <category term="Spring Cloud" scheme="http://blog.longgen.me/tags/Spring-Cloud/"/>
+    
+      <category term="Cloud" scheme="http://blog.longgen.me/tags/Cloud/"/>
+    
+      <category term="Sentinel" scheme="http://blog.longgen.me/tags/Sentinel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot 配置信息</title>
+    <link href="http://blog.longgen.me/2019/10/17/2687/"/>
+    <id>http://blog.longgen.me/2019/10/17/2687/</id>
+    <published>2019-10-17T04:38:58.000Z</published>
+    <updated>2019-10-18T07:42:56.063Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Spring-外部化配置&quot;&gt;&lt;a href=&quot;#Spring-外部化配置&quot; class=&quot;headerlink&quot; title=&quot;Spring 外部化配置&quot;&gt;&lt;/a&gt;Spring 外部化配置&lt;/h1&gt;&lt;p&gt;Spring Boot 允许将配置外部化（externalize），这样你就能够在不同的环境下使用相同的代码。你可以使用properties文件，YAML文件，环境变量和命令行参数来外部化配置。使用@Value注解，可以直接将属性值注入到beans中，然后通过Spring的Environment抽象或通过@ConfigurationProperties绑定到结构化对象来访问。&lt;br&gt;Spring Boot设计了一个非常特别的PropertySource顺序，以允许对属性值进行合理的覆盖，属性会以如下的顺序进行设值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;home目录下的devtools全局设置属性（~/.spring-boot-devtools.properties，如果devtools激活）。&lt;/li&gt;
+&lt;li&gt;测试用例上的@TestPropertySource注解。&lt;/li&gt;
+&lt;li&gt;测试用例上的@SpringBootTest#properties注解。&lt;/li&gt;
+&lt;li&gt;命令行参数&lt;/li&gt;
+&lt;li&gt;来自SPRING_APPLICATION_JSON的属性（环境变量或系统属性中内嵌的内联JSON）。&lt;/li&gt;
+&lt;li&gt;ServletConfig初始化参数。&lt;/li&gt;
+&lt;li&gt;ServletContext初始化参数。&lt;/li&gt;
+&lt;li&gt;来自于java:comp/env的JNDI属性。&lt;/li&gt;
+&lt;li&gt;Java系统属性（System.getProperties()）。&lt;/li&gt;
+&lt;li&gt;操作系统环境变量。&lt;/li&gt;
+&lt;li&gt;RandomValuePropertySource，只包含random.*中的属性。&lt;/li&gt;
+&lt;li&gt;没有打进jar包的Profile-specific应用属性（application-{profile}.properties和YAML变量）。&lt;/li&gt;
+&lt;li&gt;打进jar包中的Profile-specific应用属性（application-{profile}.properties和YAML变量）。&lt;/li&gt;
+&lt;li&gt;没有打进jar包的应用配置（application.properties和YAML变量）。&lt;/li&gt;
+&lt;li&gt;打进jar包中的应用配置（application.properties和YAML变量）。&lt;/li&gt;
+&lt;li&gt;@Configuration类上的@PropertySource注解。&lt;/li&gt;
+&lt;li&gt;默认的属性（使用 SpringApplication.setDefaultProperties指定）&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="http://blog.longgen.me/categories/Spring-Boot/"/>
+    
+      <category term="Config" scheme="http://blog.longgen.me/categories/Spring-Boot/Config/"/>
+    
+    
+      <category term="Spring Boot" scheme="http://blog.longgen.me/tags/Spring-Boot/"/>
+    
+      <category term="Config" scheme="http://blog.longgen.me/tags/Config/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Activiti 学习及使用</title>
+    <link href="http://blog.longgen.me/2019/08/30/26224/"/>
+    <id>http://blog.longgen.me/2019/08/30/26224/</id>
+    <published>2019-08-30T10:08:46.000Z</published>
+    <updated>2019-10-18T03:49:38.535Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;持续更新&lt;/code&gt;&lt;br&gt;&lt;a href=&quot;https://www.activiti.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Activiti&lt;/a&gt; 是一个针对企业用户、开发人员 、系统管理员的轻量级工作流业务管理平台。创始人 Tom Baeyens 曾经是 JBoss jBPM 的项目架构师。&lt;a href=&quot;https://www.activiti.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Activiti&lt;/a&gt; 延续自 jBPM4。而 jBPM5 之后的版本，基于 Drools Flow 重新设计。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开源: &lt;a href=&quot;http://www.apache.org/licenses/LICENSE-2.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Apache V2 license&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官网: &lt;a href=&quot;https://www.activiti.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.activiti.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub: &lt;a href=&quot;https://github.com/Activiti/Activiti&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Activiti/Activiti&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;团队: &lt;a href=&quot;https://github.com/Activiti&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Activiti&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitBook: &lt;a href=&quot;https://activiti.gitbook.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://activiti.gitbook.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;User Guide: &lt;a href=&quot;https://www.activiti.org/userguide/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.activiti.org/userguide/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Workflow" scheme="http://blog.longgen.me/categories/Workflow/"/>
+    
+      <category term="Activiti" scheme="http://blog.longgen.me/categories/Workflow/Activiti/"/>
+    
+    
+      <category term="Workflow" scheme="http://blog.longgen.me/tags/Workflow/"/>
+    
+      <category term="Activiti" scheme="http://blog.longgen.me/tags/Activiti/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用数据来源及爬取</title>
+    <link href="http://blog.longgen.me/2019/08/30/49716/"/>
+    <id>http://blog.longgen.me/2019/08/30/49716/</id>
+    <published>2019-08-30T08:11:53.000Z</published>
+    <updated>2019-08-31T03:02:32.328Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;中国行政区域&quot;&gt;&lt;a href=&quot;#中国行政区域&quot; class=&quot;headerlink&quot; title=&quot;中国行政区域&quot;&gt;&lt;/a&gt;中国行政区域&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dwqs/area-puppeteer&quot;
+      
+    
+    </summary>
+    
+      <category term="Data" scheme="http://blog.longgen.me/categories/Data/"/>
+    
+    
+      <category term="Data" scheme="http://blog.longgen.me/tags/Data/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用 UI 组件</title>
+    <link href="http://blog.longgen.me/2019/08/30/63402/"/>
+    <id>http://blog.longgen.me/2019/08/30/63402/</id>
+    <published>2019-08-30T06:35:38.000Z</published>
+    <updated>2019-08-31T03:01:48.577Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UI 组件将会持续更新&lt;/p&gt;
+&lt;h2 id=&quot;图标&quot;&gt;&lt;a href=&quot;#图标&quot; class=&quot;headerlink&quot; title=&quot;图标&quot;&gt;&lt;/a&gt;图标&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://ionicons.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ionicons&lt;/a&gt;&lt;br&gt;一款精心制作的漂亮的开源小图标（icons）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开源: MIT 协议&lt;/li&gt;
+&lt;li&gt;支持 Web、iOS、Android、Desktop apps&lt;/li&gt;
+&lt;li&gt;支持 SVG、web font 格式&lt;/li&gt;
+&lt;li&gt;官方网站: &lt;a href=&quot;https://ionicons.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ionicons.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub: &lt;a href=&quot;https://github.com/ionic-team/ionicons&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ionic-team/ionicons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;团队: &lt;a href=&quot;https://github.com/ionic-team&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ionic-team&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Justineo/vue-awesome&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue-Awesome&lt;/a&gt;&lt;br&gt;Vue-Awesome 是基于 &lt;a href=&quot;https://vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue.js&lt;/a&gt; 的 SVG 图标组件，内置图标来自 &lt;a href=&quot;https://fontawesome.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Font Awesome&lt;/a&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开源: MIT 协议&lt;/li&gt;
+&lt;li&gt;Vue 组件&lt;/li&gt;
+&lt;li&gt;官方Demo: &lt;a href=&quot;https://justineo.github.io/vue-awesome/demo/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://justineo.github.io/vue-awesome/demo/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub: &lt;a href=&quot;https://github.com/Justineo/vue-awesome&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Justineo/vue-awesome&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="UI" scheme="http://blog.longgen.me/categories/UI/"/>
+    
+    
+      <category term="UI" scheme="http://blog.longgen.me/tags/UI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 常见问题处理</title>
+    <link href="http://blog.longgen.me/2019/07/31/1690/"/>
+    <id>http://blog.longgen.me/2019/07/31/1690/</id>
+    <published>2019-07-31T08:53:05.000Z</published>
+    <updated>2019-08-09T06:35:58.435Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;常见问题处理&quot;&gt;&lt;a href=&quot;#常见问题处理&quot; class=&quot;headerlink&quot; title=&quot;常见问题处理&quot;&gt;&lt;/a&gt;常见问题处理&lt;/h2&gt;&lt;h3 id=&quot;Git-克隆仓库异常&quot;&gt;&lt;a href=&quot;#Git-克隆仓库异常&quot; class=&quot;headerlink&quot; title=&quot;Git 克隆仓库异常&quot;&gt;&lt;/a&gt;Git 克隆仓库异常&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;异常情况&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/LLK/scratch-gui.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cloning into &lt;span class=&quot;string&quot;&gt;&#39;scratch-gui&#39;&lt;/span&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Enumerating objects: 42, &lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Counting objects: 100% (42/42), &lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;remote: Compressing objects: 100% (41/41), &lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;error: RPC failed; curl 18 transfer closed with outstanding &lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt; data remaining&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fatal: The remote end hung up unexpectedly&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fatal: early EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fatal: index-pack failed&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="SCM" scheme="http://blog.longgen.me/categories/SCM/"/>
+    
+      <category term="Git" scheme="http://blog.longgen.me/categories/SCM/Git/"/>
+    
+    
+      <category term="SCM" scheme="http://blog.longgen.me/tags/SCM/"/>
+    
+      <category term="Git" scheme="http://blog.longgen.me/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>SSH 配置管理</title>
@@ -69,7 +296,7 @@
     <link href="http://blog.longgen.me/2017/06/15/22235/"/>
     <id>http://blog.longgen.me/2017/06/15/22235/</id>
     <published>2017-06-15T08:56:13.000Z</published>
-    <updated>2017-06-22T02:26:53.000Z</updated>
+    <updated>2019-07-31T09:00:59.402Z</updated>
     
     <summary type="html">
     
@@ -80,10 +307,14 @@
     
     </summary>
     
-      <category term="SVN" scheme="http://blog.longgen.me/categories/SVN/"/>
+      <category term="SCM" scheme="http://blog.longgen.me/categories/SCM/"/>
+    
+      <category term="Svn" scheme="http://blog.longgen.me/categories/SCM/Svn/"/>
     
     
-      <category term="SVN" scheme="http://blog.longgen.me/tags/SVN/"/>
+      <category term="SCM" scheme="http://blog.longgen.me/tags/SCM/"/>
+    
+      <category term="Svn" scheme="http://blog.longgen.me/tags/Svn/"/>
     
   </entry>
   
@@ -244,12 +475,12 @@
     <link href="http://blog.longgen.me/2017/05/29/29846/"/>
     <id>http://blog.longgen.me/2017/05/29/29846/</id>
     <published>2017-05-29T05:31:01.000Z</published>
-    <updated>2019-07-30T09:20:31.693Z</updated>
+    <updated>2019-07-31T08:30:05.988Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;Hexo-下载及安装&quot;&gt;&lt;a href=&quot;#Hexo-下载及安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo 下载及安装&quot;&gt;&lt;/a&gt;Hexo 下载及安装&lt;/h2&gt;&lt;p&gt;官方网址: &lt;a href=&quot;http://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://hexo.io&lt;/a&gt;&lt;br&gt;Github: &lt;a href=&quot;https://github.com/hexojs/hexo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo init blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DEBUG 模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo s --debug&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo new &lt;span class=&quot;string&quot;&gt;&quot;Hello Hexo&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 部署(需要配置部署方式)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 升级 hexo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo init blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DEBUG 模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo s --debug&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo new &lt;span class=&quot;string&quot;&gt;&quot;Hello Hexo&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo generate &lt;span class=&quot;comment&quot;&gt;# 或 hexo g&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 部署(需要配置部署方式)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo deploy &lt;span class=&quot;comment&quot;&gt;# 或 hexo d&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 升级 hexo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -326,161 +557,6 @@
     
     
       <category term="Apache Storm" scheme="http://blog.longgen.me/tags/Apache-Storm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown 详解</title>
-    <link href="http://blog.longgen.me/2014/10/08/21334/"/>
-    <id>http://blog.longgen.me/2014/10/08/21334/</id>
-    <published>2014-10-08T06:48:56.000Z</published>
-    <updated>2017-05-28T16:51:26.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;相关工具&quot;&gt;&lt;a href=&quot;#相关工具&quot; class=&quot;headerlink&quot; title=&quot;相关工具&quot;&gt;&lt;/a&gt;相关工具&lt;/h2&gt;&lt;h3 id=&quot;Pandoc&quot;&gt;&lt;a href=&quot;#Pandoc&quot; class=&quot;headerlink&quot; title=&quot;Pandoc&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jgm/pandoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pandoc&lt;/a&gt;&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="Markdown" scheme="http://blog.longgen.me/categories/Markdown/"/>
-    
-    
-      <category term="Markdown" scheme="http://blog.longgen.me/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP 超文本传输协议详解</title>
-    <link href="http://blog.longgen.me/2014/09/22/8342/"/>
-    <id>http://blog.longgen.me/2014/09/22/8342/</id>
-    <published>2014-09-22T06:13:22.000Z</published>
-    <updated>2017-05-28T16:48:46.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HTTP（HyperText Transfer Protocol，超文本传输协议）是互联网上应用最为广泛的一种网络协议。设计 HTTP 最初的目的是为了提供一种发布和接收 HTML 页面的方法。通过 HTTP 或者 HTTPS 协议请求的资源由统一资源标示符（Uniform Resource Identifiers，URI）来标识。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HTTP" scheme="http://blog.longgen.me/categories/HTTP/"/>
-    
-    
-      <category term="HTTP" scheme="http://blog.longgen.me/tags/HTTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片格式详解</title>
-    <link href="http://blog.longgen.me/2014/09/08/5505/"/>
-    <id>http://blog.longgen.me/2014/09/08/5505/</id>
-    <published>2014-09-08T14:04:52.000Z</published>
-    <updated>2017-05-28T16:44:09.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;JPEG&quot;&gt;&lt;a href=&quot;#JPEG&quot; class=&quot;headerlink&quot; title=&quot;JPEG&quot;&gt;&lt;/a&gt;JPEG&lt;/h2&gt;&lt;p&gt;JPEG 格式是一种大小与质量相平衡的压缩图片格式。通俗一点讲，就是：高的压缩比 = 低的图片质量 = 小的文件大小。反之，低的压缩比 = 高的图片质量 = 大的文件大小。由于 JPEG 文件无法保持 100％ 的原始图像的像素数据，所以它不被认为是一种无损图像格式。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Picture" scheme="http://blog.longgen.me/categories/Picture/"/>
-    
-    
-      <category term="Picture" scheme="http://blog.longgen.me/tags/Picture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 详解</title>
-    <link href="http://blog.longgen.me/2014/09/05/3604/"/>
-    <id>http://blog.longgen.me/2014/09/05/3604/</id>
-    <published>2014-09-05T02:16:53.000Z</published>
-    <updated>2017-05-28T16:43:11.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载安装及配置&quot;&gt;&lt;a href=&quot;#下载安装及配置&quot; class=&quot;headerlink&quot; title=&quot;下载安装及配置&quot;&gt;&lt;/a&gt;下载安装及配置&lt;/h2&gt;&lt;h3 id=&quot;OS-X-环境&quot;&gt;&lt;a href=&quot;#OS-X-环境&quot; class=&quot;headerlink&quot; title=&quot;OS X 环境&quot;&gt;&lt;/a&gt;OS X 环境&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="MySQL" scheme="http://blog.longgen.me/categories/MySQL/"/>
-    
-    
-      <category term="MySQL" scheme="http://blog.longgen.me/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模板引擎资源</title>
-    <link href="http://blog.longgen.me/2014/09/03/49109/"/>
-    <id>http://blog.longgen.me/2014/09/03/49109/</id>
-    <published>2014-09-03T14:33:58.000Z</published>
-    <updated>2017-05-28T16:40:43.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Java-模板引擎&quot;&gt;&lt;a href=&quot;#Java-模板引擎&quot; class=&quot;headerlink&quot; title=&quot;Java 模板引擎&quot;&gt;&lt;/a&gt;Java 模板引擎&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://zh.wikipedia.org/wiki/AngularJS&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rythm&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;专为 Java 程序员设计的模板引擎&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Template" scheme="http://blog.longgen.me/categories/Template/"/>
-    
-    
-      <category term="Template" scheme="http://blog.longgen.me/tags/Template/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AngularJS 详解</title>
-    <link href="http://blog.longgen.me/2014/09/03/8050/"/>
-    <id>http://blog.longgen.me/2014/09/03/8050/</id>
-    <published>2014-09-03T12:54:02.000Z</published>
-    <updated>2017-05-28T16:36:40.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;AngularJS 是一款开源 JavaScript 函数库，由 Google 维护，用来协助单一页面应用程序运行的。它的目标是通过 MVC 模式功能增强基于浏览器的应用，使开发和测试变得更加容易。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://blog.longgen.me/categories/Javascript/"/>
-    
-      <category term="AngularJS" scheme="http://blog.longgen.me/categories/Javascript/AngularJS/"/>
-    
-    
-      <category term="Javascript" scheme="http://blog.longgen.me/tags/Javascript/"/>
-    
-      <category term="AngularJS" scheme="http://blog.longgen.me/tags/AngularJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中小企业建站方案及相关资源</title>
-    <link href="http://blog.longgen.me/2014/08/31/11218/"/>
-    <id>http://blog.longgen.me/2014/08/31/11218/</id>
-    <published>2014-08-31T06:37:43.000Z</published>
-    <updated>2017-05-28T16:35:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;域名注册&quot;&gt;&lt;a href=&quot;#域名注册&quot; class=&quot;headerlink&quot; title=&quot;域名注册&quot;&gt;&lt;/a&gt;域名注册&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;新网&lt;/li&gt;
-&lt;li&gt;万网&lt;/li&gt;
-&lt;li&gt;Godaddy&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Architecture" scheme="http://blog.longgen.me/categories/Architecture/"/>
-    
-    
-      <category term="Architecture" scheme="http://blog.longgen.me/tags/Architecture/"/>
-    
-      <category term="Domain" scheme="http://blog.longgen.me/tags/Domain/"/>
-    
-      <category term="Email" scheme="http://blog.longgen.me/tags/Email/"/>
     
   </entry>
   
